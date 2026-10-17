@@ -28,18 +28,18 @@ context: "Storevine Day 1 PM (13:00-16:30 PT 2026-05-18); Differentiation block 
 
 ## Scored Differentiators
 
-Scoring criteria: each differentiator scored 1-5 on (a) feasibility for our team to deliver well, (b) defensibility against competitor copying within 12 months, (c) customer-judged importance from the 31-interview synthesis.
+Scoring criteria: each differentiator scored 1-5 on (a) feasibility for our team to deliver well, (b) defensibility against competitor copying within 12 months, (c) customer-judged importance from the 31-interview synthesis [fictional].
 
 | Differentiator | Feasibility | Defensibility | Importance | Total | Rank |
 |---|---|---|---|---|---|
-| D6: Recommendations are specific actions | 5 | 4 | 5 | 14 | 1 |
-| D3: Human retail-specialist analyst in the loop | 5 | 5 | 4 | 14 | 1 |
-| D4: 15-minute read time | 5 | 3 | 5 | 13 | 3 |
-| D2: Weekly-rhythm UX (Monday artifact) | 5 | 3 | 4 | 12 | 4 |
-| D1: Pre-built specialty-retail data model | 4 | 4 | 3 | 11 | 5 |
-| D5: Multi-grain decomposition in one view | 4 | 3 | 4 | 11 | 5 |
-| D7: Setup under 1 hour | 4 | 2 | 4 | 10 | 7 |
-| D8: Pricing fits SMB margins | 5 | 2 | 3 | 10 | 7 |
+| D6: Recommendations are specific actions | 5 | 4 | 5 [fictional] | 14 | 1 |
+| D3: Human retail-specialist analyst in the loop | 5 | 5 | 4 [fictional] | 14 | 1 |
+| D4: 15-minute read time | 5 | 3 | 5 [fictional] | 13 | 3 |
+| D2: Weekly-rhythm UX (Monday artifact) | 5 | 3 | 4 [fictional] | 12 | 4 |
+| D1: Pre-built specialty-retail data model | 4 | 4 | 3 [fictional] | 11 | 5 |
+| D5: Multi-grain decomposition in one view | 4 | 3 | 4 [fictional] | 11 | 5 |
+| D7: Setup under 1 hour | 4 | 2 | 4 [fictional] | 10 | 7 |
+| D8: Pricing fits SMB margins | 5 | 2 | 3 [fictional] | 10 | 7 |
 
 ## 2x2 Chart
 
@@ -47,6 +47,8 @@ Scoring criteria: each differentiator scored 1-5 on (a) feasibility for our team
 
 - X-axis: Time-to-value (slow to fast)
 - Y-axis: Output specificity (generic metrics to specific actions)
+
+Values in the block below are [fictional].
 
 ```text
                        SPECIFIC ACTIONS
@@ -70,7 +72,7 @@ SLOW <--------- Tableau . ----+---- . Shopify Analytics --------> FAST
                        GENERIC METRICS
 ```
 
-**Reading the chart:** the "specific actions + fast time-to-value" quadrant is sparsely populated. Polar Analytics and Glew live in upper-right but with ecommerce focus; specialty physical retail is open. Spreadsheets dominate "fast but generic." Tableau dominates "specific but slow." Storevine wants the upper-right open quadrant with specialty-retail specificity.
+**Reading the chart:** the "specific actions + fast time-to-value" quadrant is sparsely populated [fictional]. Polar Analytics and Glew live in upper-right but with ecommerce focus; specialty physical retail is open [fictional]. Spreadsheets dominate "fast but generic" [fictional]. Tableau dominates "specific but slow" [fictional]. Storevine wants the upper-right open quadrant with specialty-retail specificity.
 
 ## Note and Vote: 2x2 Axis Selection
 
@@ -94,7 +96,7 @@ The differentiation work produces 4 decision principles that constrain every dow
 
 **What Storevine is:**
 
-Storevine is the weekly buying-decision brief for specialty retail owner-operators. It exists because the people who make $5M-$50M of merchandising decisions every year deserve better than gut feel and a Sunday-night Excel binge. Storevine takes the data that already exists in the retailer's POS and accounting tools and turns it into one Monday morning artifact: specific actions for the week, ranked by margin impact, readable in 15 minutes, written by a human retail specialist who knows the specialty-retail buying cycle as deeply as the customer does.
+Storevine is the weekly buying-decision brief for specialty retail owner-operators. It exists because the people who make $5M-$50M of merchandising decisions every year [fictional] deserve better than gut feel and a Sunday-night Excel binge. Storevine takes the data that already exists in the retailer's POS and accounting tools and turns it into one Monday morning artifact: specific actions for the week, ranked by margin impact, readable in 15 minutes, written by a human retail specialist who knows the specialty-retail buying cycle as deeply as the customer does.
 
 Storevine is not a dashboard. It is not a self-serve tool. It is not generic BI rebranded for retail. It is a managed-intelligence service that turns weekly retail decisions from gut into evidence, delivered as a reading session, not a software experience.
 

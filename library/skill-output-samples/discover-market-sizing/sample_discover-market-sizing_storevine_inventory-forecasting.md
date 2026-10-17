@@ -46,7 +46,7 @@ walk me through reconciling them.
 
 ## Executive Summary
 
-We size the market for AI inventory forecasting sold to mid-market e-commerce companies at ~$40K ACV. Top-down (a slice of the broad e-commerce software market) suggests a TAM near $9B, while bottom-up (mid-market e-commerce firm count x ACV) suggests only ~$0.9B. **This ~10x divergence is the headline finding:** the top-down figure sizes the umbrella "e-commerce software" category, not the narrow forecasting niche Storevine actually serves. The defensible TAM is the bottom-up ~$0.9-1.2B. SAM (US + EU mid-market, forecasting-ready) is ~$520M [fictional]; 3-year SOM at 5% is ~$26M [fictional]. Confidence: Medium-Low.
+We size the market for AI inventory forecasting sold to mid-market e-commerce companies at ~$40K ACV. Top-down (a slice of the broad e-commerce software market) suggests a TAM near $9B [fictional], while bottom-up (mid-market e-commerce firm count x ACV) suggests only ~$0.9B [fictional]. **This ~10x divergence is the headline finding:** the top-down figure sizes the umbrella "e-commerce software" category, not the narrow forecasting niche Storevine actually serves. The defensible TAM is the bottom-up ~$0.9-1.2B [fictional]. SAM (US + EU mid-market, forecasting-ready) is ~$520M [fictional]; 3-year SOM at 5% is ~$26M [fictional]. Confidence: Medium-Low.
 
 ## Market Definition
 
@@ -58,40 +58,40 @@ We size the market for AI inventory forecasting sold to mid-market e-commerce co
 
 | Layer | Number | Method | Source / Assumption | Confidence |
 |---|---|---|---|---|
-| TAM (umbrella) | ~$9B | Slice of e-commerce software spend | E-commerce software market ~$60B [fictional] x ~15% supply-chain/inventory share | Low |
-| TAM (niche, defensible) | ~$0.9B | See bottom-up | Reconciled below | Medium |
-| SAM | ~$520M | Filter to mid-market, forecasting-ready | US + EU subset of the niche TAM | Low |
-| SOM | ~$26M | Market-share assumption | 5% of SAM by year 3 | Low |
+| TAM (umbrella) | ~$9B [fictional] | Slice of e-commerce software spend | E-commerce software market ~$60B [fictional] x ~15% [fictional] supply-chain/inventory share | Low |
+| TAM (niche, defensible) | ~$0.9B [fictional] | See bottom-up | Reconciled below | Medium |
+| SAM | ~$520M [fictional] | Filter to mid-market, forecasting-ready | US + EU subset of the niche TAM | Low |
+| SOM | ~$26M [fictional] | Market-share assumption | 5% of SAM by year 3 | Low |
 
 ## Bottom-Up Sizing
 
 | Segment | # Customers | Revenue / Customer (ACV) | Sub-total | Method | Source |
 |---|---|---|---|---|---|
-| US mid-market e-commerce | ~14,000 firms [fictional] | $40K | ~$560M | Bottom-up | Firm count assumption |
-| EU mid-market e-commerce | ~9,000 firms [fictional] | $38K | ~$342M | Bottom-up | Firm count assumption |
-| **Total** | **~23,000 firms** | - | **~$900M** | - | - |
+| US mid-market e-commerce | ~14,000 firms [fictional] | $40K | ~$560M [fictional] | Bottom-up | Firm count assumption |
+| EU mid-market e-commerce | ~9,000 firms [fictional] | $38K [fictional] | ~$342M [fictional] | Bottom-up | Firm count assumption |
+| **Total** | **~23,000 firms [fictional]** | - | **~$900M [fictional]** | - | - |
 
 ## Multi-Framework Synthesis
 
-- **Where they diverge:** Top-down ($9B) is ~10x the bottom-up ($0.9B). The cause is category definition: the $9B "supply-chain/inventory share of e-commerce software" includes ERP modules, order management, warehouse systems, and broad suites - most of which are not standalone forecasting and are not Storevine's market. Bottom-up counts only firms that would buy a dedicated forecasting product at $40K ACV.
-- **Resolution:** Trust the bottom-up. The top-down umbrella is the wrong unit. Restate top-down by narrowing the category to "standalone demand-forecasting tools," which would shrink the 15% share to ~2-3% and bring it in line with bottom-up.
-- **Synthesized estimate:** TAM ~$0.9-1.2B (defensible niche), SAM ~$520M, SOM ~$26M at 5% in 3 years.
-- **Synthesis confidence:** Medium-Low. The bottom-up is more defensible but rests on assumed firm counts; the divergence itself increases confidence that we are not fooling ourselves with the $9B number.
+- **Where they diverge:** Top-down ($9B [fictional]) is ~10x the bottom-up ($0.9B [fictional]). The cause is category definition: the $9B [fictional] "supply-chain/inventory share of e-commerce software" includes ERP modules, order management, warehouse systems, and broad suites - most of which are not standalone forecasting and are not Storevine's market. Bottom-up counts only firms that would buy a dedicated forecasting product at $40K ACV.
+- **Resolution:** Trust the bottom-up. The top-down umbrella is the wrong unit. Restate top-down by narrowing the category to "standalone demand-forecasting tools," which would shrink the 15% [fictional] share to ~2-3% [fictional] and bring it in line with bottom-up.
+- **Synthesized estimate:** TAM ~$0.9-1.2B [fictional] (defensible niche), SAM ~$520M [fictional], SOM ~$26M [fictional] at 5% in 3 years.
+- **Synthesis confidence:** Medium-Low. The bottom-up is more defensible but rests on assumed firm counts; the divergence itself increases confidence that we are not fooling ourselves with the $9B [fictional] number.
 
 ## Sensitivity Analysis
 
 | Assumption varied | Low | Mid | High |
 |---|---|---|---|
-| Mid-market firm count (US+EU) | 15,000 (TAM = $0.6B) | 23,000 (TAM = $0.9B) | 32,000 (TAM = $1.3B) |
-| Year-3 market share | 2% (SOM = $10M) | 5% (SOM = $26M) | 10% (SOM = $52M) |
+| Mid-market firm count (US+EU) | 15,000 [fictional] (TAM = $0.6B [fictional]) | 23,000 [fictional] (TAM = $0.9B [fictional]) | 32,000 [fictional] (TAM = $1.3B [fictional]) |
+| Year-3 market share | 2% (SOM = $10M [fictional]) | 5% (SOM = $26M [fictional]) | 10% (SOM = $52M [fictional]) |
 
 ## Key Assumptions
 
 | Assumption | Source / Rationale | Confidence | What changes if wrong |
 |---|---|---|---|
-| ~23,000 US+EU mid-market e-commerce firms | Derived assumption; not firmographic-sourced | Low | Scales bottom-up directly |
+| ~23,000 US+EU mid-market e-commerce firms [fictional] | Derived assumption; not firmographic-sourced | Low | Scales bottom-up directly |
 | $40K ACV | Storevine pricing | Medium | Scales revenue linearly |
-| Forecasting is ~2-3% of e-commerce software (not 15%) | Reconciliation judgment | Low | Reconciles the top-down/bottom-up gap |
+| Forecasting is ~2-3% [fictional] of e-commerce software (not 15% [fictional]) | Reconciliation judgment | Low | Reconciles the top-down/bottom-up gap |
 | 5% year-3 share | GTM judgment | Low | Scales SOM |
 
 ## Confidence and Limitations
@@ -103,6 +103,6 @@ We size the market for AI inventory forecasting sold to mid-market e-commerce co
 
 ## Next Steps
 
-- Replace the assumed 23,000 firm count with a sourced firmographic pull
+- Replace the assumed 23,000 [fictional] firm count with a sourced firmographic pull
 - Find a market report scoped to standalone demand forecasting, not the e-commerce software umbrella
-- Conviction threshold: a defensible niche TAM near $1B with a 5% share path is enough for a Series A case; do not put the $9B umbrella number in the deck
+- Conviction threshold: a defensible niche TAM near $1B [fictional] with a 5% share path is enough for a Series A case; do not put the $9B [fictional] umbrella number in the deck

@@ -33,7 +33,7 @@ Thursday morning 2026-06-04, 09:30 PT. Wednesday closed with Sketch B supervoted
 
 **What to build:** All 9 storyboard panels from Wednesday (Panel 1 Brainshelf icon tap through Panel 9 recall moment). Panels 1-5 are the load-bearing test panels (capture + confirmation + library view); Panels 6-9 are the contextual surround that lets the customer understand the recall payoff. Build all 9 as Figma frames; ensure Panels 1-5 have full interaction; Panels 6-9 may be lightly interactive (next-tap-advance only).
 
-**Fidelity bar:** Will a customer believe this is real for the 30-minute interview? For Panels 1-5: every frame has a frame, every inter-frame interaction triggers within 200ms, copy is final, visual design is on-brand (Brainshelf navy + warm-white + serif headline; Inter for body), book cover thumbnails use real public-domain covers (no stock placeholder). For Panels 6-9: every frame exists; interactions are linear advance; copy is lightly polished but final (no TODOs or placeholders; Riley confirmed during trial run that nothing requires steering-around).
+**Fidelity bar:** Will a customer believe this is real for the 30-minute interview? For Panels 1-5: every frame has a frame, every inter-frame interaction triggers within 200ms, copy is final, visual design is on-brand (Brainshelf navy + warm-white + serif headline; Inter for body), book cover thumbnails use real public-domain covers (no stock placeholder). For Panels 6-9: every frame exists; interactions are linear advance; copy is lightly polished but final (no TODOs or placeholders; Riley confirmed during trial run that nothing requires steering-around [fictional]).
 
 **Time allocation per role:** Per role plan above. Critical path: Writer finishes copy by 12:30 PT so Stitcher has final copy for Panel 3 and Panel 5 (the most copy-sensitive panels).
 
@@ -103,14 +103,14 @@ Run with Sam playing a target-profile customer at 15:30-17:00 PT.
 
 | Slot | Customer (anonymized) | Status as of Thursday 09:30 | Recruiter action |
 |---|---|---|---|
-| Fri 09:00 | UI-Panel-A (US, age 38, M) | Confirmed; reminder sent yesterday | None |
-| Fri 10:30 | Discord-1 (UK, age 31, F) | Confirmed; high enthusiasm | None |
-| Fri 12:00 | Discord-4 (US, age 36, M; moved up from buffer) | Confirmed; reminder sent | None |
-| Fri 14:00 | Discord-3 (Canada, age 29, M) | Confirmed | None |
-| Fri 15:30 | UI-Panel-B (Australia, age 52, F) | Confirmed; timezone 09:30 their local; comfortable confirmed | None |
-| Fri 17:00 (buffer) | Open (previous buffer used Tuesday) | None scheduled | Riley to identify backup candidate by 12:00 PT Thursday in case of further cancellation |
+| Fri 09:00 | UI-Panel-A (US, age 38, M [fictional]) | Confirmed; reminder sent yesterday [fictional] | None |
+| Fri 10:30 | Discord-1 (UK, age 31, F [fictional]) | Confirmed; high enthusiasm [fictional] | None |
+| Fri 12:00 | Discord-4 (US, age 36, M [fictional]; moved up from buffer [fictional]) | Confirmed; reminder sent [fictional] | None |
+| Fri 14:00 | Discord-3 (Canada, age 29, M [fictional]) | Confirmed [fictional] | None |
+| Fri 15:30 | UI-Panel-B (Australia, age 52, F [fictional]) | Confirmed; timezone 09:30 their local [fictional]; comfortable confirmed [fictional] | None |
+| Fri 17:00 (buffer) | Open (previous buffer used Tuesday [fictional]) | None scheduled | Riley to identify backup candidate by 12:00 PT Thursday in case of further cancellation |
 
-**Risk assessment for Friday:** Low. All 5 primary slots confirmed Thursday morning. Buffer slot empty but Riley has a backup-of-backup candidate identified (UI-Panel-C, age 41, F, US) who can be activated within 4 hours if needed.
+**Risk assessment for Friday:** Low. All 5 primary slots confirmed Thursday morning [fictional]. Buffer slot empty but Riley has a backup-of-backup candidate identified (UI-Panel-C, age 41, F, US [fictional]) who can be activated within 4 hours if needed.
 
 ## Decider Checkpoint
 

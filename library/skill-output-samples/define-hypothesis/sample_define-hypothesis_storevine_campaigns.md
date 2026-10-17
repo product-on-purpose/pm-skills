@@ -73,15 +73,15 @@ pass/fail criteria, and risks. Will attach to PRD as primary testable belief.
 
 ### Problem Context
 
-Merchant interviews conducted January 12 - 28, 2026 identified three distinct segments with respect to email: Klaviyo power users locked in by data and workflow dependency, Mailchimp users reluctant to switch due to migration friction, and non-adopters who have never built an email program at all. Three of eight participants fell into the non-adopter category; all three cited setup intimidation as the reason they have not started. Interview Insight 2 identified this segment as structurally easier to activate than switchers because there is no migration cost, no existing workflow to replicate, and no seasonal disruption risk to navigate. This hypothesis addresses that insight directly.
+Merchant interviews conducted January 12 - 28, 2026 identified three distinct segments with respect to email: Klaviyo power users locked in by data and workflow dependency [fictional], Mailchimp users reluctant to switch due to migration friction [fictional], and non-adopters who have never built an email program at all. Three of eight participants fell into the non-adopter category; all three cited setup intimidation as the reason they have not started. Interview Insight 2 identified this segment as structurally easier to activate than switchers because there is no migration cost, no existing workflow to replicate, and no seasonal disruption risk to navigate [fictional]. This hypothesis addresses that insight directly.
 
 ### Supporting Evidence
 
-Merchant interviews produced direct behavioral evidence: P3 said "every time I think about it I get overwhelmed and I just post on Instagram instead," and P6 described email as "on the list for this year" despite having not sent a single campaign. Competitive analysis found that Shopify Email's template-first setup flow and free-tier activation model are its primary differentiators for new merchants. Nielsen Norman Group research establishes that perceived complexity at setup . not price . is the leading abandonment driver for first-time small-business tool adopters. The current 12% [fictional] first-send completion rate for merchants who reach the legacy Campaigns setup screen without a guided flow is the internal baseline this hypothesis is designed to address.
+Merchant interviews produced direct behavioral evidence: P3 said "every time I think about it I get overwhelmed and I just post on Instagram instead," [fictional] and P6 described email as "on the list for this year" [fictional] despite having not sent a single campaign [fictional]. Competitive analysis found that Shopify Email's template-first setup flow and free-tier activation model are its primary differentiators for new merchants. Nielsen Norman Group research establishes that perceived complexity at setup . not price . is the leading abandonment driver for first-time small-business tool adopters. The current 12% [fictional] first-send completion rate for merchants who reach the legacy Campaigns setup screen without a guided flow is the internal baseline this hypothesis is designed to address.
 
 ### Alternative Hypotheses Considered
 
-An alternative framing . that price is the primary barrier . was considered and set aside. Interview participants P3 and P6 did not cite cost as a factor; both described a motivation gap, not an affordability gap. A second alternative . that non-adopters need education and awareness rather than a product change . was also considered but rejected: all three non-adopter participants were aware that email marketing exists and acknowledged they should be doing it. The gap is in the first-action experience, not in awareness.
+An alternative framing . that price is the primary barrier . was considered and set aside. Interview participants P3 and P6 did not cite cost as a factor; both described a motivation gap, not an affordability gap [fictional]. A second alternative . that non-adopters need education and awareness rather than a product change . was also considered but rejected: all three non-adopter participants were aware that email marketing exists and acknowledged they should be doing it [fictional]. The gap is in the first-action experience, not in awareness.
 
 ## Target User Segment
 
@@ -91,11 +91,11 @@ Storevine merchants who meet all of the following criteria at the time of Campai
 
 ### Segment Size
 
-Approximately 6,800 active merchants [fictional], representing 38% [fictional] of the ~18,000 active merchant base [fictional]. This estimate derives from integration data (accounts with no active external email tool API connection) cross-referenced with customer count. Merchants in this segment are disproportionately newer to the platform; median account age is 14 months [fictional] versus 31 months [fictional] for the Klaviyo-integrated segment.
+Approximately 6,800 active merchants [fictional], representing 38% [fictional] of the ~18,000 active merchant base [fictional]. This estimate derives from integration data (accounts with no active external email tool API connection) cross-referenced with customer count [fictional]. Merchants in this segment are disproportionately newer to the platform; median account age is 14 months [fictional] versus 31 months [fictional] for the Klaviyo-integrated segment.
 
 ### Current Behavior
 
-Non-adopter merchants in this segment log into Storevine primarily to manage orders, update product listings, and review storefront analytics. Email marketing is either not on their radar or sits on a persistent mental backlog they never act on. When they have encountered the legacy Storevine email send flow, session data shows a median time-to-exit under 3 minutes [fictional] . consistent with abandonment at the template selection step before a campaign is drafted.
+Non-adopter merchants in this segment log into Storevine primarily to manage orders, update product listings, and review storefront analytics [fictional]. Email marketing is either not on their radar or sits on a persistent mental backlog they never act on [fictional]. When they have encountered the legacy Storevine email send flow, session data shows a median time-to-exit under 3 minutes [fictional] . consistent with abandonment at the template selection step before a campaign is drafted [fictional].
 
 ## Success Metrics
 
@@ -132,7 +132,7 @@ A/B test within the non-adopter segment. Control variant: the existing Campaigns
 - Sample size: 1,200 merchants per variant [fictional], drawn from the eligible non-adopter segment at GA
 - Duration: 60 days from Campaigns GA
 - Traffic allocation: 50% control / 50% treatment, randomized at the merchant account level
-- Note: The 60-day window covers two full seasonal cycles post-launch (late April through late June 2026), avoiding the confounding effect of a single promotion event driving first sends
+- Note: The 60-day window covers two full seasonal cycles post-launch (late April through late June 2026), avoiding the confounding effect of a single promotion event driving first sends [fictional]
 
 ### Pass/Fail Criteria
 

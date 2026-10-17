@@ -68,7 +68,7 @@ status: draft
 
 **Synthesis scope**: Resurface across 6 meetings, 2026-01-15 to 2026-03-31
 
-Q1 iterations converged on recency-weighting (v1) but surfaced an unresolved tension between engagement metrics (favor recency) and user-requested behavior (favor topic-clustering). Next direction meeting should resolve this.
+Q1 iterations converged on recency-weighting (v1) but surfaced an unresolved tension between engagement metrics (favor recency) [fictional] and user-requested behavior (favor topic-clustering) [fictional]. Next direction meeting should resolve this.
 
 **Key themes**:
 - Algorithm iteration: v0 → v1 with recency-weighting; topic-clustering tested but deferred
@@ -76,7 +76,7 @@ Q1 iterations converged on recency-weighting (v1) but surfaced an unresolved ten
 - UX: bar raised on friction threshold (<5 seconds to engage)
 
 **Top open items**:
-- Engagement-vs-intent tension: metrics favor recency; users asked for topic-clustering
+- Engagement-vs-intent tension: metrics favor recency [fictional]; users asked for topic-clustering [fictional]
 
 **Top priority follow-ups**:
 - Direction decision meeting needed to resolve engagement-vs-intent tension
@@ -112,7 +112,7 @@ Q1 iterations converged on recency-weighting (v1) but surfaced an unresolved ten
             |
 2026-03-03  |  User Feedback Session
             |  → [fictional] 8 users asked for topic-clustering; recency confusing
-            |  [!] tension: engagement data favors recency; users want topic-clustering
+            |  [!] tension: engagement data favors recency [fictional]; users want topic-clustering [fictional]
             |
 2026-03-17  |  Algo v1
             |  → Recency-weighted v1 with refinements; topic-clustering parked
@@ -137,11 +137,11 @@ Mar 31 meeting set <5 second friction threshold as quality bar. Not tested yet; 
 
 ### Stakeholder position tracking
 
-**elena-algo**. champion of recency-weighting; concerned about topic-clustering implementation complexity
+**elena-algo**. champion of recency-weighting [fictional]; concerned about topic-clustering implementation complexity [fictional]
 
-**mia-design**. champion of shorter copy; open to topic-clustering if algo can support
+**mia-design**. champion of shorter copy [fictional]; open to topic-clustering if algo can support [fictional]
 
-**priya-pm**. deferring topic-clustering; wants user-feedback-signal resolved
+**priya-pm**. deferring topic-clustering [fictional]; wants user-feedback-signal resolved [fictional]
 
 ### Consolidated decision list
 
@@ -161,9 +161,9 @@ None. iterations built on each other without overriding earlier decisions.
 
 **[!] Engagement metrics vs. user-stated preference**
 
-- **2026-02-03** (Algo v0): recency-weighting chosen for engagement metrics
+- **2026-02-03** (Algo v0): recency-weighting chosen for engagement metrics [fictional]
 - **2026-03-03** (User Feedback Session): [fictional] 8 users explicitly asked for topic-clustering
-- **Status**: unresolved. metrics favor recency, users request topic-clustering. Next direction meeting should resolve this by committing to one of: (a) stick with recency, explain to users; (b) test topic-clustering in a subset; (c) hybrid.
+- **Status**: unresolved. metrics favor recency [fictional], users request topic-clustering [fictional]. Next direction meeting should resolve this by committing to one of: (a) stick with recency, explain to users; (b) test topic-clustering in a subset; (c) hybrid.
 
 ### Open items and stalled threads
 
@@ -172,7 +172,7 @@ None. iterations built on each other without overriding earlier decisions.
 
 ### Narrative summary
 
-Resurface iterated steadily through Q1 with recency-weighting as the anchor decision. Copy and UX refinements followed data signals. The one unresolved tension emerged in the March 3 user feedback session: users want topic-clustering, but engagement metrics favor recency. The team parked topic-clustering but has not committed to a resolution path. revisit by when, via what test, with what decision criterion.
+Resurface iterated steadily through Q1 with recency-weighting as the anchor decision. Copy and UX refinements followed data signals. The one unresolved tension emerged in the March 3 user feedback session: users want topic-clustering [fictional], but engagement metrics favor recency [fictional]. The team parked topic-clustering but has not committed to a resolution path. revisit by when, via what test, with what decision criterion.
 
 Going into Q2, the team should hold a direction meeting that explicitly resolves the engagement-vs-intent tension. Delaying risks either losing the user-stated signal (if recency stays forever) or pivoting too late (if topic-clustering is better and we keep deferring).
 

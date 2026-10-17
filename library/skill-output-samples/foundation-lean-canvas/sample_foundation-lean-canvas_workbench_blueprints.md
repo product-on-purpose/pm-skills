@@ -98,7 +98,7 @@ Sandra V. to PM Skills agent:
 - Enterprise Workbench customers in health (HIPAA, FDA 21 CFR Part 11) and finance (SOX, FINRA) verticals with a named compliance leader who sits in the document approval loop. The 3 pilot customers fit this pattern; the qualified pipeline of 8 is heavily weighted here. Approximately 35 customers in the base match the heuristic [fictional].
 
 **Confidence**: High
-**Rationale**: Pilot customer data is direct evidence. Customer segmentation by industry and compliance-role presence is data we own cleanly in Workbench's CRM.
+**Rationale**: Pilot customer data is direct evidence. Customer segmentation by industry and compliance-role presence is data we own cleanly in Workbench's CRM [fictional].
 
 ---
 
@@ -111,7 +111,7 @@ Templates that guarantee every required section is filled and signed off by the 
 Linting for documents: catches structural and accountability gaps at authoring time, not at review time.
 
 **Confidence**: Medium-High
-**Rationale**: The UVP language resonated strongly with all 3 pilot customers and 6 of 8 qualified prospects. The "linting" analogy is most resonant with technically literate buyers; compliance leaders from less-technical backgrounds occasionally needed a second framing.
+**Rationale**: The UVP language resonated strongly with all 3 pilot customers and 6 of 8 qualified prospects [fictional]. The "linting" analogy is most resonant with technically literate buyers; compliance leaders from less-technical backgrounds occasionally needed a second framing [fictional].
 
 ---
 
@@ -140,7 +140,7 @@ Linting for documents: catches structural and accountability gaps at authoring t
 - Targeted field marketing at regulated-industry conferences (HIMSS, RSA, HLTH) with dedicated Blueprints demos.
 
 **Confidence**: High
-**Rationale**: Workbench has a mature CS motion; the expansion channel is proven for other features. Analyst briefings are standard for enterprise positioning but influence is downstream and lagging.
+**Rationale**: Workbench has a mature CS motion; the expansion channel is proven for other features [fictional]. Analyst briefings are standard for enterprise positioning but influence is downstream and lagging.
 
 ---
 
@@ -149,7 +149,7 @@ Linting for documents: catches structural and accountability gaps at authoring t
 - **Model**: Bundled into the existing Workbench Enterprise tier as an expansion-driver. Not a standalone SKU (per leadership direction; CFO dissent noted under Governance).
 - **Price**: $20k annual ARR uplift per expanded customer, realized as Enterprise-tier upgrade or seat expansion within existing Enterprise contracts [fictional target].
 - **Volume (Year 1)**: 35 expanded customers from the regulated-industry base within 12 months of GA. Secondary: 25 non-regulated customers expand for risk-management reasons.
-- **LTV**: Enterprise tier NRR historically 118% across Workbench; Blueprints expansion is expected to lift this to 124% over 3 years for expanded customers.
+- **LTV**: Enterprise tier NRR historically 118% [fictional] across Workbench; Blueprints expansion is expected to lift this to 124% over 3 years for expanded customers.
 - **Math**: 60 customers x $20k ARR uplift = $1.2M expansion ARR in Year 1. Compounding to approximately $3.2M expansion ARR over 3 years given NRR dynamics.
 
 **Confidence**: Medium
@@ -161,7 +161,7 @@ Linting for documents: catches structural and accountability gaps at authoring t
 
 - **CAC**: Approximately $3,500 per expanded customer (internal expansion through CS, low relative to new-logo CAC) [fictional].
 - **Fixed costs**: 6 engineers + 1 PM + 1 designer dedicated to Blueprints plus 0.5 compliance-content specialist FTE = approximately $1.9M annual [fictional].
-- **Variable costs**: Minimal direct COGS; Blueprints runs on existing Workbench infrastructure. Key ongoing cost is compliance-content maintenance, estimated at $180k annually for a dedicated specialist plus legal review budget.
+- **Variable costs**: Minimal direct COGS; Blueprints runs on existing Workbench infrastructure. Key ongoing cost is compliance-content maintenance, estimated at $180k annually [fictional] for a dedicated specialist plus legal review budget.
 - **Cost driver**: Compliance-content refresh cadence. If regulatory change accelerates (new HIPAA interpretations, revised SOX guidance), the specialist FTE becomes a 1.0 commitment and the cost-curve shifts materially.
 
 **Confidence**: Medium
@@ -184,7 +184,7 @@ Linting for documents: catches structural and accountability gaps at authoring t
 
 ## 9. Unfair Advantage
 
-Deep integration with Workbench's existing approval engine and audit-trail infrastructure. Blueprints inherits enterprise-grade RBAC, SSO, and SOC 2 Type II compliance that would take a standalone competitor 18 to 24 months to rebuild, and probably longer to earn customer trust for. The switching cost for customers already on Workbench is real: migrating away would mean re-authoring approval workflows and retraining reviewers. This advantage is defensible over 24 to 36 months for regulated-industry customers specifically.
+Deep integration with Workbench's existing approval engine and audit-trail infrastructure. Blueprints inherits enterprise-grade RBAC, SSO, and SOC 2 Type II compliance that would take a standalone competitor 18 to 24 months to rebuild [fictional], and probably longer to earn customer trust for. The switching cost for customers already on Workbench is real: migrating away would mean re-authoring approval workflows and retraining reviewers. This advantage is defensible over 24 to 36 months for regulated-industry customers specifically [fictional].
 
 **Confidence**: Medium-High
 **Rationale**: The infrastructural advantage is real and materially hard to replicate. The "unfair" part depends on Workbench continuing to invest in underlying platform capabilities; if platform investment slows, the moat erodes. A future competitor buying a bundled approval + audit + templating stack is possible but would require substantial capital.
@@ -196,15 +196,15 @@ Deep integration with Workbench's existing approval engine and audit-trail infra
 ### Validated
 
 - Pilot customer retention: 3 of 3 pilot customers extended to 6-month paid engagements at list price.
-- Qualified pipeline weighted to regulated industries: 8 of 8 qualified prospects are in health or finance.
+- Qualified pipeline weighted to regulated industries: 8 of 8 qualified prospects are in health or finance [fictional].
 - No direct native enforcement feature in Confluence or Notion: public product documentation confirms (April 2026).
 - 2 to 4 week delays in regulated-industry launches: Forrester 2025 report on enterprise document review cycles.
-- Pilot stall point at 45+ minutes for initial approval-gate configuration: pilot onboarding telemetry + qualitative feedback from all 3 pilot customers.
+- Pilot stall point at 45+ minutes for initial approval-gate configuration: pilot onboarding telemetry + qualitative feedback from all 3 pilot customers [fictional].
 
 ### Assumed
 
 - $20k annual ARR uplift is an acceptable price point: leadership-set target, not validated with a sales cycle at list price outside pilot.
-- 65% adoption within the 35 qualified regulated-industry customers in 6 months: benchmarked against comparable expansion features in Workbench history but unique dynamics of compliance-adjacent sales may lengthen cycles.
+- 65% adoption within the 35 qualified regulated-industry customers in 6 months: benchmarked against comparable expansion features in Workbench history [fictional] but unique dynamics of compliance-adjacent sales may lengthen cycles.
 - Compliance-content maintenance is a 0.5 FTE commitment: industry estimate, could be 1.0 under material regulatory change.
 - 40% review-cycle time reduction as the headline ROI claim: pilot data is directional but not statistically robust at n=3.
 

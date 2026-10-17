@@ -91,15 +91,15 @@ With `utility-mermaid-diagrams` you can add flowcharts and sequence diagrams dir
 
 | Directory | Files | New | Updated |
 |-----------|-------|-----|---------|
-| `skills/` | 34 | 9 (3 skills x 3 files) | 25 |
-| `commands/` | 39 | 3 | 36 |
-| `_workflows/` | 10 | 0 | 10 |
-| Other | 8 | 1 (guide) | 7 |
-| **Total** | **91** | **13** | **78** |
+| `skills/` | 34 [fictional] | 9 (3 skills x 3 files) [fictional] | 25 [fictional] |
+| `commands/` | 39 [fictional] | 3 [fictional] | 36 [fictional] |
+| `_workflows/` | 10 [fictional] | 0 [fictional] | 10 [fictional] |
+| Other | 8 [fictional] | 1 (guide) [fictional] | 7 [fictional] |
+| **Total** | **91 [fictional]** | **13 [fictional]** | **78 [fictional]** |
 
 ## Backup
 
-Backup saved to: `_pm-skills/backups/v2.9.1_2026-04-11_091544/`
+Backup saved to: `_pm-skills/backups/v2.9.1_2026-04-11_091544/` [fictional]
 
 To restore: `cp -r _pm-skills/backups/v2.9.1_2026-04-11_091544/* .`
 

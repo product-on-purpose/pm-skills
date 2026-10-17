@@ -66,7 +66,7 @@ Campaigns is here. For the first time, you can send targeted email campaigns to 
 
 ### See Which Emails Actually Drove Sales
 
-Campaigns includes revenue attribution out of the box. Every campaign you send shows you the revenue generated within 7 days . so you can see at a glance whether your "Back in stock" campaign drove actual purchases, not just opens. This is the feature most requested in merchant feedback over the past year, and it ships in v1.0.
+Campaigns includes revenue attribution out of the box. Every campaign you send shows you the revenue generated within 7 days . so you can see at a glance whether your "Back in stock" campaign drove actual purchases, not just opens. This is the feature most requested in merchant feedback over the past year [fictional], and it ships in v1.0.
 
 ---
 
@@ -74,7 +74,7 @@ Campaigns includes revenue attribution out of the box. Every campaign you send s
 
 - **Purchase-based audience segments:** Four pre-built segments . Recent customers (last 90 days), First-time buyers, Lapsed customers (no purchase in 6+ months), and VIP customers (5+ orders) . are available immediately at account activation. No export, no filter setup, no CSV import required.
 
-- **Guided first-campaign flow:** If you've never sent a campaign before, Campaigns opens with a ready-to-send template pre-filled with your top products and addressed to your recent customers. Most merchants can send their first campaign in under 15 minutes from first open.
+- **Guided first-campaign flow:** If you've never sent a campaign before, Campaigns opens with a ready-to-send template pre-filled with your top products and addressed to your recent customers. Most merchants can send their first campaign in under 15 minutes from first open [fictional].
 
 - **Revenue attribution:** Every sent campaign includes a 7-day attribution window showing how many purchases and how much revenue your email recipients generated after opening or clicking. See your results in the Campaigns dashboard.
 

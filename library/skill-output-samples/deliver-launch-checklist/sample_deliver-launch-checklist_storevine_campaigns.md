@@ -113,7 +113,7 @@ and check-in schedule.
 |------|-------|-----|--------|-------|
 | [ ] Final designs approved (all Campaigns flows, empty states, error states) | Design Lead | Apr 18 | | Figma spec v4 approved by PM and Engineering Lead |
 | [ ] Design QA complete (Figma spec vs. implementation review) | Design Lead | Apr 24 | | Component-level review; flag any pixel-level deviations from spec |
-| [ ] Asset handoff complete (icons, illustrations for guided flow, email templates) | Design Lead | Apr 18 | | 8 pre-built email templates exported and loaded in staging |
+| [ ] Asset handoff complete (icons, illustrations for guided flow, email templates) | Design Lead | Apr 18 | | 8 pre-built email templates [fictional] exported and loaded in staging |
 | [ ] Copy/content finalized (onboarding, error messages, templates, compliance copy) | Growth PM + Design Lead | Apr 21 | | CAN-SPAM compliance copy in every template reviewed by Legal |
 | [ ] Error states designed and implemented (per edge cases document) | Design Lead | Apr 18 | | All P1 error states have approved copy and implemented UI |
 | [ ] Empty states designed and implemented (zero campaigns, zero opens, zero revenue) | Design Lead | Apr 18 | | Empty states are the first thing new merchants see; must be motivating, not blank |
@@ -127,7 +127,7 @@ and check-in schedule.
 | [ ] Social media content prepared (LinkedIn, X . merchant testimonial from beta) | Storevine Marketing | Apr 26 | | At least one beta merchant testimonial confirmed and approved for use |
 | [ ] Email campaign to all active merchants scheduled (GA day, morning send) | Storevine Marketing | Apr 26 | | Reviewed and approved by Growth PM; uses the legacy Storevine email tool (ironic, noted) |
 | [ ] Website landing page updated (Campaigns feature page live at GA) | Storevine Marketing | Apr 25 | | Page live in staging; DNS switch to prod on GA day |
-| [ ] Demo video of guided first-campaign flow created | Storevine Marketing | Apr 22 | | 90-second screen recording showing new-merchant first-send experience |
+| [ ] Demo video of guided first-campaign flow created | Storevine Marketing | Apr 22 | | 90-second screen recording [fictional] showing new-merchant first-send experience |
 
 ## Customer Support
 

@@ -55,7 +55,7 @@ No cameo experts required. Riley acts as both customer expert (week-long context
 | Element | Value |
 |---|---|
 | Target customer profile | Adults 25-55 who read 25+ books per year, treat personal library as memory rather than identity, currently use no system or paper journals; English-speaking; mix of US and international |
-| Source | Primary: Riley's book-blogger Discord (12k followers; warm intro). Secondary: UserInterviews paid panel filtered to "reads 25+ books per year." |
+| Source | Primary: Riley's book-blogger Discord (12k followers [fictional]; warm intro). Secondary: UserInterviews paid panel filtered to "reads 25+ books per year." |
 | Count needed | 5 (6 confirmed for 1-buffer) |
 | Incentive | USD 100 per 60-minute interview; budget USD 600 total (6 slots); authorized by Jamie 2026-05-15 |
 | Recruiter owner | Riley |
@@ -63,7 +63,7 @@ No cameo experts required. Riley acts as both customer expert (week-long context
 | Friday schedule | 6 slots: 09:00 / 10:30 / 12:00 / 14:00 / 15:30 / 17:00 PT. Buffer slot 17:00 used only on earlier no-show. |
 | Recording and consent | Zoom recording with audio + video; consent form sent at confirmation; 90-day retention; raw video deleted post-synthesis; quotes anonymized in any external sharing. |
 
-**Confirmed customer mix:** 4 from Riley's Discord (2 US, 1 UK, 1 Canada), 2 from UserInterviews panel (1 US, 1 Australia). All 6 self-identified as "25+/year reader who treats library as memory" via pre-screen DM.
+**Confirmed customer mix:** 4 from Riley's Discord (2 US, 1 UK, 1 Canada), 2 from UserInterviews panel (1 US, 1 Australia) [fictional]. All 6 self-identified as "25+/year reader who treats library as memory" via pre-screen DM.
 
 ## Prototype Medium Decision
 

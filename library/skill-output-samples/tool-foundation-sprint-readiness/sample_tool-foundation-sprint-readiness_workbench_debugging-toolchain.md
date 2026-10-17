@@ -32,7 +32,7 @@ The Workbench founding team (Priya, Marcus, Ari, Jin) is preparing a two-day Fou
 
 **Decider name and availability:** Priya, available full days May 21-22 with zero calendar conflicts confirmed.
 
-**Existing customer/market knowledge level (self-assessed):** 7 of 10. Team has run 19 SRE interviews in the last 6 weeks, primarily Series B-D companies. Jin is a current target-customer user and gives weekly product reactions. Less direct exposure to Series E+ companies and to enterprise SREs.
+**Existing customer/market knowledge level (self-assessed):** 7 of 10 [fictional]. Team has run 19 SRE interviews in the last 6 weeks [fictional], primarily Series B-D companies [fictional]. Jin is a current target-customer user and gives weekly product reactions. Less direct exposure to Series E+ companies and to enterprise SREs [fictional].
 
 ## Readiness Verdict: **Go**
 
@@ -41,17 +41,17 @@ The team meets canonical readiness criteria. One yellow flag for awareness; not 
 | Criterion | Status | Notes |
 |---|---|---|
 | 1. Initiative is named and concrete | PASS | Workbench product direction is named with two specific alternatives |
-| 2. Stakes are meaningful | PASS | Wrong direction commits 8-12 months of build before signal |
-| 3. Team has existing customer/market knowledge | PASS | 19 interviews + Jin's lived experience |
+| 2. Stakes are meaningful | PASS | Wrong direction commits 8-12 months of build before signal [fictional] |
+| 3. Team has existing customer/market knowledge | PASS | 19 interviews [fictional] + Jin's lived experience |
 | 4. Decider is available | PASS | Priya commits to both days |
 | 5. Team size is appropriate (max 5) | PASS | 4 people including Decider |
-| 6. Inputs are collected | PASS | Interview synthesis + competitive scan complete |
-| 7. Output has a path to testing | YELLOW | Team has 2 candidate design partners but no committed pilot; covered below |
+| 6. Inputs are collected | PASS | Interview synthesis + competitive scan complete [fictional] |
+| 7. Output has a path to testing | YELLOW | Team has 2 candidate design partners [fictional] but no committed pilot; covered below |
 | 8. Organization tolerates explicit tradeoffs | PASS | Priya and Marcus have explicitly agreed the sprint decides between two paths, not both |
 
 ## Diagnosis
 
-Seven criteria clean; the validation-path yellow is the only flag. The team has identified two candidate design partners (Series C fintech where Jin works and a Series B logistics startup) but neither has committed to a pilot. Without a committed pilot, the Founding Hypothesis lands as theory; the team needs a 2-3 week window post-sprint to close at least one design-partner commitment.
+Seven criteria clean; the validation-path yellow is the only flag. The team has identified two candidate design partners [fictional] (Series C fintech where Jin works and a Series B logistics startup [fictional]) but neither has committed to a pilot. Without a committed pilot, the Founding Hypothesis lands as theory; the team needs a 2-3 week window post-sprint to close at least one design-partner commitment.
 
 This is addressable without blocking the sprint. Priya owns the conversion conversation pre-sprint.
 
@@ -64,7 +64,7 @@ None blocking. Awareness note: confirm at least one design-partner pilot commitm
 ## Recommended Pre-Sprint Activities
 
 1. **Priya schedules design-partner conversion calls** (deadline: 2026-06-05, 2 weeks post-sprint). Not blocking sprint start; tracking item.
-2. **Prep the 19-interview synthesis as a one-page summary** (Jin owns; deadline: morning of 2026-05-21). For Day 1 morning reference during target customer and important problem decisions.
+2. **Prep the 19-interview [fictional] synthesis as a one-page summary** (Jin owns; deadline: morning of 2026-05-21). For Day 1 morning reference during target customer and important problem decisions.
 3. **Pre-stage the workspace** (Ari owns; deadline: evening of 2026-05-20). FigJam board with the canonical Foundation Sprint structure; office room reserved.
 4. **Block calendars** (whole team; deadline: end of day 2026-05-19). No Slack, no email during sprint hours (10:00-18:00 PT) both days.
 

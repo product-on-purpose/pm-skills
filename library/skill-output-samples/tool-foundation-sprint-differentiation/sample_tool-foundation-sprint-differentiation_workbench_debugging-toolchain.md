@@ -28,7 +28,7 @@ context: "Workbench Day 1 PM (13:30-17:30 PT 2026-05-21); Differentiation block;
 
 ## Scored Differentiators
 
-Scoring criteria: 1-5 on (a) feasibility for team to deliver well, (b) defensibility against competitor copying within 12 months, (c) SRE-judged importance from 19-interview synthesis.
+Scoring criteria: 1-5 on (a) feasibility for team to deliver well, (b) defensibility against competitor copying within 12 months, (c) SRE-judged importance from 19-interview synthesis [fictional].
 
 | Differentiator | Feasibility | Defensibility | Importance | Total | Rank |
 |---|---|---|---|---|---|
@@ -47,6 +47,8 @@ Scoring criteria: 1-5 on (a) feasibility for team to deliver well, (b) defensibi
 
 - X-axis: Always-on vs Incident-time focus
 - Y-axis: Disorientation-phase support (weak to strong)
+
+Values in the block below are [fictional].
 
 ```text
                        STRONG ON DISORIENTATION
@@ -73,14 +75,14 @@ ALWAYS-ON                     |                       INCIDENT-TIME
                        WEAK ON DISORIENTATION
 ```
 
-**Reading the chart:** the "incident-time + strong on disorientation" quadrant is largely empty. Datadog and Sentry sit closer to incident-time than New Relic, but none of them are optimized for the cognitive disorientation phase. Multi-tool juggling sits in the bottom-right and is the dominant status-quo. Workbench wants the upper-right open quadrant.
+**Reading the chart:** the "incident-time + strong on disorientation" quadrant is largely empty [fictional]. Datadog and Sentry sit closer to incident-time than New Relic [fictional], but none of them are optimized for the cognitive disorientation phase [fictional]. Multi-tool juggling sits in the bottom-right and is the dominant status-quo [fictional]. Workbench wants the upper-right open quadrant.
 
 ## Decision Principles
 
 The Differentiation work produces 4 decision principles constraining all Workbench v0.1 product decisions:
 
 1. **Incident-time first; always-on never.** Workbench is optimized for the moment when the pager fires. We do not build "always-on" dashboards, alert configuration, or metrics-tracking features that are not load-bearing for incident-time. If a feature is only useful between incidents, it does not ship in v0.1.
-2. **One screen during the incident.** SREs juggle 5-7 tools today. Workbench's job is to be the one tool they need open during the incident. Every UI decision pulls toward consolidation.
+2. **One screen during the incident.** SREs juggle 5-7 tools today [fictional]. Workbench's job is to be the one tool they need open during the incident. Every UI decision pulls toward consolidation.
 3. **SRE vocabulary, SRE workflow.** The language is "incident," "service," "deployment," "dependency," "runbook," not "span," "log line," "metric," "trace ID." If an SRE has to translate between vendor vocabulary and their team's vocabulary, the tool is failing them in the worst moment.
 4. **Augment, don't replace existing observability investment.** Customers keep Datadog or Honeycomb or their open-source stack; Workbench imports from them during an incident. We do not ask customers to rip-and-replace.
 
@@ -88,9 +90,9 @@ The Differentiation work produces 4 decision principles constraining all Workben
 
 **What Workbench is:**
 
-Workbench is the incident-time companion tool for senior SREs at growth-stage startups. When the pager fires at 03:00 and the SRE is staring at 5 browser tabs trying to figure out which service in their distributed system is misbehaving, Workbench is the one screen that shows the auto-correlated picture: which service, which version, which dependency, which state preceded the failure, plotted on one incident-time timeline.
+Workbench is the incident-time companion tool for senior SREs at growth-stage startups. When the pager fires at 03:00 and the SRE is staring at 5 browser tabs [fictional] trying to figure out which service in their distributed system is misbehaving, Workbench is the one screen that shows the auto-correlated picture: which service, which version, which dependency, which state preceded the failure, plotted on one incident-time timeline.
 
-Workbench's entire reason to exist is to compress the disorientation phase of incident response. The team has measured the disorientation phase as 5-20 minutes per incident across 19 customer interviews; cutting it in half is the product's value claim. Workbench is not always-on; Workbench is the tool you grab the moment something breaks.
+Workbench's entire reason to exist is to compress the disorientation phase of incident response. The team has measured the disorientation phase as 5-20 minutes per incident [fictional] across 19 customer interviews [fictional]; cutting it in half is the product's value claim. Workbench is not always-on; Workbench is the tool you grab the moment something breaks.
 
 **What Workbench is NOT:**
 

@@ -67,15 +67,15 @@ Enterprise teams use document templates to standardize project kickoffs, vendor 
 
 Two primary personas in enterprise Workbench accounts:
 
-1. **Document authors** (project leads, operations managers, and team leads) who create documents from templates. They use templates as starting points but skip sections when the required information is not yet available, when they perceive a section as irrelevant to their use case, or when they are under time pressure. Authors are not intentionally negligent; the tool provides no signal that a section is mandatory versus optional.
+1. **Document authors** (project leads, operations managers, and team leads) who create documents from templates. They use templates as starting points but skip sections when the required information is not yet available, when they perceive a section as irrelevant to their use case, or when they are under time pressure [fictional]. Authors are not intentionally negligent; the tool provides no signal that a section is mandatory versus optional.
 
 2. **Approvers** (department heads, compliance leads, and senior managers) who review and approve documents. They are the most time-constrained stakeholders in the workflow and receive approximately 15 documents per month for review [fictional]. When a document is incomplete, they must choose between rejecting it (adding days to the cycle) or approving it despite gaps (accepting compliance and quality risk).
 
 ### How are they affected?
 
 - **Authors** experience unpredictable approval timelines. A document submitted Monday may be rejected Thursday, revised Friday, and resubmitted the following Monday, consuming calendar time without adding substantive value. The unpredictability makes it difficult for authors to plan downstream work that depends on an approved document.
-- **Approvers** spend an estimated 30-40% of their document review time on completeness checking rather than substantive evaluation [fictional]. When they reject an incomplete document, they bear the social cost of being perceived as a bottleneck. Over time, some approvers lower their standards to avoid the reputation of being obstructive, which introduces compliance risk.
-- **Middle managers** (an emergent third persona identified in discovery interviews) absorb a shadow approval burden: they manually pre-review documents for completeness before formal submission, spending approximately 3 hours per week on an activity that is undocumented and uncompensated [fictional]. This shadow layer disappears when the manager is on vacation or sick leave, causing a spike in incomplete submissions.
+- **Approvers** spend an estimated 30-40% of their document review time on completeness checking rather than substantive evaluation [fictional]. When they reject an incomplete document, they bear the social cost of being perceived as a bottleneck. Over time, some approvers lower their standards to avoid the reputation of being obstructive, which introduces compliance risk [fictional].
+- **Middle managers** (an emergent third persona identified in discovery interviews [fictional]) absorb a shadow approval burden: they manually pre-review documents for completeness before formal submission [fictional], spending approximately 3 hours per week on an activity that is undocumented and uncompensated [fictional]. This shadow layer disappears when the manager is on vacation or sick leave, causing a spike in incomplete submissions [fictional].
 
 ### Scale of impact
 
@@ -89,7 +89,7 @@ Two primary personas in enterprise Workbench accounts:
 ### Strategic Alignment
 
 - **H1 2026 OKR:** Expand enterprise customer base from 500 to 650 accounts [fictional]. Blueprints with governance capabilities is the primary feature unlock for enterprise pipeline deals currently stalled on documentation governance requirements. Mei-Lin T. has identified 8 deals totaling $1.8M in combined ARR [fictional] that are specifically blocked on this capability.
-- **Series C preparation:** Late 2026 fundraise depends on demonstrating enterprise traction. Blueprints is the flagship initiative in the fundraise narrative [fictional]. Sandra C. has indicated that the fundraise deck will lead with Blueprints adoption metrics as proof of enterprise product-market fit.
+- **Series C preparation:** Late 2026 fundraise depends on demonstrating enterprise traction. Blueprints is the flagship initiative in the fundraise narrative [fictional]. Sandra C. has indicated that the fundraise deck will lead with Blueprints adoption metrics as proof of enterprise product-market fit [fictional].
 - **Competitive positioning:** No doc-first tool in the enterprise collaboration market enforces template section completion (see competitive analysis, February 2026). This represents the only unoccupied white space in the governance dimension of the competitive landscape.
 
 ### Business Impact
@@ -100,7 +100,7 @@ Two primary personas in enterprise Workbench accounts:
 
 ### Why Now?
 
-- Confluence, the market leader, has no enforcement mechanism and no public roadmap for one, but Atlassian's Rovo AI agent (announced 2024) could introduce AI-enforced completeness checks, narrowing the window. The competitive advantage is time-bounded, making speed to market critical.
+- Confluence, the market leader, has no enforcement mechanism and no public roadmap for one, but Atlassian's Rovo AI agent (announced 2024) could introduce AI-enforced completeness checks, narrowing the window [fictional]. The competitive advantage is time-bounded, making speed to market critical.
 - Workbench's closed beta (80 accounts [fictional]) provides a controlled environment to validate the enforcement approach before GA rollout to the remaining 420 accounts [fictional].
 - The Series C fundraise timeline (late 2026) requires demonstrable enterprise traction by mid-2026, making the H1 2026 build and GA timeline critical.
 
@@ -120,7 +120,7 @@ Two primary personas in enterprise Workbench accounts:
 - SSO/SAML integration is a deployment gate for enterprise IT security teams; Blueprints cannot ship to enterprise accounts without it.
 - Template admin experience (designating sections as required) must not add operational burden; if admins find the feature complex, adoption will stall before authors ever see it.
 - The closed beta cohort (80 accounts [fictional]) is the only available test population before GA; the experiment must be designed to produce statistically significant results within this constraint.
-- Approval workflows must support account-level customization (different enterprises have different approval hierarchies); a one-size-fits-all model will not pass enterprise procurement evaluation.
+- Approval workflows must support account-level customization (different enterprises have different approval hierarchies); a one-size-fits-all model will not pass enterprise procurement evaluation [fictional].
 
 ## Open Questions
 

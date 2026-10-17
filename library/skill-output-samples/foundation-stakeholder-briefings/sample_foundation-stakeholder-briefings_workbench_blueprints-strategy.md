@@ -66,7 +66,7 @@ of Product), James W. (VP Engineering), Mei-Lin T. (Enterprise Sales Lead).
 
 **Risks and open questions**
 
-- M7: The expansion outcome depends on Blueprints converting governance interest into closed enterprise deals; if governance does not differentiate in the sales motion, the 650-account target is at risk.
+- M7: The expansion outcome depends on Blueprints converting governance interest into closed enterprise deals; if governance does not differentiate in the sales motion, the 650-account target [fictional] is at risk.
 - M8: Holding back migration tooling (M5) is a bet that the wedge lands first; if competitors close the governance gap before GA, the sequencing advantage shrinks.
 
 **Asks**
@@ -76,7 +76,7 @@ of Product), James W. (VP Engineering), Mei-Lin T. (Enterprise Sales Lead).
 
 **Timeline**
 
-- M11: Blueprints GA in April 2026; migration tooling scoped for the following quarter, gated on GA; the 650-account outcome measured over the trailing 12 months.
+- M11: Blueprints GA in April 2026; migration tooling scoped for the following quarter, gated on GA; the 650-account outcome [fictional] measured over the trailing 12 months.
 
 ## Briefings
 
@@ -108,7 +108,7 @@ The decision in front of you is one of focus, not direction. The secondary oppor
 
 The enterprise growth story has a single, defensible shape. The market is full of collaborative-editing tools - Confluence, Notion, Coda - and they are good at co-editing. None of them enforce documentation governance: required sections, role-based approval, the discipline enterprises actually need at handoff (M3). That is the wedge. We are not trying to out-edit the incumbents; we are entering through the gap they left open.
 
-The thesis maps to the numbers that matter for the next raise: a path from 500 to 650 enterprise accounts and from 108% to 120% net revenue retention over 12 months [fictional] (M1), anchored to a quantified, recurring enterprise pain - 60% of enterprise projects ship without an approved kickoff doc [fictional] (M2). What we are asking the board for is endorsement of this governance-wedge framing as the enterprise growth narrative for the next funding conversation (M10), so the company tells one coherent story to investors.
+The thesis maps to the numbers that matter for the next raise: a path from 500 to 650 enterprise accounts [fictional] and from 108% to 120% net revenue retention over 12 months [fictional] (M1), anchored to a quantified, recurring enterprise pain - 60% of enterprise projects ship without an approved kickoff doc [fictional] (M2). What we are asking the board for is endorsement of this governance-wedge framing as the enterprise growth narrative for the next funding conversation (M10), so the company tells one coherent story to investors.
 
 --- END ---
 
@@ -138,7 +138,7 @@ This is a narrative job, not a deal job: define the category language, the diffe
 
 **What this means for Sales**
 
-The strategy bets that governance is what differentiates Workbench in the enterprise motion: Blueprints (required sections + approval gates) against the approved-kickoff-doc gap that 60% of enterprise projects hit [fictional] (M2, M4). For your team that is a talk track, and the open question is whether it converts. The plan explicitly flags the risk: if governance does not differentiate in front of real buyers, the 650-account target is exposed (M7).
+The strategy bets that governance is what differentiates Workbench in the enterprise motion: Blueprints (required sections + approval gates) against the approved-kickoff-doc gap that 60% of enterprise projects hit [fictional] (M2, M4). For your team that is a talk track, and the open question is whether it converts. The plan explicitly flags the risk: if governance does not differentiate in front of real buyers, the 650-account target [fictional] is exposed (M7).
 
 So the ask is concrete and now, not at GA. Run the governance talk track in live enterprise deals during beta and tell us what happens: which prospects lean in on required-sections-and-approval, which ask "doesn't Confluence already do this," and which objections recur often enough to need a coded response before GA. You are the validation loop on the wedge - report which objections recur (the primary ask) so PMM can sharpen the message and product can close the gaps before we commit the full motion to it.
 
@@ -150,12 +150,12 @@ So the ask is concrete and now, not at GA. Run the governance talk track in live
 
 - "documentation governance opportunity" kept as the strategic term for Executive and Board; rendered as "governance, the category the incumbents cannot claim" for PMM (positioning language) and "the governance talk track" for Sales (deal language).
 - "competitive wedge is governance, not co-editing" kept high-altitude for the Board (thesis framing); rendered as "governance-vs-co-editing positioning" for PMM (a concrete deliverable to own).
-- "net revenue retention 108% -> 120%" surfaced only in the Board block as a thesis metric; intentionally omitted from Sales and PMM, whose decisions do not turn on NRR.
+- "net revenue retention 108% -> 120% [fictional]" surfaced only in the Board block as a thesis metric; intentionally omitted from Sales and PMM, whose decisions do not turn on NRR.
 - Exec vs Board split held: the Executive block asks for an internal reprioritization/sequencing decision (M9, hold migration behind GA); the Board block asks for thesis endorsement for the raise (M10). Neither block carries the other's ask.
 
 **Flagged but kept** (may need review):
 
-- "the 650-account target is at risk" - kept explicit in the Sales block (M7) to make the validation ask feel weighty; for a sales audience this could read as pressure rather than partnership, so it is framed as "you are the validation loop," not "you are accountable for the number." Confirm tone lands with Mei-Lin T.
+- "the 650-account target [fictional] is at risk" - kept explicit in the Sales block (M7) to make the validation ask feel weighty; for a sales audience this could read as pressure rather than partnership, so it is framed as "you are the validation loop," not "you are accountable for the number." Confirm tone lands with Mei-Lin T.
 
 ## Sources and References
 

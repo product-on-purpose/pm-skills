@@ -32,7 +32,7 @@ The Storevine founding team (Mei, Devon, Tasha, Carlos) is preparing a two-day F
 
 **Decider name and availability:** Mei, available full days May 18-19 with one 30-min board call carved out at 11:00 PT Day 2.
 
-**Existing customer/market knowledge level (self-assessed):** 8 of 10. Team has run 31 customer interviews with specialty retailers in the last 10 weeks (Mei + Carlos co-led). Carlos has lived experience as the target customer. Less direct experience with the ERP-integration buyer journey.
+**Existing customer/market knowledge level (self-assessed):** 8 of 10 [fictional]. Team has run 31 customer interviews with specialty retailers in the last 10 weeks [fictional] (Mei + Carlos co-led). Carlos has lived experience as the target customer. Less direct experience with the ERP-integration buyer journey.
 
 ## Readiness Verdict: **Conditional Go**
 
@@ -41,8 +41,8 @@ Eight readiness criteria evaluated; seven pass; one returns a yellow that become
 | Criterion | Status | Notes |
 |---|---|---|
 | 1. Initiative is named and concrete | PASS | Storevine product direction is named; specific to specialty retailers 5-50 stores |
-| 2. Stakes are meaningful | PASS | Pre-seed; wrong direction burns 6+ months of runway |
-| 3. Team has existing customer/market knowledge | PASS | 31 interviews + Carlos's lived experience |
+| 2. Stakes are meaningful | PASS | Pre-seed; wrong direction burns 6+ months of runway [fictional] |
+| 3. Team has existing customer/market knowledge | PASS | 31 interviews [fictional] + Carlos's lived experience |
 | 4. Decider is available | YELLOW | Mei available except 30 min Day 2 11:00 PT (board call); covered below |
 | 5. Team size is appropriate (max 5) | PASS | 4 people including Decider |
 | 6. Inputs are collected | PASS | Interview synthesis + competitor scan in shared drive |
@@ -61,7 +61,7 @@ No other risk factors. The team has the prerequisite knowledge, the Decider comm
 
 ## Recommended Pre-Sprint Activities
 
-1. **Prep the 31-interview synthesis as a one-page summary** (Carlos owns; deadline: morning of 2026-05-18). For Day 1 morning reference during target customer and important problem decisions.
+1. **Prep the 31-interview [fictional] synthesis as a one-page summary** (Carlos owns; deadline: morning of 2026-05-18). For Day 1 morning reference during target customer and important problem decisions.
 2. **Block calendars** (whole team; deadline: end of day 2026-05-16). No Slack, no email during sprint hours (09:00-17:00 PT) both days.
 3. **Pre-stage the workspace** (Tasha owns; deadline: evening of 2026-05-17). Miro board with the canonical Foundation Sprint structure; physical office room reserved.
 4. **Confirm design-partner availability for June 2 test** (Mei owns; deadline: evening of 2026-05-17). Confirms criterion 7 stays GREEN through the sprint.

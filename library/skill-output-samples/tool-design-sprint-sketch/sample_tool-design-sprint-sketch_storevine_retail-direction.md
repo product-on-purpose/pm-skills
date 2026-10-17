@@ -74,7 +74,7 @@ Tuesday 2026-07-14. Monday closed with Mei selecting the first-30-second scan mo
 
 ## Recruiting Tracker Update
 
-All 5 + 1 buffer confirmed. No cancellations Tuesday.
+All 5 + 1 buffer confirmed [fictional]. No cancellations Tuesday [fictional].
 
 ## Decider Checkpoint
 

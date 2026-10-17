@@ -32,7 +32,7 @@ Each team member presented 3 demos (3 min each) during the 09:15-10:45 lightning
 | Sam | Linear (issue creation) | Quick-add field with smart parsing of free-text input |
 | Sam | Robinhood (buy confirmation) | High-stakes confirmation with explicit cancel window before commit |
 | Sam | Notion (database row) | Editable-in-place after capture; correction is friction-free |
-| Riley | Goodreads (book add) | The status quo we are competing against; over-friction at capture |
+| Riley | Goodreads (book add) | The status quo we are competing against; over-friction at capture [fictional] |
 | Riley | Letterboxd (film log) | Capture-as-rating; rating becomes the capture confirmation |
 | Riley | Things 3 (task quick-entry) | Capture flow that escapes to background instantly; no modal trap |
 
@@ -80,12 +80,12 @@ All four sketches produced in Figma frames sized 1170 x 2532 (iPhone Pro vertica
 
 | Slot | Customer name (or ID) | Status | Notes |
 |---|---|---|---|
-| Fri 09:00 | UI-Panel-A (US, age 38, M) | Confirmed | Reschedule risk Low; reminder sent |
-| Fri 10:30 | Discord-1 (UK, age 31, F) | Confirmed | High enthusiasm; pre-screen score 9/10 |
-| Fri 12:00 | Discord-2 (US, age 45, F) | Cancelled (work conflict; 12:20 PT email) | Buffer activation needed |
-| Fri 14:00 | Discord-3 (Canada, age 29, M) | Confirmed | |
-| Fri 15:30 | UI-Panel-B (Australia, age 52, F) | Confirmed | Time-zone challenge: 09:30 their local; confirmed comfortable |
-| Fri 17:00 (buffer) | Discord-4 (US, age 36, M) | Activated 14:50 PT in response to 12:00 cancellation | Moved to 12:00 slot; buffer slot now empty |
+| Fri 09:00 | UI-Panel-A (US, age 38, M) [fictional] | Confirmed | Reschedule risk Low; reminder sent |
+| Fri 10:30 | Discord-1 (UK, age 31, F) [fictional] | Confirmed | High enthusiasm [fictional]; pre-screen score 9/10 [fictional] |
+| Fri 12:00 | Discord-2 (US, age 45, F) [fictional] | Cancelled (work conflict; 12:20 PT email [fictional]) | Buffer activation needed |
+| Fri 14:00 | Discord-3 (Canada, age 29, M) [fictional] | Confirmed | |
+| Fri 15:30 | UI-Panel-B (Australia, age 52, F) [fictional] | Confirmed | Time-zone challenge: 09:30 their local; confirmed comfortable [fictional] |
+| Fri 17:00 (buffer) | Discord-4 (US, age 36, M) [fictional] | Activated 14:50 PT in response to 12:00 cancellation | Moved to 12:00 slot; buffer slot now empty |
 
 **Cancellations to date:** 1. **Buffer slot activation needed:** Triggered; Discord-4 moved to 12:00; buffer slot now empty (next cancellation triggers escalation). **Risk level for Friday:** Low. Buffer used; team aware that one more cancellation triggers cohort-shrinks-to-4 protocol.
 

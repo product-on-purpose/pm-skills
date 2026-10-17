@@ -117,14 +117,14 @@ hypothesis should be retired or carried forward.
     (36 - 22) / (41 - 22) = 14 / 19 = 0.737. In the 0.6 to 0.7 sweet
     spot.
   - Evidence confidence: high. Mixpanel `resurface_item_interaction`
-    event well-instrumented; cohort definition stable.
+    event well-instrumented [fictional]; cohort definition stable.
   - Interpretation: algo v1.5 (Initiative 1) and push triggers (Initiative
     2) both contributed. The hit-rate lift from 64% to 71% [fictional]
     on first-impression items aligns mechanically with the engagement
     cohort lift.
 
 - KR2: Increase 30-day retention among Resurface-engaged members from
-  56% to 68% [fictional] (vs 31% baseline among non-Resurface members)
+  56% to 68% [fictional] (vs 31% [fictional] baseline among non-Resurface members)
   by 2026-09-30.
   - Actual: 59% [fictional] (as_of 2026-09-30, full 30-day window
     closed).
@@ -164,7 +164,7 @@ hypothesis should be retired or carried forward.
   real but takes more than 30 days to materialize at population scale.
   The replication study's 1.6x reading favors (a).
 - What changed during the cycle: the August replication study at n=12,400
-  was a deliberate test of the multiplier-at-scale claim, designed for
+  [fictional] was a deliberate test of the multiplier-at-scale claim, designed for
   this cycle's grading. That study's result is the most consequential
   finding of the quarter.
 - What the score does and does not mean:
@@ -184,7 +184,7 @@ hypothesis should be retired or carried forward.
 - Issue 1: the August replication study at population scale observed a
   1.6x retention multiplier vs the beta's 3.4x. This is the single
   most important evidence input this cycle.
-  - Impact: the company-level OKR (30-day retention 31% to 42%) was
+  - Impact: the company-level OKR (30-day retention 31% [fictional] to 42%) was
     built on the assumption that Resurface alone could provide a large
     fraction of the lift. With a 1.6x multiplier, the math does not work
     without other levers contributing more.
@@ -196,7 +196,7 @@ hypothesis should be retired or carried forward.
 - Issue 2: KR2's 30-day window for Q3 cohorts closed cleanly, but the
   cohorts are heterogeneous (members at different tenure points received
   algo v1.5 and push triggers at slightly different times because of
-  the v1.5 phased rollout).
+  the v1.5 phased rollout [fictional]).
   - Impact: medium. The aggregate KR2 score is reliable; the per-segment
     breakdown needed to interpret the multiplier is noisier than ideal.
   - Recommended fix: in next cycle's `measure-instrumentation-spec`, add a
@@ -228,12 +228,12 @@ hypothesis should be retired or carried forward.
 - Initiative 2 (Push notification triggers):
   - Linked to: KR1 primarily.
   - Status: shipped on time (July 28).
-  - Apparent contribution: medium to KR1. The 41% open rate is healthy
-    but the 18% click-through to the Resurface item was below the 2x
+  - Apparent contribution: medium to KR1. The 41% [fictional] open rate is healthy
+    but the 18% [fictional] click-through to the Resurface item was below the 2x
     in-app conversion rate hypothesized from beta data. Push raised
     the volume, not the per-impression yield.
   - Recommendation: continue at current scope. Do not expand push
-    aggressiveness; the opt-out guardrail (5.1% vs 6% threshold) is
+    aggressiveness; the opt-out guardrail (5.1% [fictional] vs 6% threshold) is
     closer to its limit than is comfortable.
 
 - Initiative 3 (Personalized first-session Resurface onboarding):
@@ -250,7 +250,7 @@ hypothesis should be retired or carried forward.
   - Algo tuning plus push triggers can lift weekly engagement at scale.
   - Engagement gains do not require degrading perceived relevance
     (KR3 held, in fact improved).
-  - Push opt-out has a real ceiling; the 5.1% opt-out rate is approaching
+  - Push opt-out has a real ceiling; the 5.1% [fictional] opt-out rate is approaching
     the 6% threshold and constrains future push aggressiveness.
 
 - Invalidated assumptions:
@@ -287,7 +287,7 @@ hypothesis should be retired or carried forward.
    in Rewrite mode.
 
 2. Carry KR1 forward but reset the target. Set Q4 KR1 baseline at
-   Q3's 36% landing point; target a more modest lift (45 to 48%
+   Q3's 36% [fictional] landing point; target a more modest lift (45 to 48%
    [fictional]) given the push opt-out ceiling.
 
 3. Decide explicitly whether Resurface is the primary retention lever
@@ -316,7 +316,7 @@ hypothesis should be retired or carried forward.
 ## Risks in Interpretation
 
 - The KR2 score of 0.25 reads worse than the underlying truth. Retention
-  did improve (56% to 59%); the score is low because the aspirational
+  did improve (56% to 59% [fictional]); the score is low because the aspirational
   target was set assuming a 3.4x multiplier that did not materialize at
   scale. The team should not be evaluated as if it failed; the OKR
   itself was mis-targeted.
@@ -334,7 +334,7 @@ hypothesis should be retired or carried forward.
   multiplier. Drift between the two framings will produce another
   cycle of ambiguous KR2 grading.
 
-- The push opt-out guardrail is at 5.1% against a 6% threshold. KR1
+- The push opt-out guardrail is at 5.1% [fictional] against a 6% threshold. KR1
   growth in Q4 cannot rely on more push intensity without breaching
   this guardrail. The team should treat push as a saturated lever.
 

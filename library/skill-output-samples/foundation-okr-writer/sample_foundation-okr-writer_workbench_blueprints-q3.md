@@ -226,7 +226,7 @@ of-record adoption, not just "feature works.")
     Confirmed in cross-team Q3 planning.
 - Known conflicts:
   - The Customer Acquisition team's Q3 OKR includes "sign 4 new
-    tier-1 enterprise accounts." If they succeed, those signed accounts
+    tier-1 enterprise accounts" [fictional]. If they succeed, those signed accounts
     may have onboarding expectations beyond Q3, but Blueprints is not
     yet in the standard enterprise sales motion. Mitigation: defer
     new-signed-account Blueprints onboarding to Q4; keep our 12
@@ -279,14 +279,14 @@ planning if the engagement thesis is invalidated.
 ## Open Questions
 
 1. The 12 tier-1 contracted onboardings are not equally weighted in
-   complexity. Three healthcare accounts will require 4-6 weeks each
-   due to HIPAA review; the other nine should average 2-3 weeks. If
+   complexity. Three healthcare accounts will require 4-6 weeks each [fictional]
+   due to HIPAA review; the other nine should average 2-3 weeks [fictional]. If
    the healthcare reviews extend, KR1's "12 of 12" target may need to
    be re-cut to "9 of 9 non-healthcare plus best-effort on healthcare."
    Recommend pre-deciding this fallback before cycle start.
 
 2. KR2's 2x benchmark target (28 executions/week vs the 14
-   executions/week comparable Workbench feature benchmark) is
+   executions/week comparable Workbench feature benchmark [fictional]) is
    aspirational and untested. Recommend instrumenting an interim
    30-day check at 14 executions/week as the "we are at benchmark"
    trigger; below that warrants a mid-cycle strategy review.

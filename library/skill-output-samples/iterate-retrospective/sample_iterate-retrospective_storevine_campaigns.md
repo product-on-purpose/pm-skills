@@ -95,9 +95,9 @@ The Campaigns v1.0 build sprint closed with a clean GA on April 28, 2026, and a 
 
 | Action | Owner | Status | Notes |
 |--------|-------|--------|-------|
-| Add QA Lead to feature kickoff sessions | Engineering Lead | Complete | QA Lead joined the Campaigns kickoff in January 2026; QA-identified edge cases were included in the sprint scope from week 1 |
-| Define escalation path for blocker tickets before they become critical | Engineering Lead | In Progress | Escalation path defined and used effectively during the Campaigns build sprint (one blocker escalated to Head of Product in week 8 [fictional]); the process document has not been generalized to other squads |
-| Document infrastructure prerequisites for future production launches | Engineering Lead | Not Started | Deprioritized during the Campaigns build sprint due to sprint velocity pressure; now a direct action item from this retro |
+| Add QA Lead to feature kickoff sessions | Engineering Lead | Complete | QA Lead joined the Campaigns kickoff in January 2026; QA-identified edge cases were included in the sprint scope from week 1 [fictional] |
+| Define escalation path for blocker tickets before they become critical | Engineering Lead | In Progress | Escalation path defined and used effectively during the Campaigns build sprint (one blocker escalated to Head of Product in week 8 [fictional]); the process document has not been generalized to other squads [fictional] |
+| Document infrastructure prerequisites for future production launches | Engineering Lead | Not Started | Deprioritized during the Campaigns build sprint due to sprint velocity pressure [fictional]; now a direct action item from this retro |
 
 ---
 
@@ -105,19 +105,19 @@ The Campaigns v1.0 build sprint closed with a clean GA on April 28, 2026, and a 
 
 ### Team Highlights
 
-- The beta merchant feedback program produced 23 support questions [fictional] that Merchant Success Lead converted into 10 FAQ entries and 15 canned responses before GA . when GA-week tickets arrived, the support team already had answers ready, and GA-week ticket volume was below the estimated range [fictional]
+- The beta merchant feedback program produced 23 support questions [fictional] that Merchant Success Lead converted into 10 FAQ entries and 15 canned responses [fictional] before GA . when GA-week tickets arrived, the support team already had answers ready, and GA-week ticket volume was below the estimated range [fictional]
 - The instrumentation spec review process caught a PII gap . subscriber email addresses were initially included as event properties in an early draft of `attribution_recorded` . before any instrumentation was shipped to staging; removing this before GA avoided a potential GDPR compliance incident
-- The feature flag rollout from 10% to 100% across 6 days [fictional] worked as designed: send failure rate peaked at 0.8% [fictional] during the initial 10% ramp (well below the 2% alert threshold), and the rollout proceeded to 100% without any rollback events or on-call escalations
+- The feature flag rollout from 10% to 100% across 6 days [fictional] worked as designed: send failure rate peaked at 0.8% [fictional] during the initial 10% ramp (well below the 2% alert threshold), and the rollout proceeded to 100% without any rollback events or on-call escalations [fictional]
 
 ### Process Wins
 
-- The dual PM + QA review on all compliance copy (CAN-SPAM required text, unsubscribe language, physical address fields) caught two instances of non-compliant copy in the pre-built template library before GA; fixing these post-launch would have required a product update and a retroactive merchant communication
-- The incident response runbook . created by Engineering Lead in the final week before GA . was used on day 2 of GA week when a brief attribution webhook backlog occurred (410 unprocessed events [fictional]); the runbook guided the on-call engineer through the diagnosis and resolution in under 20 minutes without paging anyone above the on-call level
+- The dual PM + QA review on all compliance copy (CAN-SPAM required text, unsubscribe language, physical address fields) caught two instances of non-compliant copy in the pre-built template library before GA [fictional]; fixing these post-launch would have required a product update and a retroactive merchant communication
+- The incident response runbook . created by Engineering Lead in the final week before GA . was used on day 2 of GA week when a brief attribution webhook backlog occurred (410 unprocessed events [fictional]); the runbook guided the on-call engineer through the diagnosis and resolution in under 20 minutes without paging anyone above the on-call level [fictional]
 
 ### Individual Shoutouts
 
-- Backend Engineer for implementing the `unique_args` attribution chain in the SendGrid webhook integration; the spike in week 2 of the build sprint confirmed the technical approach, and the final GA implementation matched the spike design without significant rework
-- Merchant Success Lead for converting 23 beta questions [fictional] into 10 FAQ articles and 15 canned responses and publishing all of them before GA day; this single pre-GA investment measurably reduced the support load in the first week
+- Backend Engineer for implementing the `unique_args` attribution chain in the SendGrid webhook integration; the spike in week 2 of the build sprint confirmed the technical approach, and the final GA implementation matched the spike design without significant rework [fictional]
+- Merchant Success Lead for converting 23 beta questions [fictional] into 10 FAQ articles and 15 canned responses [fictional] and publishing all of them before GA day; this single pre-GA investment measurably reduced the support load in the first week [fictional]
 
 ---
 
@@ -125,22 +125,22 @@ The Campaigns v1.0 build sprint closed with a clean GA on April 28, 2026, and a 
 
 ### Challenges Faced
 
-- Legal review started 3 weeks before GA instead of the intended 6 weeks; the CAN-SPAM compliance architecture sign-off was not received until April 14 [fictional], which was 14 days before GA and 2 weeks after marketing needed the compliance copy finalized for the blog post, email campaign, and in-app banner
-- DMARC/SPF/DKIM setup took 5 business days instead of the 1 day estimated [fictional]; DNS propagation delays (24 - 72 hours per record, multiple records required) were discovered during implementation rather than during sprint planning, and the setup nearly missed its April 21 launch gate deadline
-- The Klaviyo partner notice email . required 48 hours before the GA announcement . was sent on GA day itself (April 28 [fictional]) instead of April 26; the launch checklist item had no explicitly assigned owner, and it was picked up by Growth PM only after the GA announcement draft was already in review
+- Legal review started 3 weeks before GA instead of the intended 6 weeks; the CAN-SPAM compliance architecture sign-off was not received until April 14 [fictional], which was 14 days before GA and 2 weeks after marketing needed the compliance copy finalized for the blog post, email campaign, and in-app banner [fictional]
+- DMARC/SPF/DKIM setup took 5 business days instead of the 1 day estimated [fictional]; DNS propagation delays (24 - 72 hours per record, multiple records required) [fictional] were discovered during implementation rather than during sprint planning [fictional], and the setup nearly missed its April 21 launch gate deadline [fictional]
+- The Klaviyo partner notice email . required 48 hours before the GA announcement [fictional] . was sent on GA day itself (April 28 [fictional]) instead of April 26; the launch checklist item had no explicitly assigned owner, and it was picked up by Growth PM only after the GA announcement draft was already in review [fictional]
 
 ### Process Pain Points
 
-- Legal is currently engaged as a late-stage reviewer (when code is ready for review) rather than as an early-stage design partner; compliance requirements discovered at the end of development create multi-team dependency cascades when Legal's review takes longer than the estimated window
-- Infrastructure prerequisites (DNS configuration, IP warm-up, SSL certificate validation, DMARC/SPF/DKIM) are represented as launch checklist items rather than as sprint stories; they have due dates but no sprint-board visibility, which makes them invisible to the velocity tracking that the team uses to surface timeline risk early
+- Legal is currently engaged as a late-stage reviewer (when code is ready for review) rather than as an early-stage design partner; compliance requirements discovered at the end of development create multi-team dependency cascades when Legal's review takes longer than the estimated window [fictional]
+- Infrastructure prerequisites (DNS configuration, IP warm-up, SSL certificate validation, DMARC/SPF/DKIM) are represented as launch checklist items rather than as sprint stories; they have due dates but no sprint-board visibility, which makes them invisible to the velocity tracking that the team uses to surface timeline risk early [fictional]
 
 ### Themes Identified
 
 | Theme | Items | Votes |
 |-------|-------|-------|
-| Legal and compliance timing | Legal review start date, CAN-SPAM copy finalization dependency, Klaviyo notice ownership gap | 8 [fictional] |
-| Infrastructure timeline estimation | DMARC/SPF/DKIM setup, IP warm-up scheduling, DNS propagation buffer | 5 [fictional] |
-| Launch checklist ownership | Klaviyo partner notice, partner communication accountability, marketing content gate | 3 [fictional] |
+| Legal and compliance timing | Legal review start date, CAN-SPAM copy finalization dependency, Klaviyo notice ownership gap | 8 |
+| Infrastructure timeline estimation | DMARC/SPF/DKIM setup, IP warm-up scheduling, DNS propagation buffer | 5 |
+| Launch checklist ownership | Klaviyo partner notice, partner communication accountability, marketing content gate | 3 |
 
 ---
 
@@ -149,10 +149,10 @@ The Campaigns v1.0 build sprint closed with a clean GA on April 28, 2026, and a 
 ### Legal and Compliance Timing
 
 **What was discussed:**
-The team discussed why the Legal review started 3 weeks before GA instead of 6. The root cause was not that Legal was unavailable . Legal said they could have started earlier if asked . but that the PM kickoff template and sprint planning process do not flag compliance implications as a trigger for early Legal engagement. Legal receives a calendar invite for the compliance review when the feature is ready for review, not at the start of the design phase.
+The team discussed why the Legal review started 3 weeks before GA instead of 6. The root cause was not that Legal was unavailable . Legal said they could have started earlier if asked [fictional] . but that the PM kickoff template and sprint planning process do not flag compliance implications as a trigger for early Legal engagement [fictional]. Legal receives a calendar invite for the compliance review when the feature is ready for review, not at the start of the design phase [fictional].
 
 **Root cause identified:**
-Legal review is not a sprint story and therefore has no sprint-board visibility. It is a launch checklist item with a due date. When Legal's review takes longer than estimated (which happened here due to a parallel compliance project taking Legal's time [fictional]), the downstream dependencies . compliance copy, marketing content, template library review . have no lead time to absorb the delay.
+Legal review is not a sprint story and therefore has no sprint-board visibility. It is a launch checklist item with a due date. When Legal's review takes longer than estimated (which happened here due to a parallel compliance project taking Legal's time [fictional]), the downstream dependencies . compliance copy, marketing content, template library review . have no lead time to absorb the delay [fictional].
 
 **Proposed solution:**
 For any feature with compliance implications (user data collection, external communication, financial transactions), Legal joins the feature kickoff meeting and is assigned as a named reviewer on a sprint story that appears on the board at design freeze . not at code freeze. The compliance review story blocks the marketing content story in the sprint board, making the dependency visible.
@@ -162,10 +162,10 @@ For any feature with compliance implications (user data collection, external com
 ### DMARC/SPF/DKIM Setup and Infrastructure Estimation
 
 **What was discussed:**
-The Platform Squad estimated DMARC/SPF/DKIM setup at 1 day [fictional] based on previous experience with shared sending infrastructure on the Storevine platform. Dedicated sending domain setup proved to be significantly more complex: it required creating multiple DNS records (SPF TXT record, DKIM CNAME records, DMARC TXT record), waiting 24 - 72 hours for each record type to propagate before verification, and then iterating when Google's authentication checker reported partial failures due to subdomain configuration. Total elapsed time was 5 business days [fictional], with setup beginning on April 14 and completing April 21 . the launch gate deadline.
+The Platform Squad estimated DMARC/SPF/DKIM setup at 1 day [fictional] based on previous experience with shared sending infrastructure on the Storevine platform [fictional]. Dedicated sending domain setup proved to be significantly more complex: it required creating multiple DNS records (SPF TXT record, DKIM CNAME records, DMARC TXT record), waiting 24 - 72 hours for each record type to propagate before verification, and then iterating when Google's authentication checker reported partial failures due to subdomain configuration [fictional]. Total elapsed time was 5 business days [fictional], with setup beginning on April 14 and completing April 21 . the launch gate deadline [fictional].
 
 **Root cause identified:**
-This was the first time the Platform Squad had provisioned a dedicated sending domain. The team had experience with shared infrastructure but not with DNS-level configuration for email authentication. DNS propagation windows were not in the standard sprint estimation checklist, and there was no runbook to reference.
+This was the first time the Platform Squad had provisioned a dedicated sending domain [fictional]. The team had experience with shared infrastructure but not with DNS-level configuration for email authentication [fictional]. DNS propagation windows were not in the standard sprint estimation checklist, and there was no runbook to reference [fictional].
 
 **Proposed solution:**
 Engineering Lead will document a DMARC/SPF/DKIM setup runbook covering the full sequence: DNS record types and values, propagation verification steps (using `dig` and Google's MX Toolbox [fictional]), Gmail and Yahoo sender authentication validation, and expected timeline with a 5-business-day propagation buffer. Future launches involving a new sending domain will treat this setup as a sprint story with a 5-day estimate, not a checklist item with a 1-day estimate.
@@ -196,8 +196,8 @@ Engineering Lead will document a DMARC/SPF/DKIM setup runbook covering the full 
 
 ## Parking Lot
 
-- EU merchant GDPR consent data model: deferred from Campaigns v1.0 to v1.1; Legal review still in progress as of this retro . tracked as a blocker in Sprint 12 refinement.
-- Klaviyo-to-Campaigns migration workflow: raised by Merchant Success Lead based on migrated merchant support tickets; deferred to v2.0 roadmap planning . not a GA-week urgent item, but flagged for the persevere/pivot evaluation.
+- EU merchant GDPR consent data model: deferred from Campaigns v1.0 to v1.1; Legal review still in progress as of this retro [fictional] . tracked as a blocker in Sprint 12 refinement.
+- Klaviyo-to-Campaigns migration workflow: raised by Merchant Success Lead based on migrated merchant support tickets [fictional]; deferred to v2.0 roadmap planning . not a GA-week urgent item, but flagged for the persevere/pivot evaluation.
 
 ---
 
@@ -207,13 +207,13 @@ Engineering Lead will document a DMARC/SPF/DKIM setup runbook covering the full 
 
 | Indicator | This Retro | Last Retro | Trend |
 |-----------|------------|------------|-------|
-| Team morale (1 - 5) [fictional] | 4.2 | 3.8 | ↑ |
-| Process satisfaction (1 - 5) [fictional] | 3.6 | 3.4 | ↑ |
-| Collaboration (1 - 5) [fictional] | 4.5 | 4.1 | ↑ |
+| Team morale (1 - 5) | 4.2 [fictional] | 3.8 [fictional] | ↑ |
+| Process satisfaction (1 - 5) | 3.6 [fictional] | 3.4 [fictional] | ↑ |
+| Collaboration (1 - 5) | 4.5 [fictional] | 4.1 [fictional] | ↑ |
 
 ### Recurring Themes
 
-- Legal/compliance timing has appeared in 3 consecutive sprint retrospectives [fictional] as a process pain point . this is the first retro in which a structural solution (kickoff attendance + sprint story) was agreed upon rather than a one-time workaround.
+- Legal/compliance timing has appeared in 3 consecutive sprint retrospectives [fictional] as a process pain point . this is the first retro in which a structural solution (kickoff attendance + sprint story) was agreed upon rather than a one-time workaround [fictional].
 
 ---
 
@@ -221,7 +221,7 @@ Engineering Lead will document a DMARC/SPF/DKIM setup runbook covering the full 
 
 - Start/Stop/Continue format worked well for a team of 6 covering a 13-week sprint; theme dot-voting took 8 minutes [fictional] and produced a clear priority order without debate
 - Consider using the 4Ls format (Liked, Learned, Lacked, Longed For) for the first post-experiment retrospective . the A/B test results will generate learning-specific reflections that the 4Ls format captures better than Start/Stop/Continue
-- Retrospective energy was notably high given the clean GA; next retrospective may need more structured quiet reflection time if the post-launch momentum fades and the team moves into a longer sustaining mode
+- Retrospective energy was notably high given the clean GA [fictional]; next retrospective may need more structured quiet reflection time if the post-launch momentum fades and the team moves into a longer sustaining mode
 
 ---
 

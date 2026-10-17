@@ -81,7 +81,7 @@ criteria, risks, and implementation notes.
 
 ## Background
 
-Merchant interviews (January 2026) identified three participants with no email program who cited setup complexity as the barrier . not price, not awareness. Interview Insight 2 categorized this non-adopter segment as the highest-ROI activation target for Campaigns v1 because there is no migration cost, no existing workflow to replicate, and no seasonal disruption risk. The hypothesis was formalized in the Define phase with a target of 30% [fictional] first-send rate against a current baseline of 12% [fictional]. The experiment operationalizes that hypothesis: it directly tests whether removing the blank-canvas complexity with pre-populated content is the activation mechanism, or whether some other factor drives the difference.
+Merchant interviews (January 2026) identified three participants [fictional] with no email program who cited setup complexity as the barrier . not price, not awareness. Interview Insight 2 categorized this non-adopter segment as the highest-ROI activation target for Campaigns v1 because there is no migration cost, no existing workflow to replicate, and no seasonal disruption risk. The hypothesis was formalized in the Define phase with a target of 30% [fictional] first-send rate against a current baseline of 12% [fictional]. The experiment operationalizes that hypothesis: it directly tests whether removing the blank-canvas complexity with pre-populated content is the activation mechanism, or whether some other factor drives the difference.
 
 ## Variants
 
@@ -142,17 +142,17 @@ Merchant interviews (January 2026) identified three participants with no email p
 | **Minimum detectable effect (MDE)** | 8 percentage points absolute (12% → 20%) |
 | **Statistical significance (alpha)** | 0.05 (two-tailed) |
 | **Statistical power (1-beta)** | 0.80 |
-| **Users per variant** | 1,180 merchants (rounded to 1,200 [fictional]) |
+| **Users per variant** | 1,180 merchants [fictional] (rounded to 1,200 [fictional]) |
 | **Total users needed** | 2,400 merchants [fictional] |
 
 ### Duration Estimate
 
 | Parameter | Value |
 |-----------|-------|
-| **Daily eligible traffic** | ~113 newly eligible non-adopter merchants/day [fictional] (6,800 total / 60 days) |
+| **Daily eligible traffic** | ~113 newly eligible non-adopter merchants/day [fictional] (6,800 [fictional] total / 60 days) |
 | **Traffic allocation** | 100% of eligible segment to experiment (no holdout) |
 | **Users per day in experiment** | ~113 merchants/day [fictional] across both variants |
-| **Minimum duration** | ~22 days to reach 2,400 merchants [fictional] |
+| **Minimum duration** | ~22 days [fictional] to reach 2,400 merchants [fictional] |
 | **Recommended duration** | 60 days . covers the full hypothesis measurement window and two distinct seasonal sub-periods (May promotions + early June) |
 
 ## Audience Targeting
@@ -197,7 +197,7 @@ Treatment variant's first campaign send rate is 20 - 29% [fictional] at 60 days 
 | Risk | Likelihood | Impact | Mitigation |
 |------|------------|--------|------------|
 | Template quality drives abandonment rather than reducing it (auto-populated products look low-quality or irrelevant) | Medium | High | Design QA of template rendering across five representative merchant account types before GA; include an explicit merchant preview step before final send in the treatment variant |
-| GA-day novelty effect inflates early treatment adoption (merchants curious about a new product are more likely to send regardless of the flow) | Medium | Medium | Use a 60-day window rather than a 7- or 14-day snapshot; novelty effects typically normalize within 2 weeks |
+| GA-day novelty effect inflates early treatment adoption (merchants curious about a new product are more likely to send regardless of the flow) | Medium | Medium | Use a 60-day window rather than a 7- or 14-day snapshot; novelty effects typically normalize within 2 weeks [fictional] |
 | Activation rate differs materially between variants, indicating feature flag selection bias | Low | High | Monitor campaigns_activation_rate in both variants during the first week; flag Engineering Lead if >5% [fictional] difference is observed |
 | Merchant quality differs between control and treatment due to non-random assignment | Low | High | Confirm randomization is at the merchant_id level and is deterministic (same merchant always sees the same variant) |
 

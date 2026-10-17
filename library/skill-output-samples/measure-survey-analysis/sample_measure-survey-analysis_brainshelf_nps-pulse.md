@@ -60,36 +60,36 @@ These choices affect interpretation: the trend is trustworthy, but the absolute 
 | Q1 | Likelihood to recommend (0-10) | Promoters 42% / Passives 38% / Detractors 20% -> NPS 22 `[fictional]` | High (N=1200) | Sentiment improving vs. last quarter (NPS 18) | Why; or what to build |
 | Q2 | One thing you would change (open text) | 870 responses `[fictional]` | Medium | Roadmap themes (below) | Magnitude of each theme at full-base scale |
 
-NPS trend: 18 -> 22 over one quarter `[fictional]`. With N=1,200 both quarters, a 4-point move is suggestive of a real shift, but NPS is only comparable when response composition is consistent quarter-over-quarter, which is hard to verify here (response rate ~14%, churned subscribers absent). Treat it as directional improvement, not a confirmed significant change.
+NPS trend: 18 -> 22 over one quarter `[fictional]`. With N=1,200 both quarters, a 4-point move is suggestive of a real shift, but NPS is only comparable when response composition is consistent quarter-over-quarter, which is hard to verify here (response rate ~14%, churned subscribers absent) `[fictional]`. Treat it as directional improvement, not a confirmed significant change.
 
 ## Persona / Segment Breakdown
 
 | Segment | n | NPS | Note |
 |---|---|---|---|
-| Monthly plan | 740 `[fictional]` | 19 | Lower loyalty |
-| Annual plan | 460 `[fictional]` | 27 | More committed |
+| Monthly plan | 740 `[fictional]` | 19 `[fictional]` | Lower loyalty |
+| Annual plan | 460 `[fictional]` | 27 `[fictional]` | More committed |
 
 Annual subscribers are meaningfully more loyal, consistent with self-selection (people who pre-commit a year are more bought-in). Both segments exceed n=30, so the split is defensible.
 
 ## Open-Text Thematic Clustering
 
-AI-assisted clustering of 870 open-text responses; quotes are illustrative `[fictional]` stand-ins for what real excerpts would look like. Mention counts approximate.
+AI-assisted clustering of 870 open-text responses `[fictional]`; quotes are illustrative `[fictional]` stand-ins for what real excerpts would look like. Mention counts approximate.
 
 | Theme | Approx. mentions | Representative quotes | Valence | Contradicts NPS trend? |
 |---|---|---|---|---|
-| Recommendation consistency | ~310 | "Some weeks are spot on, some are random" `[fictional]` | Mixed | No - explains the passives |
-| Want more niche/indie picks | ~190 | "Stop recommending obvious bestsellers" `[fictional]` | Negative | No |
-| Reading-format options (audiobooks) | ~150 | "I mostly listen now, give me audiobook recs" `[fictional]` | Request | No |
-| Price sensitivity | ~120 | "Good but borderline too expensive" `[fictional]` | Negative | Mild |
-| Love it / keep going | ~90 | "Honestly don't change anything" `[fictional]` | Positive | Reinforces |
+| Recommendation consistency | ~310 `[fictional]` | "Some weeks are spot on, some are random" `[fictional]` | Mixed | No - explains the passives |
+| Want more niche/indie picks | ~190 `[fictional]` | "Stop recommending obvious bestsellers" `[fictional]` | Negative | No |
+| Reading-format options (audiobooks) | ~150 `[fictional]` | "I mostly listen now, give me audiobook recs" `[fictional]` | Request | No |
+| Price sensitivity | ~120 `[fictional]` | "Good but borderline too expensive" `[fictional]` | Negative | Mild |
+| Love it / keep going | ~90 `[fictional]` | "Honestly don't change anything" `[fictional]` | Positive | Reinforces |
 
-The top theme - recommendation consistency - is the roadmap signal NPS alone would never reveal. It explains the large passive bucket (38%): people who like Brainshelf but are not promoters because the quality wobbles.
+The top theme - recommendation consistency - is the roadmap signal NPS alone would never reveal. It explains the large passive bucket (38% `[fictional]`): people who like Brainshelf but are not promoters because the quality wobbles.
 
 ## Hypothesis Validation
 
 | Hypothesis | Status | Evidence | Confidence |
 |---|---|---|---|
-| Sentiment is improving quarter-over-quarter | SUPPORTED | NPS 18 -> 22, N=1200 both periods | High |
+| Sentiment is improving quarter-over-quarter | SUPPORTED | NPS 18 -> 22 `[fictional]`, N=1200 both periods | High |
 | We know what feature to build next | NOT TESTED BY THIS SURVEY | NPS is not diagnostic; open text gives direction, not validation | - |
 
 ## What the Data Does NOT Show

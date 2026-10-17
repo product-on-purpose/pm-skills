@@ -67,12 +67,12 @@ status: draft
 
 **Synthesis scope**: Campaigns across 5 meetings, 2026-01-01 to 2026-03-31 (retro-input format)
 
-Q1 Campaigns work completed scope, capacity, and launch decisions on schedule but had a mid-quarter overrun on the user-research round. Three patterns worth retro discussion: research-scope discipline, cross-team handoff to data, and mid-cycle CEO expectation-setting.
+Q1 Campaigns work completed scope, capacity, and launch decisions on schedule [fictional] but had a mid-quarter overrun on the user-research round [fictional]. Three patterns worth retro discussion: research-scope discipline, cross-team handoff to data, and mid-cycle CEO expectation-setting.
 
 **Top retrospective themes**:
-- What worked: scope narrowed decisively (one meeting, not three)
-- What did not work: research round overran by 18% on unplanned follow-up interviews
-- What we did not see coming: CEO's mid-quarter pushback on capacity even though we were on track
+- What worked: scope narrowed decisively (one meeting, not three) [fictional]
+- What did not work: research round overran by 18% [fictional] on unplanned follow-up interviews
+- What we did not see coming: CEO's mid-quarter pushback on capacity even though we were on track [fictional]
 
 **Recommended retro discussion topics**:
 - Research-scope discipline: how to commit a research budget upfront
@@ -104,49 +104,49 @@ Q1 Campaigns work completed scope, capacity, and launch decisions on schedule bu
             |
 2026-02-04  |  User Interview Debrief
             |  → Strong signal: [fictional] 9 of 12 merchants tired of Klaviyo-juggling
-            |  → Unplanned follow-up: 6 more interviews requested on SMS-specific concerns
+            |  → Unplanned follow-up: 6 more interviews requested on SMS-specific concerns [fictional]
             |  [!] research overrun begins here
             |
 2026-02-25  |  Scope Workshop
-            |  → Scope narrowed in one meeting: email + SMS in, segmentation v2 deferred
+            |  → Scope narrowed in one meeting [fictional]: email + SMS in, segmentation v2 deferred
             |
 2026-03-11  |  Capacity Review
             |  → Q2 capacity committed: 8 sprint-weeks
-            |  → CEO raised capacity concerns mid-review (emerged, not planned)
+            |  → CEO raised capacity concerns mid-review (emerged, not planned) [fictional]
             |
 2026-03-25  |  Q1 Close-out
-            |  → Research overrun absorbed; Q1 deliverables shipped on time
+            |  → Research overrun absorbed; Q1 deliverables shipped on time [fictional]
 ```
 
 ### Themes (retro-input format leads with these)
 
-#### What worked: scope narrowed decisively [confidence: high. 1/5 meetings resolved]
+#### What worked: scope narrowed decisively [fictional] [confidence: high. 1/5 meetings resolved]
 
-Scope workshop on Feb 25 converged in one meeting, not the typical three. Pattern to replicate: pre-work (research synthesis) was done before the meeting, attendees came prepared with positions, and a forcing function (SMS-feasibility question) drove a clear in/out choice.
+Scope workshop on Feb 25 converged in one meeting, not the typical three [fictional]. Pattern to replicate: pre-work (research synthesis) was done before the meeting, attendees came prepared with positions, and a forcing function (SMS-feasibility question) drove a clear in/out choice [fictional].
 
-#### What did not work: research round overran [confidence: high. explicit in Feb 4 and Mar 25 recaps]
+#### What did not work: research round overran [fictional] [confidence: high. explicit in Feb 4 and Mar 25 recaps]
 
-User interview debrief surfaced an unexpected signal (SMS-specific concerns) that led to 6 additional interviews beyond the scoped 12. Overrun was [fictional] ~18% on budget. The pattern: no research-scope discipline mechanism to decide whether to add scope or park the signal for later.
+User interview debrief surfaced an unexpected signal (SMS-specific concerns) that led to 6 additional interviews [fictional] beyond the scoped 12. Overrun was [fictional] ~18% on budget. The pattern: no research-scope discipline mechanism to decide whether to add scope or park the signal for later.
 
-#### What we did not see coming: mid-cycle CEO concern [confidence: medium. 1/5 meetings]
+#### What we did not see coming: mid-cycle CEO concern [fictional] [confidence: medium. 1/5 meetings]
 
-Mar 11 capacity review saw CEO priya raise capacity concerns even though the team was on track. Retrospective question: could we have pre-empted by signaling capacity status at end of Feb?
+Mar 11 capacity review saw CEO priya raise capacity concerns even though the team was on track [fictional]. Retrospective question: could we have pre-empted by signaling capacity status at end of Feb?
 
 ### Stakeholder position tracking
 
 **priya-ceo**
 
-- **Position evolution**: quiet supporter → mid-cycle-concerned → Q1-close-satisfied
-- **Retro note**: her mid-cycle concern was likely about optics not reality; earlier signaling might help
+- **Position evolution**: quiet supporter → mid-cycle-concerned → Q1-close-satisfied [fictional]
+- **Retro note**: her mid-cycle concern was likely about optics not reality [fictional]; earlier signaling might help
 
 **rachel-vp**
 
-- **Position evolution**: steady support throughout
-- **Retro note**: aligned through and through; consider her as a pattern for "stable-support stakeholder" going forward
+- **Position evolution**: steady support throughout [fictional]
+- **Retro note**: aligned through and through [fictional]; consider her as a pattern for "stable-support stakeholder" going forward
 
 **alex-marketing**
 
-- **Position evolution**: engaged from scope workshop onward (not earlier research)
+- **Position evolution**: engaged from scope workshop onward (not earlier research) [fictional]
 - **Retro note**: could have been valuable in research kickoff too
 
 ### Consolidated decision list
@@ -177,7 +177,7 @@ No live unresolved contradictions as of 2026-03-31.
 
 ### Narrative summary
 
-Q1 Campaigns work delivered on its deliverables (research, scope, capacity commitment) but surfaced three operational patterns worth bringing to retrospective. The scope workshop on Feb 25 was a template for how pre-work + forcing function produces fast decisions; worth replicating. The research overrun on SMS follow-ups highlighted the absence of a research-budget-discipline mechanism. a candidate for a team process change in Q2. The CEO's mid-cycle capacity concern raises a communication question: even when on track, lack of mid-cycle signaling creates anxiety upstream.
+Q1 Campaigns work delivered on its deliverables (research, scope, capacity commitment) [fictional] but surfaced three operational patterns worth bringing to retrospective. The scope workshop on Feb 25 was a template for how pre-work + forcing function produces fast decisions [fictional]; worth replicating. The research overrun on SMS follow-ups [fictional] highlighted the absence of a research-budget-discipline mechanism. a candidate for a team process change in Q2. The CEO's mid-cycle capacity concern [fictional] raises a communication question: even when on track, lack of mid-cycle signaling creates anxiety upstream.
 
 Going into Q2, the team has a strong foundation (scope, capacity, customer evidence). The retrospective should focus on what to replicate from the scope-workshop pattern and what to improve from the research-overrun and CEO-signaling patterns.
 

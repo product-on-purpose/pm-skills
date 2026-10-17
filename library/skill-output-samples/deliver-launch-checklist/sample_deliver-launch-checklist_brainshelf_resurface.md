@@ -51,7 +51,7 @@ opt-in enrollment starts mar 2. a/b test starts mar 9.
 
 | Field | Value |
 |-------|-------|
-| What | Resurface: daily email digest surfacing 3 - 5 saved items matched to recent reading interests |
+| What | Resurface: daily email digest surfacing 3 - 5 saved items [fictional] matched to recent reading interests |
 | Launch Date | February 14 - 16, 2026 (behind feature flag) |
 | Launch Type | Major Feature (Brainshelf's first email feature) |
 | Launch Owner | Priya M. |
@@ -122,7 +122,7 @@ opt-in enrollment starts mar 2. a/b test starts mar 9.
 | Item | Owner | Due | Status | Notes |
 |------|-------|-----|--------|-------|
 | [ ] FAQ drafted: "What is the Resurface digest?" | Priya M. | Feb 12 | | Cover: what it is, how to opt in, how to change cadence, how to unsubscribe |
-| [ ] Support team briefed on Resurface feature | Priya M. | Feb 13 | | 15-minute walkthrough for the 2-person support team |
+| [ ] Support team briefed on Resurface feature | Priya M. | Feb 13 | | 15-minute walkthrough for the 2-person support team [fictional] |
 | [ ] Canned responses prepared for common digest questions | Priya M. | Feb 13 | | "I'm not receiving my digest" / "How do I change the time?" / "How do I unsubscribe?" |
 | [ ] Escalation path defined (support → Priya → Alex for technical issues) | Priya M. | Feb 12 | | |
 

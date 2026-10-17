@@ -102,7 +102,7 @@ Built on conflict-free replicated data types (CRDTs), co-editing works even when
 
 **Hybrid wizard/canvas creation flow.** First-time Blueprint authors see a guided wizard that walks through each section with helper text and examples. After your second Blueprint, the editor defaults to a blank canvas for faster authoring. You can switch between wizard and canvas at any time.
 
-**SAML SSO and audit logs.** Enterprise customers can now provision Workbench via SAML SSO (tested with Okta, Azure AD, and OneLogin; generic SAML 2.0 supported). A new audit log captures all Blueprint lifecycle events (created, submitted, approved, rejected, published) with actor, timestamp, and IP address. Audit logs can be exported in CSV or JSON format for compliance reporting.
+**SAML SSO and audit logs.** Enterprise customers can now provision Workbench via SAML SSO (tested with Okta, Azure AD, and OneLogin [fictional]; generic SAML 2.0 supported). A new audit log captures all Blueprint lifecycle events (created, submitted, approved, rejected, published) with actor, timestamp, and IP address. Audit logs can be exported in CSV or JSON format for compliance reporting.
 
 ## Improvements
 
@@ -113,8 +113,8 @@ Built on conflict-free replicated data types (CRDTs), co-editing works even when
 ## Bug Fixes
 
 - Fixed an issue where document auto-save occasionally failed on slow network connections, causing authors to lose recent edits after a page refresh.
-- Fixed a bug where role assignment changes made by an admin did not take effect until the affected user refreshed their browser. Role changes now propagate within 5 minutes.
-- Fixed exported PDFs missing footer page numbers when the document exceeded 20 pages.
+- Fixed a bug where role assignment changes made by an admin did not take effect until the affected user refreshed their browser. Role changes now propagate within 5 minutes [fictional].
+- Fixed exported PDFs missing footer page numbers when the document exceeded 20 pages [fictional].
 
 ## Known Issues
 

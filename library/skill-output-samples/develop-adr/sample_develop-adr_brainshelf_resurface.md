@@ -74,16 +74,16 @@ The backend will call the Resend API on a per-user schedule managed by a cron jo
 
 ### Positive
 
-- Resend's free tier (3,000 emails per month [fictional]) covers the entire development and QA phase; the Developer plan ($20/month, 50,000 emails [fictional]) covers the full A/B test volume and post-ship scale at current opt-in projections with significant headroom
+- Resend's free tier (3,000 emails per month [fictional]) covers the entire development and QA phase; the Developer plan ($20/month [fictional], 50,000 emails [fictional]) covers the full A/B test volume and post-ship scale at current opt-in projections with significant headroom
 - React Email template support means Dan K. can build and preview digest templates locally using JSX components, reducing the design-to-implementation handoff cycle from days to hours
-- The Node.js SDK integrates directly into the existing Express backend with no additional runtime dependencies; Alex R. estimated 2 days for core integration during the evaluation spike
+- The Node.js SDK integrates directly into the existing Express backend with no additional runtime dependencies; Alex R. estimated 2 days [fictional] for core integration during the evaluation spike
 - Resend's webhook delivery for bounce, open, and click events is reliable and well-documented, simplifying the analytics pipeline integration that Chloe B. needs for experiment measurement
 
 ### Negative
 
 - Resend is a younger company (founded 2023) with less operational track record than SendGrid or Postmark; if Resend experiences downtime or deliverability issues, the digest fails silently and users receive no email
 - The team has no prior production experience with Resend; debugging deliverability issues (e.g., emails landing in promotions tab) will require learning Resend's tooling from scratch
-- Resend does not offer a built-in suppression list management UI as mature as SendGrid's; unsubscribe handling must be implemented in the Brainshelf backend using Resend's API rather than relying on a provider-managed preference center
+- Resend does not offer a built-in suppression list management UI as mature as SendGrid's [fictional]; unsubscribe handling must be implemented in the Brainshelf backend using Resend's API rather than relying on a provider-managed preference center
 
 ### Neutral
 
@@ -93,11 +93,11 @@ The backend will call the Resend API on a per-user schedule managed by a cron jo
 
 ### SendGrid (Twilio)
 
-SendGrid is the most widely adopted transactional email provider and offers a mature feature set including built-in suppression list management, a visual template editor, and extensive deliverability analytics. However, SendGrid's free tier was reduced to 100 emails per day in 2024, which would constrain development testing and require an immediate paid plan upgrade. The Essentials plan ($19.95/month for 50,000 emails) is comparable in cost to Resend's Developer plan, but the API integration is more complex . SendGrid's Node.js SDK requires more boilerplate for scheduled sends, and the template system uses a proprietary markup language rather than React components. Alex R. estimated 4 - 5 days for core integration versus 2 days for Resend, which would consume most of Sprint 8's backend capacity. SendGrid was not selected because of the higher integration effort and the lack of React Email support.
+SendGrid is the most widely adopted transactional email provider [fictional] and offers a mature feature set including built-in suppression list management, a visual template editor, and extensive deliverability analytics. However, SendGrid's free tier was reduced to 100 emails per day in 2024 [fictional], which would constrain development testing and require an immediate paid plan upgrade. The Essentials plan ($19.95/month for 50,000 emails [fictional]) is comparable in cost to Resend's Developer plan, but the API integration is more complex . SendGrid's Node.js SDK requires more boilerplate for scheduled sends, and the template system uses a proprietary markup language rather than React components. Alex R. estimated 4 - 5 days [fictional] for core integration versus 2 days [fictional] for Resend, which would consume most of Sprint 8's backend capacity. SendGrid was not selected because of the higher integration effort and the lack of React Email support.
 
 ### Postmark
 
-Postmark has the strongest deliverability reputation among the three providers and the simplest API surface. Postmark's design philosophy emphasizes transactional email (password resets, receipts, notifications) and explicitly discourages bulk or marketing email. While a daily digest is technically transactional (it is triggered by user opt-in, not a marketing campaign), Postmark's terms of service require that each email be triggered by a specific user action, which is a gray area for a cron-scheduled daily digest. Additionally, Postmark does not support scheduled sends natively . the backend would need to manage all send timing independently, which is also true for Resend but is a stated limitation in Postmark's documentation rather than an architectural choice. Postmark was not selected because of the terms-of-service ambiguity for daily digests and the absence of React Email template support.
+Postmark has the strongest deliverability reputation among the three providers [fictional] and the simplest API surface [fictional]. Postmark's design philosophy emphasizes transactional email (password resets, receipts, notifications) and explicitly discourages bulk or marketing email. While a daily digest is technically transactional (it is triggered by user opt-in, not a marketing campaign), Postmark's terms of service require that each email be triggered by a specific user action, which is a gray area for a cron-scheduled daily digest. Additionally, Postmark does not support scheduled sends natively . the backend would need to manage all send timing independently, which is also true for Resend but is a stated limitation in Postmark's documentation rather than an architectural choice. Postmark was not selected because of the terms-of-service ambiguity for daily digests and the absence of React Email template support.
 
 ## References
 

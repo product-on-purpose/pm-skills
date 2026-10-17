@@ -24,9 +24,9 @@ context: "Storevine Day 2 PM (13:00-15:00 PT 2026-05-19); Magic Lenses evaluatio
 
 **1 custom lens (required per skill spec):**
 
-- **Trust**: which approach builds enduring retailer trust given that specialty retailers are skeptical of vendor-funded models and dashboards-that-promise-magic?
+- **Trust**: which approach builds enduring retailer trust given that specialty retailers are skeptical of vendor-funded models and dashboards-that-promise-magic [fictional]?
 
-The Trust lens was added because three of the 31 customer interviews surfaced explicit distrust of "yet another retail SaaS" and one interviewee specifically said "if you sell my data to brands, I will cancel." Trust is the deal-breaker lens for this customer segment.
+The Trust lens was added because three of the 31 customer interviews [fictional] surfaced explicit distrust of "yet another retail SaaS" [fictional] and one interviewee specifically said "if you sell my data to brands, I will cancel." [fictional] Trust is the deal-breaker lens for this customer segment.
 
 ## Lens Scoring
 
@@ -36,18 +36,18 @@ Each approach scored 1-5 per lens. Higher is better.
 
 | Approach | Score | Rationale |
 |---|---|---|
-| 1. Solo Analyst | 5 | Dedicated relationship most closely resembles "trusted consultant" framing customers responded to |
+| 1. Solo Analyst | 5 | Dedicated relationship most closely resembles "trusted consultant" framing customers responded to [fictional] |
 | 2. Pooled Analyst | 4 | Quality of brief is high; relationship continuity is lower but acceptable |
 | 3. Templates | 3 | Risk of generic-feeling outputs; customers might lose trust if templates surface |
-| 4. Software + Optional Analyst | 2 | The merchandiser interviewees said they don't have time for self-serve; this rebadged self-serve |
-| 5. Vendor-Funded | 2 | The "you sell my data" objection is real and severe |
+| 4. Software + Optional Analyst | 2 | The merchandiser interviewees said they don't have time for self-serve [fictional]; this rebadged self-serve |
+| 5. Vendor-Funded | 2 | The "you sell my data" objection is real and severe [fictional] |
 
 ### Pragmatic Lens (Can our 4-person team deliver this in 12 weeks?)
 
 | Approach | Score | Rationale |
 |---|---|---|
 | 1. Solo Analyst | 4 | Devon's data layer + Mei + Carlos as first 2 analysts; can ship in 12 weeks |
-| 2. Pooled Analyst | 3 | Requires 4-6 analyst hires; not realistic in 12 weeks for pre-seed |
+| 2. Pooled Analyst | 3 | Requires 4-6 analyst hires [fictional]; not realistic in 12 weeks for pre-seed |
 | 3. Templates | 4 | Devon's data layer + template authoring is the dominant work; Carlos authors with Tasha designing |
 | 4. Software + Optional Analyst | 3 | Self-serve UI is more software-heavy than the team has capacity for |
 | 5. Vendor-Funded | 1 | Requires two-sided market motion; we don't have vendor relationships; complete distraction |
@@ -56,9 +56,9 @@ Each approach scored 1-5 per lens. Higher is better.
 
 | Approach | Score | Rationale |
 |---|---|---|
-| 1. Solo Analyst | 2 | Throughput cap at 8-12 per analyst; 24-month ceiling is ~80-120 retailers with 10-15 analysts |
-| 2. Pooled Analyst | 4 | Pool model + sector specialization can serve 200-300 retailers in 24 months |
-| 3. Templates | 5 | Template-leveraged review supports 30-50 per analyst; 24-month ceiling is 400-600 retailers |
+| 1. Solo Analyst | 2 | Throughput cap at 8-12 per analyst [fictional]; 24-month ceiling is ~80-120 retailers with 10-15 analysts [fictional] |
+| 2. Pooled Analyst | 4 | Pool model + sector specialization can serve 200-300 retailers in 24 months [fictional] |
+| 3. Templates | 5 | Template-leveraged review supports 30-50 per analyst [fictional]; 24-month ceiling is 400-600 retailers [fictional] |
 | 4. Software + Optional Analyst | 5 | Self-serve scaling has no human cap |
 | 5. Vendor-Funded | 4 | Free-to-retailer accelerates acquisition but unit economics are vendor-side |
 
@@ -80,7 +80,7 @@ Each approach scored 1-5 per lens. Higher is better.
 | 2. Pooled Analyst | 4 | Acceptable; sector-specialist analysts compensate for non-named relationship |
 | 3. Templates | 4 | Good if analyst review is visible; weaker if templates feel generic |
 | 4. Software + Optional Analyst | 2 | Looks like another vendor SaaS; loses the trust differentiator |
-| 5. Vendor-Funded | 1 | Direct conflict of interest; specialty retailers see vendor-funded as adversarial |
+| 5. Vendor-Funded | 1 | Direct conflict of interest; specialty retailers see vendor-funded as adversarial [fictional] |
 
 ## Aggregate Scores
 
@@ -104,7 +104,7 @@ The aggregate has Approach 3 (Templates) leading 21-18-18. The team ran a 20-min
 
 ## Top Bet and Backup Statement
 
-**Top bet:** Storevine ships managed-intelligence as analyst-authored templates: subvertical-specific brief templates populated by software from customer POS + accounting data, reviewed by a Storevine retail-specialist analyst, delivered Monday morning for 15-minute reading. Pricing $800-1000 MRR per retailer. One analyst can serve 30-50 retailers.
+**Top bet:** Storevine ships managed-intelligence as analyst-authored templates: subvertical-specific brief templates populated by software from customer POS + accounting data, reviewed by a Storevine retail-specialist analyst, delivered Monday morning for 15-minute reading. Pricing $800-1000 MRR per retailer. One analyst can serve 30-50 retailers [fictional].
 
 **Backup plan:** If the design-partner pilot signals that template-driven briefs feel generic (NPS below 30 or customer-judged actionability below 4 of 5 by week 3), Storevine pivots to Approach 2 (Pooled Analyst Team) where analysts author briefs from scratch with sector rotation. Trade-off: lower margins, lower scale ceiling, but stronger customer-judged quality.
 

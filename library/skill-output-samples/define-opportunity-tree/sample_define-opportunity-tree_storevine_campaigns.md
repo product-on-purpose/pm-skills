@@ -69,7 +69,7 @@ branch, prioritization, and experiments backlog for Q2 planning.
 
 ### Why This Outcome Matters
 
-At ~18,000 active merchants [fictional] and an average merchant lifetime value of $3,200 [fictional], each percentage-point reduction in annual churn represents approximately $576,000 [fictional] in retained annual revenue. The Q4 exit survey identified tool fragmentation . merchants being required to use external tools for capabilities they expect the platform to provide . as the top-three churn driver, making this outcome directly actionable through product investment. Recurly Research benchmarks place median SMB SaaS annual churn at 10 - 15%; at 22% [fictional], Storevine is operating significantly above category, confirming that retention improvement is the highest-leverage investment available.
+At ~18,000 active merchants [fictional] and an average merchant lifetime value of $3,200 [fictional], each percentage-point reduction in annual churn represents approximately $576,000 [fictional] in retained annual revenue. The Q4 exit survey identified tool fragmentation . merchants being required to use external tools for capabilities they expect the platform to provide . as the top-three churn driver [fictional], making this outcome directly actionable through product investment. Recurly Research benchmarks place median SMB SaaS annual churn at 10 - 15%; at 22% [fictional], Storevine is operating significantly above category, confirming that retention improvement is the highest-leverage investment available.
 
 ---
 
@@ -77,7 +77,7 @@ At ~18,000 active merchants [fictional] and an average merchant lifetime value o
 
 ```
                       REDUCE ANNUAL MERCHANT CHURN
-                         22% → 14% by Q4 2026
+                         22% [fictional] → 14% [fictional] by Q4 2026
                                    |
            ┌───────────────────────┼───────────────────────┐
            |                       |                       |
@@ -109,8 +109,8 @@ At ~18,000 active merchants [fictional] and an average merchant lifetime value o
 
 **Evidence:**
 - Q4 exit survey: "22% of churned merchants cited 'had to use a separate email tool' as a primary cancellation reason" [fictional]
-- Merchant interviews: 5 of 8 participants use an external email tool; 3 of 8 have no email program at all due to setup complexity
-- Competitive analysis: Shopify Email's built-in model has already validated that platform-native email reduces this churn vector for Shopify merchants
+- Merchant interviews: 5 of 8 participants use an external email tool [fictional]; 3 of 8 have no email program at all due to setup complexity [fictional]
+- Competitive analysis: Shopify Email's built-in model has already validated that platform-native email reduces this churn vector for Shopify merchants [fictional]
 
 #### Solutions
 
@@ -135,9 +135,9 @@ At ~18,000 active merchants [fictional] and an average merchant lifetime value o
 **Confidence:** Medium
 
 **Evidence:**
-- Merchant interview P8: "I use it, but honestly my open rates are bad and I don't know why. There's no way to see what's working."
-- Interview Insight 3: Revenue attribution is "the credibility gate" . without it, merchants cannot make the business case to continue using a tool
-- Competitive analysis: Revenue attribution is the most commonly cited gap in Shopify Email reviews; Klaviyo's attribution is described as the most credible in the category
+- Merchant interview P8: "I use it, but honestly my open rates are bad and I don't know why. There's no way to see what's working." [fictional]
+- Interview Insight 3: Revenue attribution is "the credibility gate" . without it, merchants cannot make the business case to continue using a tool [fictional]
+- Competitive analysis: Revenue attribution is the most commonly cited gap in Shopify Email reviews [fictional]; Klaviyo's attribution is described as the most credible in the category [fictional]
 
 #### Solutions
 
@@ -163,8 +163,8 @@ At ~18,000 active merchants [fictional] and an average merchant lifetime value o
 
 **Evidence:**
 - Q4 exit survey: churn signal is correlated with merchants maintaining 3+ external tool subscriptions simultaneously [fictional]
-- Competitive analysis: Shopify Email's free-tier pricing model has set the expectation that built-in email should not add incremental subscription cost
-- JTBD canvas finding: the hiring criterion for Campaigns includes "eliminates the need for a separate subscription" as a table-stakes requirement, not a differentiator
+- Competitive analysis: Shopify Email's free-tier pricing model has set the expectation that built-in email should not add incremental subscription cost [fictional]
+- JTBD canvas finding: the hiring criterion for Campaigns includes "eliminates the need for a separate subscription" as a table-stakes requirement, not a differentiator [fictional]
 
 #### Solutions
 
@@ -188,7 +188,7 @@ At ~18,000 active merchants [fictional] and an average merchant lifetime value o
 
 **Priority Opportunity:** Opportunity 1 . merchants can't run email re-engagement without a separate tool
 **Priority Solution:** Solution 1A . Campaigns v1 native email with guided first-campaign flow
-**Rationale:** Highest confidence evidence base (Q4 exit survey + 8 merchant interviews + competitive validation from Shopify Email), directly addresses the stated top-three churn driver, engineering-feasible within Q2 2026 capacity, and does not require dependencies outside the Storevine platform. Solution 2A (revenue attribution) is a v1 co-requirement, not a standalone priority . attribution ships with Campaigns v1 or Campaigns is not a credible alternative to Klaviyo for any merchant who has tried it.
+**Rationale:** Highest confidence evidence base (Q4 exit survey + 8 merchant interviews + competitive validation from Shopify Email [fictional]), directly addresses the stated top-three churn driver [fictional], engineering-feasible within Q2 2026 capacity, and does not require dependencies outside the Storevine platform. Solution 2A (revenue attribution) is a v1 co-requirement, not a standalone priority . attribution ships with Campaigns v1 or Campaigns is not a credible alternative to Klaviyo for any merchant who has tried it.
 
 ### Opportunity Ranking
 

@@ -24,7 +24,7 @@ Redesign the Workbench one-screen UX so SREs in incident-time disorientation pha
 ## Sprint Questions
 
 1. **Will senior SREs in a simulated incident-time disorientation phase identify "what is happening" + "what to look at first" within 60 sec of opening the redesigned Workbench one-screen?** (Tests pilot-derived A9; lead question.)
-2. **Does the redesigned one-screen reduce the "revert to source tool within 3 min" rate observed in the pilot from 50% to under 20%?**
+2. **Does the redesigned one-screen reduce the "revert to source tool within 3 min" rate observed in the pilot from 50% [fictional] to under 20%?**
 3. **Do SREs describe the one-screen as augmenting (not replacing) their existing tools, in alignment with the FS positioning principle?**
 4. **When asked "what would you pay per-seat for this", do SREs self-describe a sustainable price point within the USD 150-300 band?**
 

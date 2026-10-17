@@ -54,8 +54,8 @@ scope anything. need design + pmm + marco versions. don't oversell, it's
 **Risks and open questions**
 
 - M5: Pattern 1 (saving = productivity): users say the act of saving feels like progress, which is exactly why the pile grows without being read.
-- M6: Pattern 2 (the pile feels like debt): the unread library produces guilt and avoidance; several users said they avoid opening Brainshelf because the backlog makes them feel behind.
-- M7: Pattern 3 (no return moment): no interviewee had a habit or trigger that brought them back; they returned only by accident, when they happened to open the app to save something new.
+- M6: Pattern 2 (the pile feels like debt): the unread library produces guilt and avoidance; several users said they avoid opening Brainshelf because the backlog makes them feel behind [fictional].
+- M7: Pattern 3 (no return moment): no interviewee had a habit or trigger that brought them back; they returned only by accident, when they happened to open the app to save something new [fictional].
 - M8: Open question: do users want fewer-but-better saves (curation), or a reason to return to what they already saved (a trigger)? The research leans toward the trigger, but it is not conclusive at n=7.
 
 **Asks**
@@ -78,7 +78,7 @@ scope anything. need design + pmm + marco versions. don't oversell, it's
 
 **What this means for UX/Design**
 
-The interviews (n=7, so a strong qualitative signal, not a proof) [fictional] point at something we should design directly into the next concepts. Three patterns. One, saving feels like productivity: the act of saving is the reward, which is precisely why the pile grows and never gets read. Two, the pile feels like debt: people described real guilt about the backlog, and a few said they avoid opening Brainshelf because the unread count makes them feel behind. Three, there is no return moment: nobody had a trigger that brought them back; they returned only by accident when they came in to save something new. The design implication is that better folders, tags, or search probably will not fix this, because the problem is not "I can't find my saved stuff," it is "nothing ever brings me back to it." There is one genuine open question to hold: is the want fewer-but-better saves (curation) or a reason to come back (a trigger)? Sketch toward the trigger, but keep the curation hypothesis alive enough to test.
+The interviews (n=7, so a strong qualitative signal, not a proof) [fictional] point at something we should design directly into the next concepts. Three patterns. One, saving feels like productivity: the act of saving is the reward, which is precisely why the pile grows and never gets read. Two, the pile feels like debt: people described real guilt about the backlog, and a few said they avoid opening Brainshelf because the unread count makes them feel behind [fictional]. Three, there is no return moment: nobody had a trigger that brought them back; they returned only by accident when they came in to save something new [fictional]. The design implication is that better folders, tags, or search probably will not fix this, because the problem is not "I can't find my saved stuff," it is "nothing ever brings me back to it." There is one genuine open question to hold: is the want fewer-but-better saves (curation) or a reason to come back (a trigger)? Sketch toward the trigger, but keep the curation hypothesis alive enough to test.
 
 --- END ---
 
@@ -92,7 +92,7 @@ The interviews (n=7, so a strong qualitative signal, not a proof) [fictional] po
 
 **What this means for PMM**
 
-There is a real emotional story here, and it is worth capturing now even though we have nothing to launch yet. Users save constantly because saving feels productive, then the unread pile turns into a quiet source of guilt: a backlog they feel behind on, to the point that some avoid the app rather than face it. That tension (saving feels good, not-reading feels bad) is the most resonant thing the research surfaced, and "the guilt pile" is a phrase users essentially gave us. Bank it as the emotional anchor for future positioning. The caution: this is 7 interviews and no validated solution, so do not put any of this in external copy or claims yet; treat it as messaging raw material, not a campaign. Once we ship and validate a fix, this is the story we lead with.
+There is a real emotional story here, and it is worth capturing now even though we have nothing to launch yet. Users save constantly because saving feels productive, then the unread pile turns into a quiet source of guilt: a backlog they feel behind on, to the point that some avoid the app rather than face it. That tension (saving feels good, not-reading feels bad) is the most resonant thing the research surfaced, and "the guilt pile" is a phrase users essentially gave us [fictional]. Bank it as the emotional anchor for future positioning. The caution: this is 7 interviews and no validated solution, so do not put any of this in external copy or claims yet; treat it as messaging raw material, not a campaign. Once we ship and validate a fix, this is the story we lead with.
 
 --- END ---
 
@@ -106,7 +106,7 @@ There is a real emotional story here, and it is worth capturing now even though 
 
 **What this means for Marco**
 
-The interviews confirm what the metrics implied: users save a lot (~47 items/month) and almost never come back (under 9% revisited in 30 days) [fictional]. The reason is not that they cannot organize or find their saves; it is that nothing ever brings them back to read. That reframes where we invest. The temptation is to build more organization features (folders, smart collections), but the research says the bottleneck is a missing return trigger, so building organization would be solving the wrong problem. This is a qualitative read (7 interviews), so it is a direction, not a guarantee, but it is consistent and it lines up with the data. What I need from you: endorse framing this as a trigger problem before we spend a sprint scoping, so we scope toward the right bet.
+The interviews confirm what the metrics implied: users save a lot (~47 items/month [fictional]) and almost never come back (under 9% revisited in 30 days) [fictional]. The reason is not that they cannot organize or find their saves; it is that nothing ever brings them back to read. That reframes where we invest. The temptation is to build more organization features (folders, smart collections), but the research says the bottleneck is a missing return trigger, so building organization would be solving the wrong problem. This is a qualitative read (7 interviews), so it is a direction, not a guarantee, but it is consistent and it lines up with the data. What I need from you: endorse framing this as a trigger problem before we spend a sprint scoping, so we scope toward the right bet.
 
 --- END ---
 

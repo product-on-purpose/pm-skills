@@ -75,7 +75,7 @@ want to have the design doc locked before the setup week (mar 2-8).
 
 ## Background
 
-Brainshelf's 7-day return rate is 18% [fictional], below the 25 - 35% median for consumer utility apps and below the Q1 retention OKR target of 25% [fictional]. The January 2026 user interviews identified the absence of an external return trigger as the primary barrier to re-engagement: users save content but never come back because nothing prompts them to. The Resurface feature creates a daily email trigger that delivers relevant saved items to the user's inbox at 7:30 AM local time. The feature was shipped behind a feature flag on February 16, 2026, and this experiment will determine whether the digest meaningfully improves return rates before a full rollout.
+Brainshelf's 7-day return rate is 18% [fictional], below the 25 - 35% median for consumer utility apps [fictional] and below the Q1 retention OKR target of 25% [fictional]. The January 2026 user interviews identified the absence of an external return trigger as the primary barrier to re-engagement [fictional]: users save content but never come back because nothing prompts them to. The Resurface feature creates a daily email trigger that delivers relevant saved items to the user's inbox at 7:30 AM local time. The feature was shipped behind a feature flag on February 16, 2026 [fictional], and this experiment will determine whether the digest meaningfully improves return rates before a full rollout.
 
 ## Variants
 
@@ -136,7 +136,7 @@ Brainshelf's 7-day return rate is 18% [fictional], below the 25 - 35% median for
 | Parameter | Value |
 |-----------|-------|
 | **Baseline conversion rate** | 18% (7-day return rate) [fictional] |
-| **Minimum detectable effect (MDE)** | 5 pp absolute (18% → 23%) |
+| **Minimum detectable effect (MDE)** | 5 pp absolute (18% → 23%) [fictional] |
 | **Statistical significance (alpha)** | 0.05 (two-tailed) |
 | **Statistical power (1-beta)** | 0.80 |
 | **Users per variant** | 400 [fictional] |
@@ -146,7 +146,7 @@ Brainshelf's 7-day return rate is 18% [fictional], below the 25 - 35% median for
 
 | Parameter | Value |
 |-----------|-------|
-| **Daily eligible traffic** | ~330 active savers visit per day [fictional] (from the 9,800 eligible pool) |
+| **Daily eligible traffic** | ~330 active savers visit per day [fictional] (from the 9,800 eligible pool [fictional]) |
 | **Traffic allocation** | ~8% of eligible users (800 of 9,800) [fictional] |
 | **Users per day in experiment** | Enrollment is front-loaded: all 800 users assigned at experiment start (batch randomization) |
 | **Minimum duration** | 4 weeks (to capture 4 full weekly return cycles) |

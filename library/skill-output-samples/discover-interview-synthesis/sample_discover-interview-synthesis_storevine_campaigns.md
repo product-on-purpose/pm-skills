@@ -62,7 +62,7 @@ To understand why Storevine merchants who are actively using third-party email m
 ### Methodology
 
 - **Format:** Video call (Zoom), semi-structured interview guide
-- **Duration:** 45 minutes average; range 38 - 52 minutes
+- **Duration:** 45 minutes average; range 38 - 52 minutes [fictional]
 - **Interviewer(s):** UX Researcher (lead), Growth PM (observer/note-taker)
 - **Date Range:** January 12  -  January 28, 2026
 
@@ -70,66 +70,66 @@ To understand why Storevine merchants who are actively using third-party email m
 
 | ID | Role/Segment | Store Category | Email Tool | Interview Date | Notes |
 |----|--------------|----------------|-----------|----------------|-------|
-| P1 | Owner, ~1,200 customers [fictional] | Fashion boutique | Klaviyo | Jan 12 | Power user; 3 active flows; considered Storevine email initially |
-| P2 | Owner, ~480 customers [fictional] | Home goods | Mailchimp | Jan 14 | Switched away from Storevine built-in tools 18 months ago |
+| P1 | Owner, ~1,200 customers [fictional] | Fashion boutique | Klaviyo | Jan 12 | Power user; 3 active flows [fictional]; considered Storevine email initially |
+| P2 | Owner, ~480 customers [fictional] | Home goods | Mailchimp | Jan 14 | Switched away from Storevine built-in tools 18 months ago [fictional] |
 | P3 | Owner, ~95 customers [fictional] | Specialty food | None | Jan 15 | Avoids email entirely; cited setup complexity as barrier |
-| P4 | Owner/operator, ~2,100 customers [fictional] | Apparel | Klaviyo | Jan 19 | Most experienced email marketer in cohort; uses flows extensively |
-| P5 | Owner, ~310 customers [fictional] | Beauty and skincare | Klaviyo | Jan 21 | Adopted Klaviyo after Q4 2024 peak season; regrets timing |
+| P4 | Owner/operator, ~2,100 customers [fictional] | Apparel | Klaviyo | Jan 19 | Most experienced email marketer in cohort [fictional]; uses flows extensively |
+| P5 | Owner, ~310 customers [fictional] | Beauty and skincare | Klaviyo | Jan 21 | Adopted Klaviyo after Q4 2024 peak season [fictional]; regrets timing |
 | P6 | Co-owner, ~60 customers [fictional] | Pet supplies | None | Jan 22 | Relies on social media; email "on the list" for this year |
 | P7 | Owner, ~680 customers [fictional] | Jewelry and accessories | Mailchimp | Jan 26 | Long-time Mailchimp user from before Storevine; never evaluated switching |
-| P8 | Owner, ~190 customers [fictional] | Outdoor and sporting | Storevine only | Jan 28 | Uses Storevine built-in; sends ~1 campaign/month; cites low engagement |
+| P8 | Owner, ~190 customers [fictional] | Outdoor and sporting | Storevine only | Jan 28 | Uses Storevine built-in; sends ~1 campaign/month [fictional]; cites low engagement |
 
 ## Key Themes
 
 ### Theme 1: Klaviyo Dependency Creates Genuine Lock-In
 
-**Prevalence:** 4 of 8 participants (P1, P4, P5; pattern observed in P7)
+**Prevalence:** 4 of 8 participants [fictional] (P1, P4, P5; pattern observed in P7)
 
 **Summary:** Merchants who adopted Klaviyo describe themselves as effectively locked in . not due to contractual commitments but because of data and workflow dependency. Their audience segments, automation flows, and historical performance benchmarks live inside Klaviyo, and the cost of migrating that institutional knowledge, not the cost of the subscription itself, is the real barrier to switching. P5 explicitly regrets her timing of adoption but says her abandoned cart flows are generating enough revenue that migration risk outweighs the potential savings.
 
 **Evidence:**
-- P1: "I've got three years of segment history in Klaviyo. My VIP segment isn't just a filter . it's a list I've cultivated. I'd lose all that if I moved."
-- P4: "It's not the $200 a month. It's that I'd have to rebuild everything from scratch. My flows took me six months to tune."
-- P5: "I actually wish I'd waited for Storevine to build this. But I went in right before Black Friday because I was scared of losing revenue. Now I can't leave."
+- P1: "I've got three years of segment history in Klaviyo. My VIP segment isn't just a filter . it's a list I've cultivated. I'd lose all that if I moved." [fictional]
+- P4: "It's not the $200 a month. It's that I'd have to rebuild everything from scratch. My flows took me six months to tune." [fictional]
+- P5: "I actually wish I'd waited for Storevine to build this. But I went in right before Black Friday because I was scared of losing revenue. Now I can't leave." [fictional]
 
 ### Theme 2: Storevine's Built-In Email Is Seen as "Not Real Email Marketing"
 
-**Prevalence:** 6 of 8 participants (P1, P2, P4, P5, P7, P8)
+**Prevalence:** 6 of 8 participants [fictional] (P1, P2, P4, P5, P7, P8)
 
-**Summary:** Even participants who are satisfied with Storevine overall describe the built-in email tools as suitable for basic announcement sends but not for the segmentation and attribution that drives meaningful revenue. Two specific gaps recur across all six: the inability to segment audiences meaningfully by purchase behavior, and the absence of revenue attribution . knowing which emails actually drove purchases. These are not minor gaps; merchants describe them as the reason external tools exist.
+**Summary:** Even participants who are satisfied with Storevine overall describe the built-in email tools as suitable for basic announcement sends but not for the segmentation and attribution that drives meaningful revenue. Two specific gaps recur across all six [fictional]: the inability to segment audiences meaningfully by purchase behavior, and the absence of revenue attribution . knowing which emails actually drove purchases. These are not minor gaps; merchants describe them as the reason external tools exist.
 
 **Evidence:**
-- P2: "The Storevine email felt like a newsletter tool. I needed to know who bought and who didn't and send different emails to each. It couldn't do that."
-- P7: "I've been on Mailchimp since 2019. I never checked if Storevine could do what I needed. It just felt like it wasn't the right tool for email."
-- P8: "I use it, but honestly my open rates are bad and I don't know why. There's no way to see what's working."
+- P2: "The Storevine email felt like a newsletter tool. I needed to know who bought and who didn't and send different emails to each. It couldn't do that." [fictional]
+- P7: "I've been on Mailchimp since 2019. I never checked if Storevine could do what I needed. It just felt like it wasn't the right tool for email." [fictional]
+- P8: "I use it, but honestly my open rates are bad and I don't know why. There's no way to see what's working." [fictional]
 
 ### Theme 3: Fear of Disrupting Email During Peak Season Creates a Permanent "Wrong Time" Window
 
-**Prevalence:** 5 of 8 participants (P1, P2, P4, P5, P7)
+**Prevalence:** 5 of 8 participants [fictional] (P1, P2, P4, P5, P7)
 
 **Summary:** Merchants who would consider switching are caught in a recurring dilemma: they cannot migrate during peak season . Q4, Valentine's Day, Mother's Day . because the risk of disruption is too high, and they cannot justify the migration effort in off-season because other priorities compete for their time. P4 described this as "there's always a reason not to switch," which explains why merchants who are dissatisfied with their current tool can remain on it for years despite the cost.
 
 **Evidence:**
-- P4: "I've thought about it every January. But then February is Valentine's Day, March is spring promotions, then I'm planning for summer. There's always a reason not to switch."
-- P2: "I moved from Storevine email to Mailchimp in February . my quietest month. I don't know when I'd move again. Probably never."
-- P1: "If Storevine could just import my Klaviyo flows and subscriber data without me having to set it all up again, that's the only way I'd move."
+- P4: "I've thought about it every January. But then February is Valentine's Day, March is spring promotions, then I'm planning for summer. There's always a reason not to switch." [fictional]
+- P2: "I moved from Storevine email to Mailchimp in February . my quietest month. I don't know when I'd move again. Probably never." [fictional]
+- P1: "If Storevine could just import my Klaviyo flows and subscriber data without me having to set it all up again, that's the only way I'd move." [fictional]
 
 ## Notable Quotes
 
-> "I started on Klaviyo because my supplier told me to. Now I can't leave because I'd lose my customer history."
-> . P4, Apparel merchant, 2,100 customers
+> "I started on Klaviyo because my supplier told me to. Now I can't leave because I'd lose my customer history." [fictional]
+> . P4, Apparel merchant, 2,100 customers [fictional]
 
-> "I use the Storevine email for big announcements. But if I want to do an abandoned cart email, I go to Klaviyo. There's no comparison."
-> . P1, Fashion boutique, 1,200 customers
+> "I use the Storevine email for big announcements. But if I want to do an abandoned cart email, I go to Klaviyo. There's no comparison." [fictional]
+> . P1, Fashion boutique, 1,200 customers [fictional]
 
-> "I haven't sent a single email in two years. I know I should. But every time I think about it I get overwhelmed and I just post on Instagram instead."
-> . P3, Specialty food merchant, 95 customers
+> "I haven't sent a single email in two years. I know I should. But every time I think about it I get overwhelmed and I just post on Instagram instead." [fictional]
+> . P3, Specialty food merchant, 95 customers [fictional]
 
-> "If there was a 'migrate from Klaviyo' button, I'd push it today. But there isn't, and I'm not doing that by hand."
-> . P5, Beauty merchant, 310 customers
+> "If there was a 'migrate from Klaviyo' button, I'd push it today. But there isn't, and I'm not doing that by hand." [fictional]
+> . P5, Beauty merchant, 310 customers [fictional]
 
-> "I've never thought of Storevine as an email company. Maybe I should."
-> . P7, Jewelry merchant, 680 customers
+> "I've never thought of Storevine as an email company. Maybe I should." [fictional]
+> . P7, Jewelry merchant, 680 customers [fictional]
 
 ## Insights
 
@@ -141,7 +141,7 @@ Merchants describe switching email tools not as a technical task but as a busine
 
 ### Insight 2: Non-Adopters Are a Larger Opportunity Than Switchers
 
-Three of eight participants (P3, P6, P8) have either no email program or a dormant one. These merchants are not locked into a competitor . they are locked out of email marketing entirely by perceived complexity. P3 explicitly cited setup intimidation as her barrier. This non-adoption segment is likely larger in the merchant base than the research sample suggests, and it is structurally easier to activate: there is no migration cost, no existing workflow to replicate, and no seasonal disruption risk to navigate.
+Three of eight participants [fictional] (P3, P6, P8) have either no email program or a dormant one. These merchants are not locked into a competitor . they are locked out of email marketing entirely by perceived complexity. P3 explicitly cited setup intimidation as her barrier. This non-adoption segment is likely larger in the merchant base than the research sample suggests, and it is structurally easier to activate: there is no migration cost, no existing workflow to replicate, and no seasonal disruption risk to navigate.
 
 **Implication:** The highest-ROI launch strategy may be activating non-adopters with a guided first-campaign experience rather than competing directly for Klaviyo users. Design the new-merchant onboarding flow to produce a first sent campaign in under 15 minutes.
 
@@ -173,13 +173,13 @@ Confirm with the engineering lead that SendGrid open and click event webhooks ca
 
 ### Methodology Notes
 
-Participant recruitment was conducted by the UX researcher via the Storevine merchant community forum and a merchant success team outreach to a stratified sample of accounts by customer count. All sessions were recorded with participant consent. Quotes have been lightly edited for readability; full transcripts are in the UX research repository.
+Participant recruitment was conducted by the UX researcher via the Storevine merchant community forum and a merchant success team outreach to a stratified sample of accounts by customer count [fictional]. All sessions were recorded with participant consent [fictional]. Quotes have been lightly edited for readability; full transcripts are in the UX research repository.
 
 ### Limitations
 
-- Sample skewed toward merchants who responded to outreach; churned merchants are underrepresented. A follow-up study with churned accounts is recommended before GA.
-- The three non-adopter participants (P3, P6, P8) were recruited opportunistically; a dedicated non-adopter study with a larger sample would improve confidence in Insight 2.
-- P4 is an outlier in email sophistication relative to the Storevine merchant median; findings about migration complexity may be less acute for the average merchant.
+- Sample skewed toward merchants who responded to outreach; churned merchants are underrepresented [fictional]. A follow-up study with churned accounts is recommended before GA.
+- The three non-adopter participants (P3, P6, P8) were recruited opportunistically [fictional]; a dedicated non-adopter study with a larger sample would improve confidence in Insight 2.
+- P4 is an outlier in email sophistication relative to the Storevine merchant median [fictional]; findings about migration complexity may be less acute for the average merchant.
 
 ### Raw Notes
 

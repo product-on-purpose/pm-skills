@@ -69,8 +69,8 @@ S8: "Blueprint creation is healthy (142 blueprints created across 38 accounts [f
 
 ### Section 1. Input mirror - what I understand
 
-- **What you gave me:** creation is strong (S8) but only 41% of approvals complete (S1); most submissions stall and are abandoned (S2); launch-week notification failures hurt two strategic accounts (S3); sales hears "approvals are clunky" (S5); legal needs enforceability preserved (S6); Karen L. has a 4-week window (S4); the target is 70% by end of Q3 (S7).
-- **What you appear to be trying to accomplish:** lift approval completion to 70% before the QBR without weakening compliance. Confidence: High (explicit target and constraints).
+- **What you gave me:** creation is strong (S8) but only 41% [fictional] of approvals complete (S1); most submissions stall and are abandoned (S2); launch-week notification failures hurt two strategic accounts (S3); sales hears "approvals are clunky" (S5); legal needs enforceability preserved (S6); Karen L. has a 4-week window (S4); the target is 70% [fictional] by end of Q3 (S7).
+- **What you appear to be trying to accomplish:** lift approval completion to 70% [fictional] before the QBR without weakening compliance. Confidence: High (explicit target and constraints).
 - **Adjacent intents I noticed but did not assume:** weakening or making gates optional, and a notification-system rebuild. Neither is assumed to be the fix.
 
 ### Section 2. Situation classification (Cynefin)
@@ -82,7 +82,7 @@ Cause and effect are knowable with analysis. You have a clear bottleneck (approv
 ### Section 3. The binding constraint (Theory of Constraints)
 
 - **System and goal:** get submitted blueprints through approval so the feature delivers its compliance value.
-- **The constraint:** the approval step. Creation is not the limiter (S8); the system stalls when a blueprint sits in "pending approval" and is abandoned (S2), which is exactly what the 41% completion rate measures (S1).
+- **The constraint:** the approval step. Creation is not the limiter (S8); the system stalls when a blueprint sits in "pending approval" and is abandoned (S2), which is exactly what the 41% [fictional] completion rate measures (S1).
 - **Source:** S1, S2, S8.
 - **Candidate constraints considered:** (1) Notification reliability (S3). A strong hypothesis given the launch-week failures, but it must be confirmed as the current cause, not assumed from history. (2) Approver UX ("clunky", S5). Plausible and diagnosable. Both are likely sub-causes within the constraint, which P1 will rank.
 - **Why P1 lifts it:** instrumenting submitted to approved isolates the dominant stall, so the 4-week window (S4) fixes the real cause, not the remembered one.
@@ -111,9 +111,9 @@ Cause and effect are knowable with analysis. You have a clear bottleneck (approv
 
 #### P2. Fix the dominant stall without weakening the gate
 
-- **Why:** once P1 names the stall, a targeted fix moves completion toward 70% (S7) while keeping gates enforceable (S6).
+- **Why:** once P1 names the stall, a targeted fix moves completion toward 70% [fictional] (S7) while keeping gates enforceable (S6).
 - **What:** the specific fix (reliable approver notifications, an approver action surface, or clearer role routing), reviewed with legal.
-- **How:** (1) Build the targeted fix in the window (S4). (2) Run each candidate past legal for enforceability (S6). (3) Measure completion against the 41% baseline (S1).
+- **How:** (1) Build the targeted fix in the window (S4). (2) Run each candidate past legal for enforceability (S6). (3) Measure completion against the 41% [fictional] baseline (S1).
 - **Confidence:** Medium. Depends on P1.
 - **Source:** S6, S7, S4.
 - **Expected outcome / success signal:** approval completion climbs off 41% [fictional] toward target.
@@ -135,7 +135,7 @@ Cause and effect are knowable with analysis. You have a clear bottleneck (approv
 
 | Now | Next | Later |
 |---|---|---|
-| P1 | P2, P3 | Re-measure against the 70% target |
+| P1 | P2, P3 | Re-measure against the 70% [fictional] target |
 
 **What to defer / what NOT to do**
 
@@ -147,7 +147,7 @@ Cause and effect are knowable with analysis. You have a clear bottleneck (approv
 
 | Risk | Likelihood | Impact | Early signal | Mitigation | Source |
 |---|---|---|---|---|---|
-| Pressure to hit 70% leads to weakening gates | M | H | Proposals to make sections optional appear | Hold the enforceability line; route every fix past legal | S6, S7 |
+| Pressure to hit 70% [fictional] leads to weakening gates | M | H | Proposals to make sections optional appear | Hold the enforceability line; route every fix past legal | S6, S7 |
 | Team fixes notifications, but UX was the real stall | M | H | P1 shows approvers see notices but do not act | Prioritize the approver action surface over re-plumbing notifications | S3, S5 |
 | Strategic accounts churn before the fix lands | M | H | A renewal date precedes the P2 ship date | Run P3 in parallel with a concrete timeline | S3, S5 |
 | 4-week window underestimates the fix | L | M | P1 reveals a role-config root cause | Scope P2 to the single dominant stall only | S4 |
@@ -170,7 +170,7 @@ Cause and effect are knowable with analysis. You have a clear bottleneck (approv
 **Source:** S4, S6
 
 **Prompt:**
-> Write a PRD for a Blueprints approval-completion fix scoped to about four weeks of eng capacity, targeting a move from 41% to 70% [fictional] approval completion by end of Q3. Assume discovery identified the dominant stall in the submitted-to-approved funnel. The fix must keep the approval gates enforceable for legal/compliance (no optional gates). Cover the approver notification and action experience, success metrics tied to completion rate, and explicit non-goals.
+> Write a PRD for a Blueprints approval-completion fix scoped to about four weeks of eng capacity, targeting a move from 41% [fictional] to 70% [fictional] approval completion by end of Q3. Assume discovery identified the dominant stall in the submitted-to-approved funnel. The fix must keep the approval gates enforceable for legal/compliance (no optional gates). Cover the approver notification and action experience, success metrics tied to completion rate, and explicit non-goals.
 
 ### Section 8. Evidence and source map
 

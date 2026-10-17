@@ -60,27 +60,27 @@ Eight Q3 candidates with PM-supplied estimates (illustrative `[fictional]`). Rea
 
 | Item | Reach/qtr | Impact (0.25-3) | Conf (%) | Effort (wk) | RICE | Notes |
 |---|---|---|---|---|---|---|
-| Reading streaks | 35,000 | 1 | 60% | 2 | 10,500 | Cheap retention lever |
-| Rec algorithm v2 | 40,000 | 2 | 70% | 6 | 9,333 | Core value prop |
-| Mobile app | 30,000 | 2 | 80% | 12 | 4,000 | Big reach, big build |
-| Export to Goodreads | 8,000 | 0.5 | 90% | 1 | 3,600 | Trivial, high confidence |
-| Social follow-friends | 25,000 | 1 | 50% | 5 | 2,500 | Speculative |
-| Audiobook recs | 20,000 | 1 | 50% | 4 | 2,500 | Speculative |
-| Family plan | 6,000 | 2 | 70% | 4 | 2,100 | Narrow reach, high per-user value |
-| Public reading profiles | 15,000 | 0.5 | 60% | 3 | 1,500 | Low impact |
+| Reading streaks | 35,000 [fictional] | 1 [fictional] | 60% [fictional] | 2 [fictional] | 10,500 [fictional] | Cheap retention lever |
+| Rec algorithm v2 | 40,000 [fictional] | 2 [fictional] | 70% [fictional] | 6 [fictional] | 9,333 [fictional] | Core value prop |
+| Mobile app | 30,000 [fictional] | 2 [fictional] | 80% [fictional] | 12 [fictional] | 4,000 [fictional] | Big reach, big build |
+| Export to Goodreads | 8,000 [fictional] | 0.5 [fictional] | 90% [fictional] | 1 [fictional] | 3,600 [fictional] | Trivial, high confidence |
+| Social follow-friends | 25,000 [fictional] | 1 [fictional] | 50% [fictional] | 5 [fictional] | 2,500 [fictional] | Speculative |
+| Audiobook recs | 20,000 [fictional] | 1 [fictional] | 50% [fictional] | 4 [fictional] | 2,500 [fictional] | Speculative |
+| Family plan | 6,000 [fictional] | 2 [fictional] | 70% [fictional] | 4 [fictional] | 2,100 [fictional] | Narrow reach, high per-user value |
+| Public reading profiles | 15,000 [fictional] | 0.5 [fictional] | 60% [fictional] | 3 [fictional] | 1,500 [fictional] | Low impact |
 
 ### ICE
 
 | Item | Impact (1-10) | Conf (1-10) | Ease (1-10) | ICE | Notes |
 |---|---|---|---|---|---|
-| Export to Goodreads | 4 | 9 | 9 | 324 | Trivial, well-understood |
-| Family plan | 7 | 7 | 6 | 294 | High per-user value |
-| Reading streaks | 6 | 6 | 8 | 288 | Cheap and solid |
-| Rec algorithm v2 | 9 | 7 | 4 | 252 | High value, harder |
-| Audiobook recs | 6 | 5 | 6 | 180 | Middling |
-| Mobile app | 8 | 8 | 2 | 128 | Valuable but a 12-week slog |
-| Public reading profiles | 3 | 6 | 7 | 126 | Low value |
-| Social follow-friends | 5 | 5 | 5 | 125 | Speculative |
+| Export to Goodreads | 4 [fictional] | 9 [fictional] | 9 [fictional] | 324 [fictional] | Trivial, well-understood |
+| Family plan | 7 [fictional] | 7 [fictional] | 6 [fictional] | 294 [fictional] | High per-user value |
+| Reading streaks | 6 [fictional] | 6 [fictional] | 8 [fictional] | 288 [fictional] | Cheap and solid |
+| Rec algorithm v2 | 9 [fictional] | 7 [fictional] | 4 [fictional] | 252 [fictional] | High value, harder |
+| Audiobook recs | 6 [fictional] | 5 [fictional] | 6 [fictional] | 180 [fictional] | Middling |
+| Mobile app | 8 [fictional] | 8 [fictional] | 2 [fictional] | 128 [fictional] | Valuable but a 12-week slog |
+| Public reading profiles | 3 [fictional] | 6 [fictional] | 7 [fictional] | 126 [fictional] | Low value |
+| Social follow-friends | 5 [fictional] | 5 [fictional] | 5 [fictional] | 125 [fictional] | Speculative |
 
 ### MoSCoW (Q3 scope, ~14 eng-weeks)
 
@@ -90,7 +90,7 @@ Eight Q3 candidates with PM-supplied estimates (illustrative `[fictional]`). Rea
 | Reading streaks | Should | Cheap retention win | Slower habit formation |
 | Export to Goodreads | Should | Cheap, reduces lock-in anxiety | Minor friction |
 | Family plan | Should | New revenue line | Forgone revenue |
-| Mobile app | Could | 12 eng-weeks blows most of Q3 | Mobile users wait |
+| Mobile app | Could | 12 eng-weeks [fictional] blows most of Q3 | Mobile users wait |
 | Audiobook recs | Could | Nice expansion | None critical |
 | Social follow-friends | Won't (this time) | Low confidence | Defer until validated |
 | Public reading profiles | Won't (this time) | Low impact | None |
@@ -112,13 +112,13 @@ Each scoring table above is sorted high to low, so the per-framework ranking is 
 | Family plan | 7 | 2 | Should | Divergent |
 | Public profiles | 8 | 7 | Won't | Agree (defer) |
 
-**Divergent - Mobile app (RICE 3rd, ICE 6th):** RICE rewards the 30,000 reach; ICE punishes Ease (2) because it is a 12-week build. Driver: reach vs. effort. With only 14 eng-weeks, the effort signal should win for Q3 - hence MoSCoW Could.
+**Divergent - Mobile app (RICE 3rd, ICE 6th):** RICE rewards the 30,000 [fictional] reach; ICE punishes Ease (2 [fictional]) because it is a 12-week [fictional] build. Driver: reach vs. effort. With only 14 eng-weeks, the effort signal should win for Q3 - hence MoSCoW Could.
 
-**Divergent - Family plan (RICE 7th, ICE 2nd):** RICE's reach term punishes the narrow 6,000 reach; ICE rewards the high per-user impact and decent ease. Driver: RICE under-weights revenue-concentrated features. Because Family plan opens a new revenue line, weight the ICE/MoSCoW view and keep it as a Should.
+**Divergent - Family plan (RICE 7th, ICE 2nd):** RICE's reach term punishes the narrow 6,000 [fictional] reach; ICE rewards the high per-user impact and decent ease. Driver: RICE under-weights revenue-concentrated features. Because Family plan opens a new revenue line, weight the ICE/MoSCoW view and keep it as a Should.
 
 ## Executive Summary with Recommendation
 
-Fund **Rec algorithm v2** and **Reading streaks**: both score high across frameworks and fit the budget. Add the two cheap, high-confidence items - **Export to Goodreads** (1 week) and **Family plan** (4 weeks) - the latter despite a low RICE rank, because RICE undervalues its concentrated revenue impact. That fills ~13 of 14 eng-weeks. **Defer Mobile app** to a quarter with capacity for a 12-week build, and **drop Public profiles** (all three frameworks agree) and **Social follow-friends** (ICE and MoSCoW both defer it; RICE ranks it a borderline 5th) this cycle. The one judgment call is Family plan: if new revenue is not a Q3 goal, swap it for Audiobook recs.
+Fund **Rec algorithm v2** and **Reading streaks**: both score high across frameworks and fit the budget. Add the two cheap, high-confidence items - **Export to Goodreads** (1 week [fictional]) and **Family plan** (4 weeks [fictional]) - the latter despite a low RICE rank, because RICE undervalues its concentrated revenue impact. That fills ~13 [fictional] of 14 eng-weeks. **Defer Mobile app** to a quarter with capacity for a 12-week build, and **drop Public profiles** (all three frameworks agree) and **Social follow-friends** (ICE and MoSCoW both defer it; RICE ranks it a borderline 5th) this cycle. The one judgment call is Family plan: if new revenue is not a Q3 goal, swap it for Audiobook recs.
 
 ## Sensitivity / What Changes the Ranking
 

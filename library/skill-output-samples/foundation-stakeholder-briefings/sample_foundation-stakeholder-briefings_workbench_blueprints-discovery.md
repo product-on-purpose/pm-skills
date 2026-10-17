@@ -90,7 +90,7 @@ Sandra C. (Head of Product). Design lead: Tomás G.
 
 **What this means for UX/Design**
 
-The clearest signal in the interviews is also the most counterintuitive for a design team: the problem is not the editor. Five of six leads said Confluence edits fine (M1). What is broken is that there is no enforcement - documents reach "done" while still incomplete and unapproved - and the team lead becomes the human enforcement layer, spending 3-4 hours a week as "docs police" (M2). That tells us where the design energy should go.
+The clearest signal in the interviews is also the most counterintuitive for a design team: the problem is not the editor. Five of six leads said Confluence edits fine (M1). [fictional] What is broken is that there is no enforcement - documents reach "done" while still incomplete and unapproved - and the team lead becomes the human enforcement layer, spending 3-4 hours a week as "docs police" (M2). [fictional] That tells us where the design energy should go.
 
 So the design exploration should be framed around enforced completeness and real approval (M3), not a nicer writing surface. The interesting design problems are: how do you make a completeness gate feel like help rather than a wall, and how do you make approval a first-class, low-friction step instead of an informal Slack ping. The primary ask is to take that framing into early exploration - design for governance, not for editing - so we do not pour effort into the surface the research says is already fine.
 
@@ -106,9 +106,9 @@ So the design exploration should be framed around enforced completeness and real
 
 **What this means for PMM**
 
-It is early - this is discovery, not a launch - but the research already hints at a positioning opening worth shaping now. The leads are not asking for a better Confluence; they are saying the whole category edits fine but no one enforces governance (M1), which points to a differentiation story built on enforced completeness and real approval rather than collaboration features (M3). That is the kind of frame that, if it holds, gives a future launch a category to own instead of a feature war to lose.
+It is early - this is discovery, not a launch - but the research already hints at a positioning opening worth shaping now. The leads are not asking for a better Confluence; they are saying the whole category edits fine but no one enforces governance (M1) [fictional], which points to a differentiation story built on enforced completeness and real approval rather than collaboration features (M3). That is the kind of frame that, if it holds, gives a future launch a category to own instead of a feature war to lose.
 
-One detail sharpens it: 2 of 6 leads are in regulated orgs where informal Slack/email sign-off leaves no record, which is a compliance exposure, not just friction (M5). That suggests the message may land hardest with regulated, documentation-heavy buyers. The ask is not to write copy yet; it is to start shaping a governance-vs-co-editing positioning hypothesis from this research (the primary ask) so that when the direction firms up, PMM has a thesis to test rather than a blank page.
+One detail sharpens it: 2 of 6 leads are in regulated orgs where informal Slack/email sign-off leaves no record, which is a compliance exposure, not just friction (M5). [fictional] That suggests the message may land hardest with regulated, documentation-heavy buyers. The ask is not to write copy yet; it is to start shaping a governance-vs-co-editing positioning hypothesis from this research (the primary ask) so that when the direction firms up, PMM has a thesis to test rather than a blank page.
 
 --- END ---
 
@@ -122,7 +122,7 @@ One detail sharpens it: 2 of 6 leads are in regulated orgs where informal Slack/
 
 **What this means for the Executive sponsor**
 
-Six enterprise team-lead interviews surfaced a real and repeated pain: leads are personally acting as the enforcement layer, losing 3-4 hours a week each to chasing incomplete documents (M2), because nothing in the category enforces completeness or approval. The synthesis points to a clear direction - enforced documentation governance as the opportunity (M3) - and there is a sharper edge for regulated buyers, where informal sign-off with no record is a compliance exposure (M5), which hints at a willingness to pay.
+Six enterprise team-lead interviews surfaced a real and repeated pain: leads are personally acting as the enforcement layer, losing 3-4 hours a week each to chasing incomplete documents (M2) [fictional], because nothing in the category enforces completeness or approval. The synthesis points to a clear direction - enforced documentation governance as the opportunity (M3) - and there is a sharper edge for regulated buyers, where informal sign-off with no record is a compliance exposure (M5) [fictional], which hints at a willingness to pay [fictional].
 
 This is a direction decision, not a build commitment (it is discovery). The ask is whether enforced documentation governance becomes a funded bet worth scoping a solution against (M6). A "yes" puts a small team on solution exploration and validation; a "no" or "not yet" parks the thesis with the evidence intact. The decision is yours - the research has done its job of finding a credible opportunity; what it cannot do is decide whether it is the one worth funding now.
 
@@ -133,13 +133,13 @@ This is a direction decision, not a build commitment (it is discovery). The ask 
 ## Translations applied (internal)
 
 - "no enforcement / docs reach done incomplete and unapproved" kept as the research finding for all three; rendered for UX as a design-framing instruction ("design for governance, not editing"), for PMM as a positioning opening, and for the Executive as "a real, quantified pain."
-- "docs police tax, 3-4 hrs/wk" kept as the lived-experience finding for UX and Executive; omitted from the PMM block, whose decision turns on the positioning opening, not the time cost.
-- "informal Slack/email sign-off, no record, 2 of 6 regulated" kept precise; surfaced to PMM as "lands hardest with regulated buyers" (a segment signal) and to the Executive as "a willingness to pay" (a funding signal).
+- "docs police tax, 3-4 hrs/wk" [fictional] kept as the lived-experience finding for UX and Executive; omitted from the PMM block, whose decision turns on the positioning opening, not the time cost.
+- "informal Slack/email sign-off, no record, 2 of 6 regulated" [fictional] kept precise; surfaced to PMM as "lands hardest with regulated buyers" (a segment signal) and to the Executive as "a willingness to pay" [fictional] (a funding signal).
 - "discovery, not a spec" kept across all three to prevent any block from reading as a commitment to build.
 
 **Flagged but kept** (may need review):
 
-- "hints at a willingness to pay" - this is an inference from the regulated-org compliance signal (M5), not a stated interview finding. Kept in the Executive block because it is decision-relevant, but flagged: the interviews showed compliance pain, not pricing intent, so do not let it harden into a revenue claim without validation.
+- "hints at a willingness to pay" [fictional] - this is an inference from the regulated-org compliance signal (M5), not a stated interview finding. Kept in the Executive block because it is decision-relevant, but flagged: the interviews showed compliance pain, not pricing intent, so do not let it harden into a revenue claim without validation.
 
 ## Sources and References
 

@@ -122,7 +122,7 @@ Send a targeted email campaign to a defined segment of existing customers . for 
 4. Review performance . open rate, click rate, and whether recipients purchased
 
 **Functional Pains:**
-- External email tools require API key configuration and data sync setup before a single email can be sent; for a merchant who has never done this, setup is a multi-hour task before reaching the first template
+- External email tools require API key configuration and data sync setup before a single email can be sent; for a merchant who has never done this, setup is a multi-hour task [fictional] before reaching the first template
 - Customer and order data lives in Storevine; syncing it to a separate tool introduces delay, data mapping errors, and ongoing maintenance risk every time Storevine data changes
 - Managing two separate subscriptions . one for the commerce platform, one for email . creates administrative overhead and a second vendor support relationship
 
@@ -142,12 +142,12 @@ Send a targeted email campaign to a defined segment of existing customers . for 
 
 | Feeling to Avoid | Current Trigger |
 |------------------|-----------------|
-| Overwhelmed | Looking at a Klaviyo or Mailchimp onboarding flow and realizing there are six steps before they can even see a template |
+| Overwhelmed | Looking at a Klaviyo or Mailchimp onboarding flow and realizing there are six steps [fictional] before they can even see a template |
 | Exposed | Sending an email that looks broken, triggers a spam report, or violates compliance rules they did not know existed |
 | Behind | Watching products sit unsold while knowing a well-targeted email could drive re-purchases . and feeling unable to do anything about it |
 
 **Emotional Pains:**
-- The emotional cost of a missed attempt . opening Mailchimp, spending 30 minutes on setup, not finishing, and closing the tab . reinforces avoidance on the next attempt; three failed starts can produce permanent abandonment of the channel.
+- The emotional cost of a missed attempt . opening Mailchimp, spending 30 minutes [fictional] on setup, not finishing, and closing the tab . reinforces avoidance on the next attempt; three failed starts can produce permanent abandonment of the channel [fictional].
 - Compliance uncertainty (CAN-SPAM, GDPR) produces anxiety in merchants who do not know what they are legally required to include in a commercial email; this anxiety pushes them toward established tools as a way of outsourcing the compliance risk.
 
 ---
@@ -170,7 +170,7 @@ Send a targeted email campaign to a defined segment of existing customers . for 
 
 **Social Context:**
 - Merchant peer networks (Facebook groups, Storevine community forums) actively share email marketing tips and tool recommendations; merchants who have not started email marketing often feel social pressure from peers who describe their Klaviyo setups.
-- The Klaviyo brand carries social signaling weight in ecommerce merchant communities . using Klaviyo implies a level of sophistication that using a simpler tool or doing nothing does not.
+- The Klaviyo brand carries social signaling weight in ecommerce merchant communities . using Klaviyo implies a level of sophistication that using a simpler tool or doing nothing does not [fictional].
 
 ---
 
@@ -180,14 +180,14 @@ Send a targeted email campaign to a defined segment of existing customers . for 
 
 | Solution Type | Solution | Strengths | Weaknesses |
 |---------------|----------|-----------|------------|
-| Direct Competitor | Klaviyo | Deep purchase-based segmentation; revenue attribution; automation flows; peer credibility | High setup cost; aggressive list-size pricing; creates data lock-in; intimidating onboarding for first-time users |
-| Indirect Alternative | Mailchimp | Familiar brand; large template library; A/B testing on paid tiers | Requires manual data sync from Storevine; not commerce-native; similar pricing to Klaviyo for small lists without ecommerce-specific features |
+| Direct Competitor | Klaviyo | Deep purchase-based segmentation; revenue attribution; automation flows; peer credibility | High setup cost; aggressive list-size pricing [fictional]; creates data lock-in; intimidating onboarding for first-time users |
+| Indirect Alternative | Mailchimp | Familiar brand; large template library; A/B testing on paid tiers | Requires manual data sync from Storevine; not commerce-native; similar pricing to Klaviyo for small lists [fictional] without ecommerce-specific features |
 | Non-consumption | Instagram / social media only | Zero setup cost; familiar interface; no compliance complexity | Reaches followers, not customers; cannot target by purchase history; no revenue attribution |
 | DIY/Manual | Copy-paste customer emails from Storevine into Gmail BCC | Zero cost; no new tool to learn | Not scalable; compliance violations likely (no unsubscribe link, no physical address); no performance tracking |
 
 **Why Do They Switch?**
 - Merchant realizes their Instagram reach is declining or paid ad CAC has increased, making email the next logical re-engagement channel to invest in.
-- A peer or mentor tells them to "set up Klaviyo" and they follow through during a quiet business period . typically January or September.
+- A peer or mentor tells them to "set up Klaviyo" and they follow through during a quiet business period . typically January or September [fictional].
 
 **Why Do They Stay?**
 - Data lock-in: segments, automation flows, and historical performance benchmarks are inside the existing tool; rebuilding them in a new platform is a significant investment of time and risk.

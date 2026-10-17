@@ -49,7 +49,7 @@ about the company strategy and capital story - they should not read alike.
 - M1: The Campaigns thesis is embedded re-engagement: capture the ~68% of merchants [fictional] paying for an external email tool by making lifecycle messaging native to Storevine.
 - M2: The business model is two-sided: Campaigns lifts retention of the core platform and opens a new paid send tier as a revenue line.
 - M3: The persevere decision validated the thesis: merchants who adopt Campaigns show +18% retention [fictional] versus comparable non-adopters.
-- M11: The external email tools merchants pay for today are primarily Klaviyo and Mailchimp.
+- M11: The external email tools merchants pay for today are primarily Klaviyo and Mailchimp [fictional].
 
 **Decisions**
 
@@ -101,7 +101,7 @@ What I need from you is to fund the activation investment (the first-send build 
 
 **What this means for the Board**
 
-The strategic logic of Campaigns is that it does double duty. It defends the core platform by pulling lifecycle messaging in-house, the work the ~68% of merchants [fictional] currently pay Klaviyo or Mailchimp to do, and it opens a usage-based send tier, so the same feature both lowers churn and adds a revenue line. That is a retention-and-monetization wedge, not a single-purpose feature.
+The strategic logic of Campaigns is that it does double duty. It defends the core platform by pulling lifecycle messaging in-house, the work the ~68% of merchants [fictional] currently pay Klaviyo or Mailchimp [fictional] to do, and it opens a usage-based send tier, so the same feature both lowers churn and adds a revenue line. That is a retention-and-monetization wedge, not a single-purpose feature.
 
 The early evidence supports treating it as a durable wedge rather than an experiment: adopting merchants retain materially better than comparable non-adopters [fictional], which is the signal that this compounds into net revenue retention over time. The ask at the company-strategy level is your endorsement that embedded re-engagement is a wedge worth concentrating behind, so the operating plan can keep weighting toward it across quarters, not just this one.
 
@@ -133,7 +133,7 @@ Anchor the Q3 positioning on that wedge and on the proof that it is working, gro
 
 **What this means for Sales**
 
-The strategy hands you a two-part pitch that is true today. First, consolidation: merchants paying for Klaviyo or Mailchimp can run re-engagement inside Storevine and drop the separate bill, which is the natural opener for the ~68% of merchants [fictional] on an outside tool. Second, the value proof: merchants who adopt Campaigns retain better than those who do not [fictional], so this is not just a cost-cut, it is a stickier account.
+The strategy hands you a two-part pitch that is true today. First, consolidation: merchants paying for Klaviyo or Mailchimp [fictional] can run re-engagement inside Storevine and drop the separate bill, which is the natural opener for the ~68% of merchants [fictional] on an outside tool. Second, the value proof: merchants who adopt Campaigns retain better than those who do not [fictional], so this is not just a cost-cut, it is a stickier account.
 
 Combine them into one talk track, less tool sprawl, better retention, native to the store, and aim it at the external-tool segment where the cost story lands hardest. Lead Q3 conversations with that retention-plus-consolidation story.
 
@@ -143,7 +143,7 @@ Combine them into one talk track, less tool sprawl, better retention, native to 
 
 ## Translations applied (internal)
 
-- "+18% retention for adopters vs comparable non-adopters" kept precise for Executive; rendered as "retains materially better / compounds into net revenue retention" for the Board (capital-narrative framing) and as "stickier account" for Sales.
+- "+18% retention for adopters vs comparable non-adopters" [fictional] kept precise for Executive; rendered as "retains materially better / compounds into net revenue retention" for the Board (capital-narrative framing) and as "stickier account" for Sales.
 - "embedded re-engagement thesis" kept as the strategy term for Board and PMM; rendered for Sales as "native to the store / one less bill" (deal language).
 - "new paid send tier" -> "usage-based send tier / a revenue line" for the Board; -> "value rather than a tax" for PMM positioning.
 - Exec-vs-Board split made explicit: Exec block leads with the internal Q3 reprioritization decision (fund activation, defer breadth); Board block leads with the company-level wedge endorsement and capital narrative. No shared Primary ask.

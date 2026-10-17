@@ -15,13 +15,13 @@ context: "Workbench Day 2 end (15:30-16:30 PT 2026-05-22); Founding Hypothesis s
 
 ## Founding Hypothesis (Canonical Strict Template)
 
-**If we help** senior site reliability engineers at Series B-D US growth-stage startups with significant distributed-systems complexity **solve** the 5-20 minute disorientation phase at the start of production incidents (when the SRE is juggling 5-7 dashboards trying to figure out what is actually happening) **with** a real-time multi-source aggregator that pulls live data from their existing Datadog / Honeycomb / Sentry / Grafana, auto-correlates the trace + state + dependency picture, and presents one screen optimized for the disorientation phase, **they will choose it over** the full observability platforms (Datadog, New Relic, Dynatrace), tracing specialists (Honeycomb, Lightstep, Sentry), open-source stacks (Grafana + Prometheus + Loki + Tempo + Jaeger), logs-first tools (Splunk, Sumo Logic), SRE workflow tools (PagerDuty, Incident.io, Rootly), internal homegrown dashboards, and the dominant "multi-tool juggling" status-quo **because our solution is** the only tool optimized exclusively for the incident-time disorientation phase, designed in SRE vocabulary, augmenting (not replacing) their existing observability investment, and deployable in under 30 seconds without platform-team approval.
+**If we help** senior site reliability engineers at Series B-D US growth-stage startups with significant distributed-systems complexity **solve** the 5-20 minute disorientation phase [fictional] at the start of production incidents (when the SRE is juggling 5-7 dashboards [fictional] trying to figure out what is actually happening) **with** a real-time multi-source aggregator that pulls live data from their existing Datadog / Honeycomb / Sentry / Grafana, auto-correlates the trace + state + dependency picture, and presents one screen optimized for the disorientation phase, **they will choose it over** the full observability platforms (Datadog, New Relic, Dynatrace), tracing specialists (Honeycomb, Lightstep, Sentry), open-source stacks (Grafana + Prometheus + Loki + Tempo + Jaeger), logs-first tools (Splunk, Sumo Logic), SRE workflow tools (PagerDuty, Incident.io, Rootly), internal homegrown dashboards, and the dominant "multi-tool juggling" status-quo **because our solution is** the only tool optimized exclusively for the incident-time disorientation phase, designed in SRE vocabulary, augmenting (not replacing) their existing observability investment, and deployable in under 30 seconds without platform-team approval.
 
 ## Why We Believe This
 
-1. The 19 SRE interviews showed disorientation-phase MTTR penalty is consistent across Series B-D companies; the problem is structural to the band, not anecdotal.
-2. The "multi-tool juggling" status-quo is the dominant alternative, not Datadog-as-single-product. Workbench competes against a behavior, not a product, which is structurally easier.
-3. The "augment don't replace" principle removes the largest objection from SRE teams who have already invested in Datadog or Honeycomb; this lowers acquisition friction substantially.
+1. The 19 SRE interviews [fictional] showed disorientation-phase MTTR penalty is consistent across Series B-D companies [fictional]; the problem is structural to the band, not anecdotal.
+2. The "multi-tool juggling" status-quo is the dominant alternative [fictional], not Datadog-as-single-product. Workbench competes against a behavior, not a product, which is structurally easier.
+3. The "augment don't replace" principle removes the largest objection from SRE teams who have already invested in Datadog or Honeycomb [fictional]; this lowers acquisition friction substantially [fictional].
 4. Priya's Datadog product experience + Marcus's Splunk tracing background give honest read on what real-time aggregation will and won't work; we're not hand-waving the technical risk.
 5. Jin's weekly on-call exposure gives us continuous reality-check on whether what we're building maps to actual incident-time cognition.
 
@@ -42,10 +42,10 @@ context: "Workbench Day 2 end (15:30-16:30 PT 2026-05-22); Founding Hypothesis s
 | A1 | Real-time multi-source API aggregation is reliable enough during incidents (Datadog + Honeycomb + Sentry + Grafana APIs hold up under incident-time query load) | HIGH | Low (untested in production) | Primary row |
 | A2 | SREs actually use Workbench at incident-time vs reverting to existing tools out of muscle memory | HIGH | Low (untested; depends on UX + onboarding) | Yes |
 | A3 | Auto-correlation across 4 disparate API shapes produces a coherent unified view, not a Frankenstein dashboard | HIGH | Medium (Marcus's Splunk experience suggests yes) | Yes |
-| A4 | The "augment don't replace" positioning resolves the "yet another tool" objection in sales | MEDIUM | Medium (interview signal positive) | No |
-| A5 | Series B-D companies are willing to pay per-SRE-seat pricing at $150-$300/month | MEDIUM | Medium (interview signal; Priya's Datadog price-sensitivity intuition) | No |
+| A4 | The "augment don't replace" positioning resolves the "yet another tool" objection in sales | MEDIUM | Medium (interview signal positive [fictional]) | No |
+| A5 | Series B-D companies are willing to pay per-SRE-seat pricing at $150-$300/month [fictional] | MEDIUM | Medium (interview signal; Priya's Datadog price-sensitivity intuition) | No |
 | A6 | Sub-30-second setup is real (not "30 seconds after platform-team approves the API key") | MEDIUM | Medium (technically straightforward; depends on customer-side API-key generation) | Yes |
-| A7 | The Series B-D band is large enough for a viable business at $150-$300 MRR per SRE | LOW | High (TAM math: 1000+ Series B-D US companies with 5+ SREs each) | No |
+| A7 | The Series B-D band is large enough for a viable business at $150-$300 MRR per SRE [fictional] | LOW | High (TAM math: 1000+ Series B-D US companies with 5+ SREs each [fictional]) | No |
 
 **Highest-risk assumption (primary pilot scorecard row): A1.** If real-time API aggregation cannot reliably handle incident-time query loads (when SREs are simultaneously hitting upstream tools), the entire top bet collapses. A1 is testable during the first design-partner pilot's first actual production incident.
 

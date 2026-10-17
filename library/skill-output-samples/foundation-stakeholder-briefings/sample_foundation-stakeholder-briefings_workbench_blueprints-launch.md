@@ -66,12 +66,12 @@ CS/Support, Executive).
 
 **Status**
 
-- M6: Two known issues go into launch week: SSO provisioning is manual and error-prone (a documented launch-week risk, with an admin provisioning guide), and the approval-reject button is behind a secondary menu, so first-time approvers may struggle to find it.
-- M7: Both known issues are documented with workarounds; neither is a launch blocker, but both are likely to generate support volume.
+- M6: Two known issues go into launch week: SSO provisioning is manual and error-prone (a documented launch-week risk, with an admin provisioning guide), and the approval-reject button is behind a secondary menu, so first-time approvers may struggle to find it. [fictional]
+- M7: Both known issues are documented with workarounds; neither is a launch blocker, but both are likely to generate support volume. [fictional]
 
 **Risks and open questions**
 
-- M8: The manual SSO provisioning step is the highest launch-week operational risk; a misconfiguration could block an account's access until corrected.
+- M8: The manual SSO provisioning step is the highest launch-week operational risk; a misconfiguration could block an account's access until corrected. [fictional]
 
 **Asks**
 
@@ -125,9 +125,9 @@ The ask is timing and pipeline, not narrative (that is PMM's): prioritize the go
 
 **What this means for CS/Support**
 
-You can see the two most likely sources of launch-week volume in advance (M6), which means you can get ahead of them. First, SSO provisioning is manual and error-prone and is the top operational risk (M8): a misconfiguration can block an account's access entirely until it is fixed. Second, the approval-reject button is behind a secondary menu, so first-time approvers may not find "reject" and will open tickets asking how to send a Blueprint back. Both are documented, neither is a blocker, but both will generate contacts (M7).
+You can see the two most likely sources of launch-week volume in advance (M6) [fictional], which means you can get ahead of them. First, SSO provisioning is manual and error-prone and is the top operational risk (M8) [fictional]: a misconfiguration can block an account's access entirely until it is fixed. Second, the approval-reject button is behind a secondary menu, so first-time approvers may not find "reject" and will open tickets asking how to send a Blueprint back. [fictional] Both are documented, neither is a blocker, but both will generate contacts (M7). [fictional]
 
-The ask is to pre-stage rather than react: have a support macro ready for the "where is the reject button" question, keep the SSO admin provisioning guide one click away for the access-blocked cases, and watch the first 10% rollout tier closely (M6/M8) - because the progressive rollout means SSO problems will show up there first, and catching them at 10% keeps them from repeating across the remaining 90% of accounts.
+The ask is to pre-stage rather than react: have a support macro ready for the "where is the reject button" question, keep the SSO admin provisioning guide one click away for the access-blocked cases, and watch the first 10% rollout tier closely (M6/M8) - because the progressive rollout means SSO problems will show up there first [fictional], and catching them at 10% keeps them from repeating across the remaining 90% of accounts.
 
 --- END ---
 
@@ -141,7 +141,7 @@ The ask is to pre-stage rather than react: have a support macro ready for the "w
 
 **What this means for the Executive sponsor**
 
-Blueprints v1 is ready to go GA to all 500 enterprise accounts [fictional] starting April 28 (M1), shipping the enterprise governance differentiator that sets Workbench apart from Confluence, Notion, and Coda (M3). The plan is built to de-risk itself: the rollout is progressive (10% to 100% over a week) precisely so the one real operational risk - manual SSO provisioning, which could block an account until corrected (M8) - surfaces at 10% and is fixed before it can hit the full base.
+Blueprints v1 is ready to go GA to all 500 enterprise accounts [fictional] starting April 28 (M1), shipping the enterprise governance differentiator that sets Workbench apart from Confluence, Notion, and Coda (M3). The plan is built to de-risk itself: the rollout is progressive (10% to 100% over a week) precisely so the one real operational risk - manual SSO provisioning, which could block an account until corrected (M8) [fictional] - surfaces at 10% and is fixed before it can hit the full base.
 
 The decision needed from you is the GA go and the April 28 start date (M9). The team has the assets, the rollout plan, and the known-issue workarounds in place; what they need is the green light to start. Confirm the go so launch week runs on a decision, not an assumption.
 
@@ -152,8 +152,8 @@ The decision needed from you is the GA go and the April 28 start date (M9). The 
 ## Translations applied (internal)
 
 - "enforced governance, not just co-editing" kept as the differentiator for PMM and Sales; rendered for the Executive as "the differentiator that sets Workbench apart" (audience: Executive, outcome over mechanism).
-- "manual SSO provisioning is error-prone" kept as an operational known-issue for CS/Support; rendered for the Executive as "the one real launch risk the rollout is designed to contain" to frame it as managed rather than alarming.
-- "approval-reject button behind a secondary menu" kept concrete only for CS/Support (they field the tickets); omitted from PMM, Sales, and Executive blocks as below their decision altitude.
+- "manual SSO provisioning is error-prone" [fictional] kept as an operational known-issue for CS/Support; rendered for the Executive as "the one real launch risk the rollout is designed to contain" to frame it as managed rather than alarming.
+- "approval-reject button behind a secondary menu" [fictional] kept concrete only for CS/Support (they field the tickets); omitted from PMM, Sales, and Executive blocks as below their decision altitude.
 - PMM vs Sales split held: PMM owns shipping the narrative and assets (M4); Sales owns timing the talk track to pipeline (M10). Neither block carries the other's ask.
 
 **Flagged but kept** (may need review):

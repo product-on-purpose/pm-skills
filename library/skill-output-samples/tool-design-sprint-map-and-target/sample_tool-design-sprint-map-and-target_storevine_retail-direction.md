@@ -42,26 +42,26 @@ Become the default Monday-morning operating system for specialty-retail merchand
 
 **Key player:** Merchandiser at 5-50 store specialty retailer; opens brief during Monday morning coffee + email window.
 
-**Map narrative:** The data pipeline + analyst review delivers the brief by Mon 06:00 local. The merchandiser opens email Mon 07-09 AM during her coffee + triage window. She has ~5-10 minutes for the brief before moving to the day's operational fires. The current 8-min comprehension time exceeds this attention window for many; that's the pilot's actionability gap. Tuesday's actions are taken from Monday's read; if the read fails, Tuesday's actions don't happen.
+**Map narrative:** The data pipeline + analyst review delivers the brief by Mon 06:00 local. The merchandiser opens email Mon 07-09 AM during her coffee + triage window. She has ~5-10 minutes for the brief [fictional] before moving to the day's operational fires. The current 8-min comprehension time [fictional] exceeds this attention window for many; that's the pilot's actionability gap. Tuesday's actions are taken from Monday's read; if the read fails, Tuesday's actions don't happen.
 
 ## Expert Interview Notes
 
-### Expert 1: Dana Park, ex-buyer at REI Co-op (20 min, 13:30 PT)
+### Expert 1: Dana Park, ex-buyer at REI Co-op [fictional] (20 min, 13:30 PT) [fictional]
 
-- Monday morning is the most attention-scarce window of the week; merchandisers triage 50-100 emails before opening anything substantive.
-- Top-3-actions framing works only if the actions are bounded (specific SKU + specific store + specific quantity), not abstract ("watch this category").
+- Monday morning is the most attention-scarce window of the week; merchandisers triage 50-100 emails before opening anything substantive. [fictional]
+- Top-3-actions framing works only if the actions are bounded (specific SKU + specific store + specific quantity), not abstract ("watch this category"). [fictional]
 - HMW: HMW make Monday's top 3 actions feel like a closed loop the merchandiser can finish before Wednesday?
 
-### Expert 2: Pat Owens, retail consultant for SMB specialty (20 min, 14:00 PT)
+### Expert 2: Pat Owens, retail consultant for SMB specialty [fictional] (20 min, 14:00 PT) [fictional]
 
-- Trust in analyst-reviewed content depends on naming the analyst and showing their reasoning, not just the output.
-- The PDF + web companion is fine if they serve different jobs (PDF for the 5-min read; web for the deeper-dive when an action is unclear). Fragmentation happens when both try to be the read.
+- Trust in analyst-reviewed content depends on naming the analyst and showing their reasoning, not just the output. [fictional]
+- The PDF + web companion is fine if they serve different jobs (PDF for the 5-min read; web for the deeper-dive when an action is unclear). [fictional] Fragmentation happens when both try to be the read. [fictional]
 - HMW: HMW make the analyst presence visible without making the brief feel academic?
 
-### Expert 3: Jamie Sanchez, SMB ops manager who managed 12 retailer-tool rollouts (15 min, 14:30 PT)
+### Expert 3: Jamie Sanchez, SMB ops manager who managed 12 retailer-tool rollouts [fictional] (15 min, 14:30 PT) [fictional]
 
-- The biggest SMB tool-adoption killer is "I don't know what I'm supposed to do with this." Specific actions defeat that; abstract metrics don't.
-- Mobile email is where 60%+ of Monday morning opens happen; brief must work on phone first.
+- The biggest SMB tool-adoption killer is "I don't know what I'm supposed to do with this." Specific actions defeat that; abstract metrics don't. [fictional]
+- Mobile email is where 60%+ of Monday morning opens happen [fictional]; brief must work on phone first.
 
 ## HMW Cluster Board
 

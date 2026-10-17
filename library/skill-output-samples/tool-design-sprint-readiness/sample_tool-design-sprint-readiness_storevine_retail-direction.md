@@ -27,7 +27,7 @@ Storevine just closed a 4-week design-partner pilot (2026-06-02 to 2026-06-30) w
 
 > Founding Hypothesis (2026-05-19): managed-intelligence service for 5-50 store US specialty retailers delivering Monday morning analyst-reviewed templated briefs with specific ranked actions readable in 15 minutes. Pilot validated A1 (templates produce non-generic briefs) but pilot-derived A8 added: "Brief interface design affects merchandiser comprehension and action-taking more than template content does." A8 is the DS lead question.
 
-**Customer access status:** Carlos owns recruiting; 2 slots filled by design-partner merchandisers (Bayfront + West Loop); 3 slots from his sector network (3 specialty-retail merchandisers at 8-25 store retailers in outdoor + home + specialty-food subverticals). Honorarium USD 150 per 60-min interview (B2B rate). Estimated 9 days to confirm all 5 customers.
+**Customer access status:** Carlos owns recruiting; 2 slots filled by design-partner merchandisers (Bayfront + West Loop) [fictional]; 3 slots from his sector network (3 specialty-retail merchandisers at 8-25 store retailers in outdoor + home + specialty-food subverticals). Honorarium USD 150 per 60-min interview (B2B rate). Estimated 9 days to confirm all 5 customers.
 
 **Decider name and availability:** Mei, full-week availability for 2026-07-13 to 2026-07-17; sprint windows confirmed.
 

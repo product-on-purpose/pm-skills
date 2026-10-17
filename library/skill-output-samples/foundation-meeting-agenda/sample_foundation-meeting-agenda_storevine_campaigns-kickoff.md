@@ -140,7 +140,7 @@ Commit to v1 MVP scope, confirm engineering capacity for Q2, and set a launch ta
 
 **Recommended context**
 
-- [Klaviyo / Mailchimp competitive teardown](https://notion.example/campaigns-competitive): skim key findings on SMB switching triggers
+- [Klaviyo / Mailchimp competitive teardown](https://notion.example/campaigns-competitive) [fictional]: skim key findings on SMB switching triggers
 
 **Come ready to**
 

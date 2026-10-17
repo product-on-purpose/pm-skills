@@ -81,7 +81,7 @@ The Blueprints Post-Launch Monitor is the primary dashboard for tracking Bluepri
 
 - **Progressive rollout pacing:** Should we accelerate or slow the 10%, 25%, 50%, 100% rollout based on adoption and system health?
 - **V1.1 prioritization:** Which features (version history, approval delegation, Jira sync) should be prioritized based on usage patterns and support themes?
-- **Enterprise sales enablement:** Is the 500 to 650 account growth trajectory on track? Are Blueprints metrics strong enough to support sales conversations?
+- **Enterprise sales enablement:** Is the 500 to 650 account growth trajectory [fictional] on track? Are Blueprints metrics strong enough to support sales conversations?
 - **Operational scaling:** Does the WebSocket provider need additional capacity before the next rollout tier?
 
 ### What This Dashboard Is NOT For
@@ -323,7 +323,7 @@ The dashboard is divided into four horizontal sections, top to bottom:
 ## Open Questions
 
 1. **Real-time vs. near-real-time refresh for adoption charts:** Should the adoption and quality charts refresh in real-time (60-second intervals) during launch week, then switch to hourly refresh in steady state? Recommendation: yes, to manage Looker query costs.
-2. **Account-level drill-down:** Should the dashboard support drilling into individual account metrics (e.g., "Account X has a 5.0-day median time-to-approved")? Recommendation: yes, but only for Full access users, and display account_id by default with an optional CRM name lookup.
+2. **Account-level drill-down:** Should the dashboard support drilling into individual account metrics (e.g., "Account X has a 5.0-day median time-to-approved [fictional]")? Recommendation: yes, but only for Full access users, and display account_id by default with an optional CRM name lookup.
 3. **Historical comparison:** Should charts support a "compare to prior period" overlay (e.g., this week vs. last week)? Recommendation: add this as a Phase 2 enhancement after the dashboard is stable.
 4. **Mobile responsiveness:** Should the dashboard render on mobile devices? Recommendation: no for v1; the dashboard is designed for desktop Looker access. Mobile access is a nice-to-have for executives.
 

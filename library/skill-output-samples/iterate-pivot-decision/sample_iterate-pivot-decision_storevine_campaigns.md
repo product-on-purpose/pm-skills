@@ -137,7 +137,7 @@ Campaigns v1.0 is live for all active Storevine merchants. The guided first-camp
 ### Market Signals
 
 - Klaviyo's continued SMB focus and pricing expansion (klaviyo.com) means migrated merchants have an active pull-back option if Campaigns does not meet their expectations within the first quarter of migration
-- Mailchimp's 2023 free-tier sunset continues to push SMB email users toward alternatives, validating the ongoing size of the non-adopter segment as new merchants join Storevine without an existing email tool
+- Mailchimp's 2023 free-tier sunset [fictional] continues to push SMB email users toward alternatives, validating the ongoing size of the non-adopter segment as new merchants join Storevine without an existing email tool
 
 ### Internal Learnings
 
@@ -153,8 +153,8 @@ Campaigns v1.0 is live for all active Storevine merchants. The guided first-camp
 | Hypothesis | Status | Evidence |
 |------------|--------|----------|
 | Non-adopter merchants will send first campaign at ≥30% rate within 60 days | Validated | 31.7% [fictional], p < 0.001 |
-| Guided flow (pre-populated content) is the activation mechanism | Validated | Funnel analysis: effect concentrated at template + subject line step |
-| Campaigns adoption will reduce annual merchant churn | Validated (early) | Campaigns-active cohort churn: 11.4% [fictional] vs. 22% platform average |
+| Guided flow (pre-populated content) is the activation mechanism | Validated | Funnel analysis: effect concentrated at template + subject line step [fictional] |
+| Campaigns adoption will reduce annual merchant churn | Validated (early) | Campaigns-active cohort churn: 11.4% [fictional] vs. 22% [fictional] platform average |
 | Klaviyo-migrated merchants will send at rates comparable to Klaviyo history | Invalidated | 23% [fictional] sending vs. ~60% [fictional] predicted |
 
 ### Key Learnings from Validation

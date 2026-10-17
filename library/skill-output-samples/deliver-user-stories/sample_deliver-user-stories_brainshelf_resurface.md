@@ -69,7 +69,7 @@ keep them tight. alex and jess need to estimate on monday.
 
 ## Context & Background
 
-The Resurface digest is the core deliverable of the Resurface feature. It addresses the re-engagement trigger gap identified in the January 2026 user interviews: users have no external prompt to return to their saved content, so re-engagement depends entirely on self-motivation, which fails at scale. The digest creates a daily external trigger by delivering relevant saved items to the user's inbox at a time when they are likely to have reading availability (morning). The topic-matching algorithm (TF-IDF, cosine similarity) selects items based on the user's recent activity . items saved, clicked, or read in the prior 7 days . and excludes items that appeared in a previous digest within the last 14 days. See the Resurface PRD for the full feature specification.
+The Resurface digest is the core deliverable of the Resurface feature. It addresses the re-engagement trigger gap identified in the January 2026 user interviews [fictional]: users have no external prompt to return to their saved content, so re-engagement depends entirely on self-motivation, which fails at scale [fictional]. The digest creates a daily external trigger by delivering relevant saved items to the user's inbox at a time when they are likely to have reading availability (morning). The topic-matching algorithm (TF-IDF, cosine similarity) selects items based on the user's recent activity . items saved, clicked, or read in the prior 7 days . and excludes items that appeared in a previous digest within the last 14 days. See the Resurface PRD for the full feature specification.
 
 ## Acceptance Criteria
 

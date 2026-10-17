@@ -82,7 +82,7 @@ visualizations, filters, data sources, and acceptance criteria.
 
 - Whether the guided first-campaign flow should be shipped as default based on the A/B test results (primary metric from this dashboard)
 - Whether Merchant Success needs to intervene with support resources or onboarding nudges for merchants who have not sent a first campaign after 30 days
-- Whether the Q4 2026 churn reduction target (22% → 14% [fictional]) is on track by monitoring the churn cohort split between Campaigns-active and Campaigns-inactive merchants
+- Whether the Q4 2026 churn reduction target (22% [fictional] → 14% [fictional]) is on track by monitoring the churn cohort split between Campaigns-active and Campaigns-inactive merchants
 
 ### What This Dashboard Is NOT For
 
@@ -154,7 +154,7 @@ visualizations, filters, data sources, and acceptance criteria.
 | Active Campaigns merchants | Distinct merchants with ≥1 send in last 30 days | Amplitude: campaign_sent | 2,000 [fictional] by Q2 end |
 | Churn rate by Campaigns usage | Annual churn rate for Campaigns-active vs. Campaigns-inactive cohorts | Storevine order DB + churn model | Campaigns-active < 12% [fictional] |
 | Send failure rate | % of campaign sends that fail (non-202 response) | Amplitude: campaign_sent error events | Below 2% [fictional] |
-| Unsubscribe rate | % of campaign recipients who unsubscribe | Amplitude: attribution_recorded (unsubscribe) | Below 2.0% |
+| Unsubscribe rate | % of campaign recipients who unsubscribe | Amplitude: attribution_recorded (unsubscribe) | Below 2.0% [fictional] |
 
 ---
 
@@ -293,9 +293,9 @@ visualizations, filters, data sources, and acceptance criteria.
 
 | Condition | Threshold | Action | Recipients |
 |-----------|-----------|--------|------------|
-| Send failure rate exceeds 2% [fictional] | >2% of sends return non-202 in any 15-minute window | Slack alert to #campaigns-build | Engineering Lead, Growth PM |
-| First-send rate (60-day cohort) drops below 20% [fictional] | Latest cohort's 60-day rate < 20% | Email alert | Growth PM |
-| Unsubscribe rate exceeds 1.5% [fictional] in any 7-day window | Rolling 7-day unsubscribe rate > 1.5% | Slack alert to #campaigns-build | Growth PM, Engineering Lead |
+| Send failure rate exceeds 2% [fictional] | >2% [fictional] of sends return non-202 in any 15-minute window | Slack alert to #campaigns-build | Engineering Lead, Growth PM |
+| First-send rate (60-day cohort) drops below 20% [fictional] | Latest cohort's 60-day rate < 20% [fictional] | Email alert | Growth PM |
+| Unsubscribe rate exceeds 1.5% [fictional] in any 7-day window | Rolling 7-day unsubscribe rate > 1.5% [fictional] | Slack alert to #campaigns-build | Growth PM, Engineering Lead |
 
 ---
 
