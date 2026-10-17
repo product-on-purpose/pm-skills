@@ -134,7 +134,15 @@ Unmarked method is what makes an invented synthesis read as corroborated, and an
 
 **Placement.** Put the marker directly after the claim it covers. One marker covers one claim, so a sentence that asserts three invented things carries three markers. A notice at the start of a wholly invented section, such as an evidence ledger, may be added, but it supplements the inline markers and never replaces them: a reader who lands mid-section reads the claim, not the notice.
 
-**Never marked:** the three thread companies and their team members, which are fictional by definition; real competitor and vendor names; decisions the artifact makes; and the artifact's own scaffolding, such as headings, requirement IDs and its own date.
+**Edge cases, ruled 2026-10-16.** The first sweep of every skill's `EXAMPLE.md` showed five places the rules above left open.
+
+- **Code fences.** Prose and plain-text fences, including ASCII charts, take inline markers like any other text. A JSON, YAML, diagram or code fence instead takes one line directly above it: "Values in the block below are [fictional]." This is the one place a notice replaces inline markers, because a marker inside the block would break its syntax.
+- **Headings.** A claim inside a heading is marked like any other claim, as in "### Expert 2: Dr. Chen, 15 years observing reader behavior [fictional]". Only pure structure, such as "### Round 2", is scaffolding.
+- **Real companies.** Stable public facts about a real company are not marked: its founding year, listing, ownership and documented product capabilities. Anything scenario-specific or date-sensitive is marked: pricing, funding, market share and feature ratings.
+- **A thread team's own process.** The team's votes, polls and sign-offs, such as a dot count on a sketch, are the artifact's own decision record and are not marked.
+- **Restated claims.** Every occurrence is marked, because a reader who lands mid-section reads the claim, not an earlier marker.
+
+**Never marked:** the three thread companies and their team members, which are fictional by definition, and that team's own votes, polls and sign-offs; real competitor and vendor names, and stable public facts about them; decisions the artifact makes; and the artifact's own scaffolding, such as structural headings, requirement IDs and its own date.
 
 **What the check covers.** `scripts/check-sample-no-fabricated-metrics.mjs` is an advisory heuristic that flags only percentages. It scans both places the convention applies: library samples, where the input is the region before `## Output`, and every skill's `references/EXAMPLE.md`, where the input is empty. It cannot tell a decision from an invented observation, so it also flags targets and thresholds that are correctly left unmarked. Passing it does not mean a file follows this convention, and a finding does not mean the file breaks it.
 
