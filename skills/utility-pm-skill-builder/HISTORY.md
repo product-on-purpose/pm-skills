@@ -11,7 +11,7 @@
 
 ## 2.0.0 (2026-10-17)
 
-Planned for v2.34.0, under ruling R1 (re-scope the release around the deliver-prd increment) in its release plan.
+Released in [v2.34.0](../../site/src/content/docs/releases/Release_v2.34.0.md), under ruling R1 (re-scope the release around the deliver-prd increment) in its release plan.
 
 On 2026-10-15 the repo retired the per-release `skills-manifest.yaml` and made HISTORY.md required from a skill's first 1.0.0 release. This skill did not scaffold the file, so every skill it created would have shipped without one. Aligning it was a v2.34.0 plan item.
 

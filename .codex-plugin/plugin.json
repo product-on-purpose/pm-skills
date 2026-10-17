@@ -1,6 +1,6 @@
 {
   "name": "pm-skills",
-  "version": "2.33.0",
+  "version": "2.34.0",
   "description": "Product management skills for AI agents across discovery, definition, delivery, measurement, iteration, foundation artifacts, and workshop tools.",
   "author": {
     "name": "product-on-purpose",
@@ -26,7 +26,7 @@
   "interface": {
     "displayName": "PM Skills",
     "shortDescription": "Product management skills for AI agents",
-    "longDescription": "68 product management skills across the full product lifecycle, including PRDs, user stories, acceptance criteria, OKRs, lean canvas, personas, meeting artifacts, discovery synthesis, measurement planning, release notes, workshop tools, workflow authoring and ad-hoc chaining, and pm-skills lifecycle utilities. v2.33.0 fixes the three defects users actually reported: the persona example now matches the template it ships with, prioritization works for lists shorter than ten and for research thinner than a formal survey, and four skills no longer dead-end by pointing at a sibling skill you have not installed. It also opens the AI-product family, adding sections for specifying model-backed features to deliver-prd, measure-instrumentation-spec and develop-adr. No new skills; catalog stays 68 skills / 6 sub-agents. Full release history: https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md",
+    "longDescription": "68 product management skills across the full product lifecycle, including PRDs, user stories, acceptance criteria, OKRs, lean canvas, personas, meeting artifacts, discovery synthesis, measurement planning, release notes, workshop tools, workflow authoring and ad-hoc chaining, and pm-skills lifecycle utilities. v2.34.0 ships what survived a test against a no-skill control: two planned AI skills lost and were not built, and their winning decisions went into deliver-prd 3.1.0, covering runs per case, content the model must not obey, output that must not reach a lower-access audience, and rate requirements that stay rates until a designed sample backs them. The library samples and skill examples now mark the figures they invent with [fictional]. No new skills; catalog stays 68 skills / 6 sub-agents. Full release history: https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md",
     "developerName": "Product on Purpose",
     "category": "Productivity",
     "capabilities": [

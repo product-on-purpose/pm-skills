@@ -11,7 +11,7 @@
 
 ## 3.1.0 (2026-10-16)
 
-Planned for v2.34.0, under ruling R1 (re-scope the release around the deliver-prd increment) in its release plan.
+Released in [v2.34.0](../../site/src/content/docs/releases/Release_v2.34.0.md), under ruling R1 (re-scope the release around the deliver-prd increment) in its release plan.
 
 Two proposed AI skills, an evaluation spec and a behavior spec, were tested against a no-skill control on 2026-10-16, and neither was built. Three of their decisions beat the control or caught what skilled analysts skipped, and the judges found two defects in this skill's shipped section. This version carries those into the section they came from.
 

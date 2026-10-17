@@ -5,7 +5,7 @@ license: Apache-2.0
 metadata:
   classification: utility
   version: "2.0.0"
-  updated: 2026-10-16
+  updated: 2026-10-17
   category: coordination
   frameworks: [triple-diamond]
   author: product-on-purpose
