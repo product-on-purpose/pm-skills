@@ -244,3 +244,23 @@ Codex reviewed only the fix pass (`16e19e3e` to `2299a3e3`) and completed the ro
 | F4 and R2-F1 | Every "known regression" waiver in the runbook, the agent file and the skill | Four of five are qualified for a delivery P0; the fifth is the deferred skill template |
 
 **G1 attested 2026-10-17.** Two rounds ran, as the stopping condition allows at most. Every critical or high finding is closed, every medium finding is closed or deferred with a rationale, and no fix authored new structure.
+
+---
+
+## G4 post-tag record, 2026-10-17
+
+The tag `v2.34.0` points at `31e46928`, the squash of the release-prep pull request [#320](https://github.com/product-on-purpose/pm-skills/pull/320). That SHA was captured at G2.5 after `main` CI passed on it, and it was kept outside the tree until G3 tagged it.
+
+| Sub-check | Result |
+|---|---|
+| 1. Plugin install (P0) | **PASSED** through the real user path: `claude plugin marketplace update product-on-purpose`, then `claude plugin update pm-skills`. The installed artifact reports 2.34.0 with 68 skills, 6 sub-agents and 11 commands, the four bumped skills at their new versions, and both G1 round 1 corrections present in `deliver-prd`'s template |
+| 2. Delivery (P0) | **DELIVERED.** `check-delivery-pin.mjs` exits 0: the registry serves v2.34.0 at `31e46928`. The re-pin was prepared by `repin-watch` and merged as `agent-plugins` [#131](https://github.com/product-on-purpose/agent-plugins/pull/131) at `59d2b32`, registry `1.103.0` to `1.104.0`, `strict: true` preserved and no other member entry moved. The gap between the tag and delivery was minutes, against about eight hours for v2.33.0 |
+| 3. Marketplace registration (P1) | Resolves; the marketplace update in sub-check 1 succeeded |
+| 4. GitHub Pages (P1) | The deploy on `31e46928` succeeded, and the release page serves at `/pm-skills/releases/Release_v2.34.0/` |
+| 5. GitHub Release body (P2) | Replaced the generic auto-published body with an authored one, built from the release page with absolute links |
+| 6. Next-cycle stub (P2) | Seeded: [`../v2.35.0/plan_v2.35.0.md`](../v2.35.0/plan_v2.35.0.md) |
+| 7. Deferrals swept (P2) | Copied row by row into the stub: the four `measure-instrumentation-spec` carries (section A items 2 to 5, the shipped gap first), G1 finding R2-F1's deferred remainder, ruling R3's unscheduled skill, control-arm salvage item 4, the sweep's recorded-not-blocking items, and this plan's open section C and D rows |
+| 8. release-please manifest (P2) | Reconciled to 2.34.0 in `chore(release): reconcile the release-please manifest to 2.34.0 (G4)`. The shadow Release pull request [#312](https://github.com/product-on-purpose/pm-skills/pull/312), which proposed 2.34.0, was closed unmerged under the shadow protocol, as #271 was for v2.33.0 |
+| 9. External surfaces (P2) | The GitHub About description already equals `gen-derived-surfaces.mjs --about`, because the catalog did not change. Topics, the Pages URL, Open Graph and the skills.sh listing are unchanged |
+
+**Release complete: v2.34.0.** Both P0 sub-checks passed, and no P0 incident was logged.
