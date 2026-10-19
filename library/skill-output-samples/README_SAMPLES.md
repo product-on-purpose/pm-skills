@@ -1,6 +1,6 @@
 ﻿# PM Skills Sample Library
 
-202 sample outputs across 63 PM skills of the current 68-skill catalog. The 5 sub-agent dispatch skills have their samples at `library/sub-agent-samples/` instead of here. v2.18.0 added 12 samples across the 4 new phase skills (discover-market-sizing, define-prioritization-framework, discover-journey-map, measure-survey-analysis). Organized into three narrative threads that follow fictional product teams through the full Triple Diamond lifecycle plus the v2.15.0 Foundation Sprint and Design Sprint families. Each sample is a complete, realistic artifact that shows what a PM team would produce when invoking a pm-skills slash command against a real product context. Utility skills have single-thread samples (storevine) demonstrating their meta-skill outputs. Meeting-family skills (foundation-meeting-*) have three samples per skill (one per thread) following the SAMPLE_CREATION.md thread standards. Sprint-family skills (tool-foundation-sprint-* and tool-design-sprint-*) also have three samples per skill, with each thread carrying a coherent end-to-end FS+DS arc.
+203 sample outputs across 63 PM skills of the current 68-skill catalog. The 5 sub-agent dispatch skills have their samples at `library/sub-agent-samples/` instead of here. v2.18.0 added 12 samples across the 4 new phase skills (discover-market-sizing, define-prioritization-framework, discover-journey-map, measure-survey-analysis). Organized into three narrative threads that follow fictional product teams through the full Triple Diamond lifecycle plus the v2.15.0 Foundation Sprint and Design Sprint families. Each sample is a complete, realistic artifact that shows what a PM team would produce when invoking a pm-skills slash command against a real product context. Utility skills have single-thread samples (storevine) demonstrating their meta-skill outputs. Meeting-family skills (foundation-meeting-*) have three samples per skill (one per thread) following the SAMPLE_CREATION.md thread standards. Sprint-family skills (tool-foundation-sprint-* and tool-design-sprint-*) also have three samples per skill, with each thread carrying a coherent end-to-end FS+DS arc.
 
 ## Table of Contents
 
@@ -21,7 +21,7 @@
 
 ## What Is This?
 
-This folder contains 202 sample outputs, decomposing by release cohort as follows (115 pre-v2.15.0 + 45 v2.15.0 Sprint Skills additions + 12 v2.18.0 content-skill additions + 3 v2.23.0 foundation addition + 3 v2.26.0 workflow-builder addition + 18 v2.28.0 foundation addition + 3 v2.29.0 foundation addition + 2 v2.33.0 project-memory pair + 1 v2.33.0 Model Choice sample):
+This folder contains 203 sample outputs, decomposing by release cohort as follows (115 pre-v2.15.0 + 45 v2.15.0 Sprint Skills additions + 12 v2.18.0 content-skill additions + 3 v2.23.0 foundation addition + 3 v2.26.0 workflow-builder addition + 18 v2.28.0 foundation addition + 3 v2.29.0 foundation addition + 2 v2.33.0 project-memory pair + 1 v2.33.0 Model Choice sample + 1 v2.34.0 AI Behavior sample):
 
 **Pre-v2.15.0 (115 samples):**
 
@@ -58,7 +58,11 @@ This folder contains 202 sample outputs, decomposing by release cohort as follow
 
 - **3 foundation-build-risk-review samples** - 1 per thread (storevine bulk price-update feature request, brainshelf AI auto-tagging idea, workbench enterprise knowledge-base bet); each a Build Risk Review with a single biggest risk, a graded evidence ledger, a verdict, and a no-code validation step
 
-75 + 12 + 3 + 7 + 15 + 3 + 21 + 21 + 3 + 12 + 3 + 3 + 18 + 3 + 2 + 1 = 202 itemized, which matches the on-disk corpus exactly. If you add a sample, update the headline total, its release cohort, and this line together.
+**v2.34.0 AI conditional-section addition (1 sample):**
+
+- **2 deliver-prd AI Behavior and Evaluation samples** . workbench Blueprints Assist PRD samples (the original and an AI Behavior and Evaluation variant); refusal and abstention are written as evidenced release requirements, and the evaluation plan names its slices and floors instead of borrowing a case count
+
+75 + 12 + 3 + 7 + 15 + 3 + 21 + 21 + 3 + 12 + 3 + 3 + 18 + 3 + 2 + 1 + 2 = 204 itemized, which matches the on-disk corpus exactly. If you add a sample, update the headline total, its release cohort, and this line together.
 
 The samples serve two purposes:
 
@@ -332,7 +336,7 @@ The Brainshelf thread follows the PM team building **Resurface**, a contextual m
 
 Series B, ~200 employees, ~500 enterprise customers. Competes with Atlassian Confluence, Notion, Coda, Monday.com, and Basecamp.
 
-The Workbench thread follows the PM team building **Blueprints**, reusable document templates with required sections and role-based approval gates for enterprise teams. The arc runs from team lead interviews on Confluence fatigue through a GA launch retrospective and a pivot decision to narrow focus to ops/compliance teams. Prompts are the most complete and structured in the library, reflecting an enterprise PM who operates with a full stakeholder map and quantified baselines.
+The Workbench thread follows the PM team building **Blueprints**, reusable document templates with required sections and role-based approval gates for enterprise teams. The arc runs from team lead interviews on Confluence fatigue through a GA launch retrospective and a pivot decision to narrow focus to ops/compliance teams. A second deliver-prd sample continues past the pivot: Blueprints Assist, the first sample whose output comes from a model, carrying the AI Behavior and Evaluation section with refusal and abstention as evidenced release requirements. Prompts are the most complete and structured in the library, reflecting an enterprise PM who operates with a full stakeholder map and quantified baselines.
 
 | Phase | Skill | Description |
 |-------|-------|-------------|
@@ -361,6 +365,7 @@ The Workbench thread follows the PM team building **Blueprints**, reusable docum
 | Develop | [adr](develop-adr/sample_develop-adr_workbench_blueprints.md) | ADR: Yjs CRDTs selected for offline-first support and performance |
 | Develop | [design-rationale](develop-design-rationale/sample_develop-design-rationale_workbench_blueprints.md) | Guided wizard chosen over blank canvas for Blueprint creation flow |
 | Deliver | [prd](deliver-prd/sample_deliver-prd_workbench_blueprints.md) | PRD: Workbench Blueprints with SSO provisioning and enterprise approval gates |
+| Deliver | [prd - AI Behavior and Evaluation](deliver-prd/sample_deliver-prd_workbench_blueprints-ai-section-drafting.md) | PRD: Blueprints Assist AI section drafting, with refusal and abstention behavior tied to release evidence |
 | Deliver | [user-stories](deliver-user-stories/sample_deliver-user-stories_workbench_blueprints.md) | Enterprise ops manager (creator) and department head (approver) personas |
 | Deliver | [edge-cases](deliver-edge-cases/sample_deliver-edge-cases_workbench_blueprints.md) | Required section deleted post-approval, approver role revoked, version conflict |
 | Deliver | [launch-checklist](deliver-launch-checklist/sample_deliver-launch-checklist_workbench_blueprints.md) | SSO tenant testing, IT admin provisioning guide, Confluence migration communication |
