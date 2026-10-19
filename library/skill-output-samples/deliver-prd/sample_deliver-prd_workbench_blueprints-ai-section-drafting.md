@@ -1,6 +1,6 @@
 ---
 title: "Deliver PRD: Workbench Blueprints Assist AI Section Drafting"
-description: "Workbench enterprise collaboration platform - Blueprints v1.2 PRD for AI-drafted sections grounded in linked source documents, with refusal and abstention behavior tied to release evidence."
+description: "Workbench enterprise collaboration platform — Blueprints v1.2 PRD for AI-drafted sections grounded in linked source documents, with refusal and abstention behavior tied to release evidence."
 artifact: prd
 version: "1.0"
 repo_version: "2.34.0"
@@ -8,7 +8,7 @@ skill_version: "3.0.0"
 created: 2026-10-16
 status: sample
 thread: workbench
-context: Workbench enterprise collaboration platform . Blueprints Assist v1.2 PRD, the first thread sample whose feature output comes from a model, written for the AI Governance Council's build review
+ context: Workbench enterprise collaboration platform — Blueprints Assist v1.2 PRD, the first thread sample whose feature output comes from a model, written for the AI Governance Council's build review
 ---
 <!-- PM-Skills | https://github.com/product-on-purpose/pm-skills | Apache 2.0 -->
 
@@ -22,9 +22,9 @@ Three constraints shaped the PRD. Legal counsel Elaine R. will not approve a fea
 
 **Source Notes:**
 
-- Google PAIR, "People + AI Guidebook" (pair.withgoogle.com/guidebook) . framing for user expectations and mental models of AI assistance.
-- NIST, "AI Risk Management Framework" (nist.gov/itl/ai-risk-management-framework) . the governance framing the Council applies to model-backed features.
-- Atlassian, "Atlassian Intelligence" (atlassian.com/platform/artificial-intelligence) . competitor positioning for AI drafting inside enterprise document tools.
+- Google PAIR, "People + AI Guidebook" (pair.withgoogle.com/guidebook) — framing for user expectations and mental models of AI assistance.
+- NIST, "AI Risk Management Framework" (nist.gov/itl/ai-risk-management-framework) — the governance framing the Council applies to model-backed features.
+- Atlassian, "Atlassian Intelligence" (atlassian.com/platform/artificial-intelligence) — competitor positioning for AI drafting inside enterprise document tools.
 
 ---
 
@@ -263,7 +263,7 @@ The primary flow follows this sequence:
 | Evaluation harness in CI | Leo M. (Data Analyst) | Design done; implementation Nov 2026 | Release discipline for model changes weakens; Council review at risk |
 | Legal sign-off on refusal wording | Elaine R. (Legal Counsel) | Draft under review | Blocks beta wording; refusal slice cannot freeze |
 | AI Governance Council build review | Sandra C. (Head of Product) | Scheduled November 2026 | Build cannot start without it |
-| Beta accounts (20 compliance customers [fictional]) | Mei-Lin T. (Enterprise Sales Lead) | Six committed; recruiting the rest | Weakens beta signal on accept/edit rates |
+| Beta accounts (20 compliance customers [fictional]) | Mei-Lin T. (Enterprise Sales Lead) | Six committed [fictional]; recruiting the rest | Weakens beta signal on accept/edit rates |
 
 ### Risks
 
@@ -271,7 +271,7 @@ The primary flow follows this sequence:
 |---|---|---|---|
 | Authors over-trust drafts and accept without reading | Medium | High | Citation-first review UI; lineage visible at the approval gate; the accepted-with-edits metric is a reported signal, not a success claim |
 | Refusal behavior is too broad and blocks ordinary requests | Medium | Medium | The refusal slice includes permitted adjacent requests; false refusals are scored inside the drafting slices, not hidden in the aggregate |
-| A model or prompt change silently degrades grounding | Medium | High | The evaluation suite runs in CI on every model or prompt change, and a slice failing its floor blocks the rollout |
+| A model or prompt change silently degrades grounding | Medium | High | The evaluation suite runs in CI on every model or prompt change, and a slice failing its threshold blocks the rollout |
 | Retrieval leaks beyond the link set | Low | High | Boundary enforced at the index layer; boundary slice seeded with tempting unlinked sources |
 | Latency target missed on long sections | Medium | Medium | Chunking and caching work under Karen L.; beta telemetry decides whether the 1,200-word target holds |
 

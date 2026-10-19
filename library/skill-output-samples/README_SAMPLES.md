@@ -60,9 +60,9 @@ This folder contains 203 sample outputs, decomposing by release cohort as follow
 
 **v2.34.0 AI conditional-section addition (1 sample):**
 
-- **1 deliver-prd AI Behavior and Evaluation sample** . workbench Blueprints Assist PRD, the first sample whose feature output comes from a model; refusal and abstention are written as evidenced release requirements, and the evaluation plan names its slices and floors instead of borrowing a case count
+- **2 deliver-prd AI Behavior and Evaluation samples** . workbench Blueprints Assist PRD samples (the original and an AI Behavior and Evaluation variant); refusal and abstention are written as evidenced release requirements, and the evaluation plan names its slices and floors instead of borrowing a case count
 
-75 + 12 + 3 + 7 + 15 + 3 + 21 + 21 + 3 + 12 + 3 + 3 + 18 + 3 + 2 + 1 + 1 = 203 itemized, which matches the on-disk corpus exactly. If you add a sample, update the headline total, its release cohort, and this line together.
+75 + 12 + 3 + 7 + 15 + 3 + 21 + 21 + 3 + 12 + 3 + 3 + 18 + 3 + 2 + 1 + 2 = 204 itemized, which matches the on-disk corpus exactly. If you add a sample, update the headline total, its release cohort, and this line together.
 
 The samples serve two purposes:
 
