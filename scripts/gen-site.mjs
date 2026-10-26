@@ -206,11 +206,17 @@ function deriveCommandName(dirname) {
   }
   return dirname;
 }
-// Source SKILL.md uses "](../../docs/X" which resolves from skills/<dir>/; once
-// copied into docs/skills/<group>/ the docs/ segment must drop so the link
-// resolves inside the docs tree.
+// Source SKILL.md bodies use "](../../docs/X" (2 levels up from skills/<dir>/); source
+// references/TEMPLATE.md and references/EXAMPLE.md bodies use "](../../../docs/X" (3
+// levels up from skills/<dir>/references/). Both end up EMBEDDED at the same place -
+// inside the one generated page at docs/skills/<group>/<name>.md, 2 levels under the
+// docs content root - so both forms collapse to the page's own "../../" depth here,
+// with the docs-root segment dropped so the link resolves inside the docs tree.
+// After the Standard 0.17 migration's on-disk U6 fix, the equally valid
+// "](../../site/src/content/docs/X" and "](../../../site/src/content/docs/X" spellings
+// name the same real target, so both path shapes are handled the same way.
 function rewriteInternalPaths(text) {
-  return text.replace(/\]\(\.\.\/\.\.\/docs\//g, '](../../');
+  return text.replace(/\]\((?:\.\.\/)+(?:site\/src\/content\/docs|docs)\//g, '](../../');
 }
 
 // --- sample parsing (ported from the Python generators) ---------------------
