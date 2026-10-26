@@ -41,7 +41,7 @@ metadata:
 
 Thursday is the prototype build day. This skill produces the morning planning artifact that makes the build run; it does NOT build the prototype itself. The skill assigns roles, locks the fidelity bar, drafts the Five-Act interview script, defines the trial-run gate, and confirms Friday participants. The actual building (Figma frames, slideware decks, role-play scripts, paper assemblies) is craft work the team owns through the rest of Thursday.
 
-Family contract: [`docs/reference/skill-families/design-sprint-skills-contract.md`](../../docs/reference/skill-families/design-sprint-skills-contract.md). This skill is a member of `design-sprint-skills`.
+Family contract: [`site/src/content/docs/reference/skill-families/design-sprint-skills-contract.md`](../../site/src/content/docs/reference/skill-families/design-sprint-skills-contract.md). This skill is a member of `design-sprint-skills`.
 
 ## When to Use
 

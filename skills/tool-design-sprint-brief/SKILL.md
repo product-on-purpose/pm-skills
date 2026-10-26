@@ -47,7 +47,7 @@ metadata:
 
 Produce the brief that aligns the team on challenge, sprint questions, participants, customer recruiting, prototype medium, interview format, logistics, and success criteria before Monday begins. A well-built brief prevents Monday morning from opening with re-litigation of "what are we testing this week?"; a missing or vague brief almost guarantees it.
 
-Family contract: [`docs/reference/skill-families/design-sprint-skills-contract.md`](../../docs/reference/skill-families/design-sprint-skills-contract.md). This skill is a member of `design-sprint-skills`.
+Family contract: [`site/src/content/docs/reference/skill-families/design-sprint-skills-contract.md`](../../site/src/content/docs/reference/skill-families/design-sprint-skills-contract.md). This skill is a member of `design-sprint-skills`.
 
 ## When to Use
 

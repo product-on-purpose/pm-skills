@@ -43,7 +43,7 @@ metadata:
 
 Wednesday is the most decision-heavy day of the Design Sprint. The skill runs the art museum layout (sketches posted anonymously on the wall), heat map (silent dot-vote stickers on promising parts), speed critique (3 minutes per sketch summarizing what the team sees), straw poll (each team member's top choice), and the Decider's supervote (the call that triggers the storyboard). Then the team decides whether to rumble (storyboard two sketches as competing prototypes) or all-in-one (storyboard one). The day ends with a 5-15 step storyboard that drives Thursday's build.
 
-Family contract: [`docs/reference/skill-families/design-sprint-skills-contract.md`](../../docs/reference/skill-families/design-sprint-skills-contract.md). This skill is a member of `design-sprint-skills`.
+Family contract: [`site/src/content/docs/reference/skill-families/design-sprint-skills-contract.md`](../../site/src/content/docs/reference/skill-families/design-sprint-skills-contract.md). This skill is a member of `design-sprint-skills`.
 
 ## When to Use
 

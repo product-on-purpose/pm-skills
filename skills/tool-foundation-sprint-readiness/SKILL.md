@@ -39,7 +39,7 @@ metadata:
 
 Assess whether a Foundation Sprint fits the team's current situation. Most sprints that fail were sprints that should not have been run. A 30-45 minute readiness diagnostic catches that failure mode before two days of facilitated work are spent.
 
-Family contract: [`docs/reference/skill-families/foundation-sprint-skills-contract.md`](../../docs/reference/skill-families/foundation-sprint-skills-contract.md). This skill is a member of `foundation-sprint-skills` and conforms to the family frontmatter and Decider Checkpoint requirements.
+Family contract: [`site/src/content/docs/reference/skill-families/foundation-sprint-skills-contract.md`](../../site/src/content/docs/reference/skill-families/foundation-sprint-skills-contract.md). This skill is a member of `foundation-sprint-skills` and conforms to the family frontmatter and Decider Checkpoint requirements.
 
 ## When to Use
 

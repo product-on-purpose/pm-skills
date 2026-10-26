@@ -17,7 +17,7 @@ A meeting recap is a post-meeting topic-segmented summary produced for attendees
 
 This skill absorbs what would otherwise be a separate "meeting-actions" skill. Actions in this family live alongside the context that makes them meaningful, not in a sibling artifact.
 
-This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md).
+This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Skills Family Contract](../../site/src/content/docs/reference/skill-families/meeting-skills-contract.md).
 
 ## When to Use
 
@@ -141,7 +141,7 @@ The fabrication prohibition above governs this write without exception: record o
 
 ## See also
 
-- [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md)
+- [Meeting Skills Family Contract](../../site/src/content/docs/reference/skill-families/meeting-skills-contract.md)
 - [`foundation-meeting-agenda`](../foundation-meeting-agenda/SKILL.md). upstream: provides topic skeleton and desired-outcomes
 - [`foundation-meeting-synthesize`](../foundation-meeting-synthesize/SKILL.md). downstream: consumes recaps for cross-meeting synthesis
 - [`foundation-stakeholder-update`](../foundation-stakeholder-update/SKILL.md). downstream: translates recap outcomes to non-attendees

@@ -39,7 +39,7 @@ metadata:
 
 Day 1 afternoon of a Foundation Sprint. The team converts the morning's Basics frame (customer, problem, advantage, competitors) into a defensible strategic position. The output is a one-page Mini Manifesto that the team and Decider sign as the Day 1 strategic summary.
 
-Family contract: [`docs/reference/skill-families/foundation-sprint-skills-contract.md`](../../docs/reference/skill-families/foundation-sprint-skills-contract.md). This skill is a member of `foundation-sprint-skills`.
+Family contract: [`site/src/content/docs/reference/skill-families/foundation-sprint-skills-contract.md`](../../site/src/content/docs/reference/skill-families/foundation-sprint-skills-contract.md). This skill is a member of `foundation-sprint-skills`.
 
 ## When to Use
 

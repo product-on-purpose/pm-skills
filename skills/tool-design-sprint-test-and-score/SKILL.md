@@ -44,7 +44,7 @@ metadata:
 
 Friday is the sprint's payoff. 5 target-profile customers run the prototype while the team observes; the team synthesizes observations into a scorecard against the sprint questions; the Decider makes the build / iterate / pivot / stop call by end-of-day. The week's 35-40 person-days plus customer recruiting cost converts into one actionable decision.
 
-Family contract: [`docs/reference/skill-families/design-sprint-skills-contract.md`](../../docs/reference/skill-families/design-sprint-skills-contract.md). This skill is a member of `design-sprint-skills`.
+Family contract: [`site/src/content/docs/reference/skill-families/design-sprint-skills-contract.md`](../../site/src/content/docs/reference/skill-families/design-sprint-skills-contract.md). This skill is a member of `design-sprint-skills`.
 
 ## When to Use
 

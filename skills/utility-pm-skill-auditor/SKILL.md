@@ -53,7 +53,7 @@ Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI, or any other client without na
 
 ## Cross-Client Notes
 
-See [Sub-Agent Compatibility Matrix](../../docs/reference/sub-agent-compatibility.md) for the canonical cross-client status. Summary for this skill as of v2.16.0: PRODUCTION on Claude Code + Codex CLI (Codex CLI successfully invoked the validator suite via Bash + produced a layered audit report with re-derived aggregate counters); EXPERIMENTAL on Cursor / Windsurf / Copilot CLI / Gemini CLI.
+See [Sub-Agent Compatibility Matrix](../../site/src/content/docs/reference/sub-agent-compatibility.md) for the canonical cross-client status. Summary for this skill as of v2.16.0: PRODUCTION on Claude Code + Codex CLI (Codex CLI successfully invoked the validator suite via Bash + produced a layered audit report with re-derived aggregate counters); EXPERIMENTAL on Cursor / Windsurf / Copilot CLI / Gemini CLI.
 
 The "read canonical agent definition and execute inline" pattern depends on the AI client being able to:
 
@@ -67,7 +67,7 @@ Most AI clients support all three. If any are unreliable on a specific client, t
 
 - Canonical sub-agent definition: [`agents/pm-skill-auditor.md`](../../agents/pm-skill-auditor.md)
 - Behavioral spec: [`docs/internal/release-plans/v2.16.0/spec_pm-skill-auditor.md`](../../docs/internal/release-plans/v2.16.0/spec_pm-skill-auditor.md)
-- Runtime components catalog: [`docs/reference/runtime-components.md`](../../docs/reference/runtime-components.md)
+- Runtime components catalog: [`site/src/content/docs/reference/runtime-components.md`](../../site/src/content/docs/reference/runtime-components.md)
 - Cross-cutting check catalog: `docs/internal/release-plans/v2.16.0/spec_pm-skill-auditor.md#cross-cutting-check-catalog`
 - Pre-tag validator bundle: `scripts/pre-tag-validate.{sh,ps1}`
 - Output template: `references/TEMPLATE.md`

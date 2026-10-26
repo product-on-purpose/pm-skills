@@ -55,7 +55,7 @@ The dispatch skill requires the AI client to:
 3. Read the canonical sub-agent definition file
 4. Treat the agent body as operating instructions
 
-See [Sub-Agent Compatibility Matrix](../../docs/reference/sub-agent-compatibility.md) for the canonical cross-client status. Summary for this skill as of v2.16.0: PRODUCTION on Claude Code + Codex CLI (Codex CLI successfully ran git log + read CLAUDE.md hygiene rules + drafted clean CHANGELOG entries + correct dirty-tree refusal); EXPERIMENTAL on Cursor / Windsurf / Copilot CLI / Gemini CLI. If a client is unreliable, fall back to manual `git log` + manual drafting using CLAUDE.md as the hygiene reference.
+See [Sub-Agent Compatibility Matrix](../../site/src/content/docs/reference/sub-agent-compatibility.md) for the canonical cross-client status. Summary for this skill as of v2.16.0: PRODUCTION on Claude Code + Codex CLI (Codex CLI successfully ran git log + read CLAUDE.md hygiene rules + drafted clean CHANGELOG entries + correct dirty-tree refusal); EXPERIMENTAL on Cursor / Windsurf / Copilot CLI / Gemini CLI. If a client is unreliable, fall back to manual `git log` + manual drafting using CLAUDE.md as the hygiene reference.
 
 ## Reference Files
 
@@ -63,6 +63,6 @@ See [Sub-Agent Compatibility Matrix](../../docs/reference/sub-agent-compatibilit
 - Behavioral spec: [`docs/internal/release-plans/v2.16.0/spec_pm-changelog-curator.md`](../../docs/internal/release-plans/v2.16.0/spec_pm-changelog-curator.md)
 - CHANGELOG hygiene rules source: `CLAUDE.md` (repo root)
 - Existing CHANGELOG.md format: `CHANGELOG.md` (root); v2.15.1 + v2.15.2 entries are canonical exemplars
-- Runtime components catalog: [`docs/reference/runtime-components.md`](../../docs/reference/runtime-components.md)
+- Runtime components catalog: [`site/src/content/docs/reference/runtime-components.md`](../../site/src/content/docs/reference/runtime-components.md)
 - Output template: `references/TEMPLATE.md`
 - Worked example: `references/EXAMPLE.md`

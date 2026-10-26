@@ -107,4 +107,4 @@ The YAML block enables programmatic consumption: a parent sub-agent (e.g., `pm-r
 
 - Canonical sub-agent: [`agents/pm-critic.md`](../../../agents/pm-critic.md)
 - Worked example: `EXAMPLE.md`
-- User guide: [`docs/guides/adversarial-review.md`](../../../docs/guides/adversarial-review.md)
+- User guide: [`site/src/content/docs/guides/adversarial-review.md`](../../../site/src/content/docs/guides/adversarial-review.md)

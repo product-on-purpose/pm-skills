@@ -46,7 +46,7 @@ Codex CLI, Cursor, Windsurf, Copilot, Gemini CLI, ChatGPT, or any other client w
 2. Execute the system prompt body in that file as your operating instructions for this turn
 3. Read the target PM artifact specified by the user (path from `$ARGUMENTS`, or most recently produced artifact in session)
 4. Read the canonical standards docs referenced by the pm-critic system prompt for the artifact type (e.g., `skills/foundation-okr-writer/SKILL.md` for OKR sets, `skills/deliver-prd/SKILL.md` for PRDs)
-5. Produce findings graded P0/P1/P2/P3 with concrete fix suggestions, formatted per the output structure documented in `docs/guides/adversarial-review.md`
+5. Produce findings graded P0/P1/P2/P3 with concrete fix suggestions, formatted per the output structure documented in `site/src/content/docs/guides/adversarial-review.md`
 6. End the output with the layered structure per master plan D26:
    - Section (1): full human-readable findings (the P0/P1/P2/P3 report)
    - Section (2): `## Status Summary` in prose, summarizing what was found and what the user should do next
@@ -64,7 +64,7 @@ See `references/TEMPLATE.md` for the canonical output structure (with the layere
 
 ## Cross-Client Notes
 
-See [Sub-Agent Compatibility Matrix](../../docs/reference/sub-agent-compatibility.md) for the canonical cross-client status of all 4 sub-agents + dispatch skills. Summary for this skill as of v2.16.0: PRODUCTION on Claude Code + Codex CLI; EXPERIMENTAL on Cursor / Windsurf / Copilot CLI / Gemini CLI. Maintainers wanting cross-client confidence on a non-Claude client can re-run the [`maintainer-gate-testing-codex.md`](../../docs/internal/release-plans/v2.16.0/maintainer-gate-testing-codex.md) harness on that client.
+See [Sub-Agent Compatibility Matrix](../../site/src/content/docs/reference/sub-agent-compatibility.md) for the canonical cross-client status of all 4 sub-agents + dispatch skills. Summary for this skill as of v2.16.0: PRODUCTION on Claude Code + Codex CLI; EXPERIMENTAL on Cursor / Windsurf / Copilot CLI / Gemini CLI. Maintainers wanting cross-client confidence on a non-Claude client can re-run the [`maintainer-gate-testing-codex.md`](../../docs/internal/release-plans/v2.16.0/maintainer-gate-testing-codex.md) harness on that client.
 
 The "read and execute inline" pattern depends on the AI being able to:
 
@@ -78,7 +78,7 @@ If any of these are unreliable on a given client, that client cannot use this di
 
 - Canonical sub-agent definition: [`agents/pm-critic.md`](../../agents/pm-critic.md)
 - Behavioral spec: [`docs/internal/release-plans/v2.16.0/spec_pm-critic.md`](../../docs/internal/release-plans/v2.16.0/spec_pm-critic.md)
-- User-facing guide: [`docs/guides/adversarial-review.md`](../../docs/guides/adversarial-review.md)
-- Runtime components catalog: [`docs/reference/runtime-components.md`](../../docs/reference/runtime-components.md)
+- User-facing guide: [`site/src/content/docs/guides/adversarial-review.md`](../../site/src/content/docs/guides/adversarial-review.md)
+- Runtime components catalog: [`site/src/content/docs/reference/runtime-components.md`](../../site/src/content/docs/reference/runtime-components.md)
 - Output template: `references/TEMPLATE.md`
 - Worked example: `references/EXAMPLE.md`

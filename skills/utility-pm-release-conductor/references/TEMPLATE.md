@@ -86,5 +86,5 @@ If integrating with external tooling (e.g., a CI workflow that consumes the cond
 ## Reference Files
 
 - Canonical sub-agent: [`agents/pm-release-conductor.md`](../../../agents/pm-release-conductor.md)
-- Canonical runbook: [`docs/contributing/release-runbook.md`](../../../docs/contributing/release-runbook.md)
+- Canonical runbook: [`site/src/content/docs/contributing/release-runbook.md`](../../../site/src/content/docs/contributing/release-runbook.md)
 - Worked example: `EXAMPLE.md`

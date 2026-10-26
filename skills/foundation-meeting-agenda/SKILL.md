@@ -15,7 +15,7 @@ metadata:
 
 A meeting agenda is the attendee-facing structural document that sets expectations before a meeting. It answers "what will we discuss, who owns each topic, how will we spend the time, and what does done look like?" Distinct from a meeting brief, which is the user's private strategic prep; the agenda is shared with participants and focused on structure and flow.
 
-This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md), which defines shared frontmatter, file naming, the go-mode behavioral pattern, and universal output requirements across all meeting skills.
+This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Skills Family Contract](../../site/src/content/docs/reference/skill-families/meeting-skills-contract.md), which defines shared frontmatter, file naming, the go-mode behavioral pattern, and universal output requirements across all meeting skills.
 
 ## When to Use
 
@@ -156,7 +156,7 @@ Before delivering the agenda, verify:
 
 ## See also
 
-- [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md). shared behavioral and structural requirements
+- [Meeting Skills Family Contract](../../site/src/content/docs/reference/skill-families/meeting-skills-contract.md). shared behavioral and structural requirements
 - [`foundation-meeting-brief`](../foundation-meeting-brief/SKILL.md). user's private prep (shares anti-meeting check)
 - [`foundation-meeting-recap`](../foundation-meeting-recap/SKILL.md). downstream: recap auto-populates from this agenda's topic list
 - [`foundation-stakeholder-update`](../foundation-stakeholder-update/SKILL.md). downstream: translates meeting outcomes to non-attendees

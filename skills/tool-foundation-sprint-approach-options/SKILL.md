@@ -38,7 +38,7 @@ metadata:
 
 Day 2 morning of a Foundation Sprint. The team forces itself to generate multiple plausible approaches before committing to one. The skill enforces a minimum of 3 approaches; anchoring on a single approach is the most common Day 2 failure mode.
 
-Family contract: [`docs/reference/skill-families/foundation-sprint-skills-contract.md`](../../docs/reference/skill-families/foundation-sprint-skills-contract.md). This skill is a member of `foundation-sprint-skills`.
+Family contract: [`site/src/content/docs/reference/skill-families/foundation-sprint-skills-contract.md`](../../site/src/content/docs/reference/skill-families/foundation-sprint-skills-contract.md). This skill is a member of `foundation-sprint-skills`.
 
 ## When to Use
 

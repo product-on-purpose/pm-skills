@@ -16,7 +16,7 @@ copilot> /utility-pm-release-conductor v2.16.0 --dry-run
 ## Skill behavior
 
 1. **Runtime detection.** Detects Copilot CLI; takes non-Claude branch.
-2. **Reads canonical files.** Loads `agents/pm-release-conductor.md` (operating instructions), `docs/contributing/release-runbook.md` (gate definitions), `agents/pm-skill-auditor.md` (to inline at G0 + G2.5), `agents/pm-changelog-curator.md` (to inline at G2).
+2. **Reads canonical files.** Loads `agents/pm-release-conductor.md` (operating instructions), `site/src/content/docs/contributing/release-runbook.md` (gate definitions), `agents/pm-skill-auditor.md` (to inline at G0 + G2.5), `agents/pm-changelog-curator.md` (to inline at G2).
 3. **Walks 6 gates inline.** Pauses at each gate for maintainer confirmation. Inlines auditor at G0 and G2.5; inlines curator at G2.
 
 ## Output (verbatim from dispatch skill execution)
@@ -191,4 +191,4 @@ This is the canonical worked example for Phase 2 GATE C validation. If GATE C re
 - Skill manifest: `SKILL.md`
 - Output template: `TEMPLATE.md`
 - Inlined children: [`agents/pm-skill-auditor.md`](../../../agents/pm-skill-auditor.md), [`agents/pm-changelog-curator.md`](../../../agents/pm-changelog-curator.md)
-- Canonical runbook: [`docs/contributing/release-runbook.md`](../../../docs/contributing/release-runbook.md)
+- Canonical runbook: [`site/src/content/docs/contributing/release-runbook.md`](../../../site/src/content/docs/contributing/release-runbook.md)
