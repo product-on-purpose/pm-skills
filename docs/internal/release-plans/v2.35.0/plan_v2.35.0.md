@@ -22,6 +22,8 @@ These are the candidates for the headline decision. None is ruled. They are scor
 | A. Evidence per skill | Test the shipped skills against a no-skill control, starting with the most-used. Publish one line per skill on what it adds over a plain model, and sharpen or fold the skills that lose | A falsification pilot on three skills must show that the skills add value |
 | B. Coverage | Add a skill where the catalog is thin, such as go-to-market or analytics | The new skill must beat a no-skill control before it is built, the same gate that stopped four earlier candidates |
 | C. Quality release | Ship the carries in sections A and B as a minor release with no headline | None. This is the fallback if no other option clears its gate |
+| D. Template-first simplification | Proposed by external research. Strip a skill's instruction prose and keep its frontmatter and output template, starting with `deliver-prd`. It rests on the v2.27.0 informed-control finding, which covered four other skills | The same pilot as A, with a template-only arm, run on `deliver-prd` itself before any instructions are removed |
+| E. Draft-to-final diff capture | Proposed by external research. Prompt the agent to record what the user changed between its draft and the accepted version, so the library learns what users fix, without telemetry | A design that keeps the record on the user's machine. The nearest incumbent is `foundation-meeting-recap` |
 
 ---
 
