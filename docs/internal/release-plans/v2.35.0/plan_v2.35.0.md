@@ -128,3 +128,18 @@ Codex completed the round (exit 0, verdict "needs-attention") against the branch
 | AUD-1 | P1 | `commands/workflow-foundation-to-design.md` line 17 points at `docs/guides/`, which moved to `site/src/content/docs/guides/`. Present since v2.20.0; #326's sweep covered skill files only | **Closed by correction:** both paths now name `site/src/content/docs/guides/` |
 | AUD-2 | P1 | The plan's status said G1 was recorded here while this section held only the pre-registered rule | **Closed:** the auditor read the commit before round 1 finished; round 1 is recorded above. G1 attestation remains the maintainer's |
 | AUD-3 | P2 | Eight `../docs/concepts/` and `../docs/guides/` links in `_workflows/*.md` sources target paths that no longer exist. `scripts/gen-site.mjs` rewrites them, so the published site resolves them | **Acknowledged; moved to v2.36.0.** Present since v2.15.0 and v2.22.0, and not user-visible on the site |
+
+### Round 2, 2026-10-30: the scoped recheck, ready for attestation
+
+Codex reviewed only the fix pass (`87add4e3` to `d0bb83c4`) and completed the round (exit 0, verdict "approve"). It found no material defect: both builders stage `library.json`, CI asserts it, and the corrected path, the description tails and the ZIP-link caveats match the repository. It again could not execute the builders, and suggested running both.
+
+**Finding-versus-result verification, run instead of a third round.**
+
+| Finding | Check | Result |
+|---|---|---|
+| F1, `library.json` half | `bash scripts/build-release.sh 0.0.0-local` and `pwsh scripts/build-release.ps1 0.0.0-local`, then list each ZIP | Both ZIPs contain `library.json`; the staged copy reads version 2.35.0, Standard 0.17 |
+| F1, links half | The CHANGELOG `### Changed` bullet and the release page | Both state that the links resolve in a git or marketplace install and not yet in the ZIP, and that this moves to v2.36.0 |
+| AUD-1 | `commands/workflow-foundation-to-design.md` line 17 | Both guide paths name `site/src/content/docs/guides/`, and both files exist |
+| Description tails | `node scripts/gen-derived-surfaces.mjs` | Exit 0; every derived and authored surface reports current for v2.35.0 |
+
+After the fix pass: `pwsh scripts/pre-tag-validate.ps1` passed, the em-dash sweep is clean, `npm test` passed 445 of 445, and the pull request's CI passed 6 of 6 checks. **G1 is ready for the maintainer's attestation.**
