@@ -585,7 +585,7 @@
     {
       "name": "measure-instrumentation-spec",
       "description": "Specifies what analytics events to track, when they fire, and what properties to include, as a contract between product and engineering that prevents undertracked features. Use before engineering builds a feature or when auditing existing tracking for gaps. For the dashboard built on top of these events, use measure-dashboard-requirements instead.",
-      "version": "3.0.0",
+      "version": "3.0.1",
       "group": "phase",
       "phase": "measure",
       "family": null,
@@ -898,7 +898,7 @@
     {
       "name": "utility-pm-release-conductor",
       "description": "Walk the guided 6-gate release runbook (G0 readiness, G1 adversarial review, G2 version bump and CHANGELOG, G2.5 commit and re-verify, G3 tag and push, G4 post-tag hygiene) via the pm-release-conductor sub-agent. Refuses gate bypasses and tags only the re-verified SHA. Use when cutting a pm-skills release.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "group": "utility",
       "phase": null,
       "family": null,
