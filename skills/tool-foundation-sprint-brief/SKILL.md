@@ -40,7 +40,7 @@ metadata:
 
 Produce the one-page brief that aligns the team on scope, decision target, participants, logistics, and success criteria before Day 1 begins. A well-built brief prevents Day 1 from opening with re-litigation of why-are-we-here; a missing or vague brief almost guarantees it.
 
-Family contract: [`docs/reference/skill-families/foundation-sprint-skills-contract.md`](../../docs/reference/skill-families/foundation-sprint-skills-contract.md). This skill is a member of `foundation-sprint-skills`.
+Family contract: [`site/src/content/docs/reference/skill-families/foundation-sprint-skills-contract.md`](../../site/src/content/docs/reference/skill-families/foundation-sprint-skills-contract.md). This skill is a member of `foundation-sprint-skills`.
 
 ## When to Use
 

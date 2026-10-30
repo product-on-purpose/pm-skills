@@ -46,7 +46,7 @@ metadata:
 
 Produce Monday's bundled artifact: the long-term goal that names success in 1-5 years; 3-7 sprint questions converting team fears into testable risks; a 5-15 step customer or system map from key player to outcome; expert interview notes from cameo experts run in parallel; HMW (How Might We) clusters synthesized from the team; and the Decider's chosen target moment. Monday's output becomes Tuesday's design target.
 
-Family contract: [`docs/reference/skill-families/design-sprint-skills-contract.md`](../../docs/reference/skill-families/design-sprint-skills-contract.md). This skill is a member of `design-sprint-skills`.
+Family contract: [`site/src/content/docs/reference/skill-families/design-sprint-skills-contract.md`](../../site/src/content/docs/reference/skill-families/design-sprint-skills-contract.md). This skill is a member of `design-sprint-skills`.
 
 ## When to Use
 

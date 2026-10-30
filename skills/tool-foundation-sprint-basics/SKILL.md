@@ -41,7 +41,7 @@ metadata:
 
 Day 1 morning of a Foundation Sprint. The team makes four foundational choices explicit: who the product is for, what important problem it solves, why this team has a right to win, and what customers do today instead. The output is one coherent strategic frame, not four separable decisions.
 
-Family contract: [`docs/reference/skill-families/foundation-sprint-skills-contract.md`](../../docs/reference/skill-families/foundation-sprint-skills-contract.md). This skill is a member of `foundation-sprint-skills`.
+Family contract: [`site/src/content/docs/reference/skill-families/foundation-sprint-skills-contract.md`](../../site/src/content/docs/reference/skill-families/foundation-sprint-skills-contract.md). This skill is a member of `foundation-sprint-skills`.
 
 ## When to Use
 

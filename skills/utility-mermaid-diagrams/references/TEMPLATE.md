@@ -40,6 +40,7 @@ If both boxes are not checked, use a list or table instead.
 ## 5. Draft Mermaid Code
 
 ```mermaid
+flowchart TD
 %% MEANING: [Why this diagram exists]
 %% Type: [selected type]
 %% Direction: [TD/LR/BT/RL if applicable]

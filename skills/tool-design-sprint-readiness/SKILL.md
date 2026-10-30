@@ -41,7 +41,7 @@ metadata:
 
 Assess whether a Design Sprint fits the team's current situation. Design Sprint failure modes are expensive: five consecutive days of a 4-7 person team, plus customer recruiting cost (typically 5 strangers paid honoraria), plus the prototype build. A 30-45 minute readiness diagnostic catches the failure modes before that commitment is made.
 
-Family contract: [`docs/reference/skill-families/design-sprint-skills-contract.md`](../../docs/reference/skill-families/design-sprint-skills-contract.md). This skill is a member of `design-sprint-skills` and conforms to the family frontmatter and Decider Checkpoint requirements.
+Family contract: [`site/src/content/docs/reference/skill-families/design-sprint-skills-contract.md`](../../site/src/content/docs/reference/skill-families/design-sprint-skills-contract.md). This skill is a member of `design-sprint-skills` and conforms to the family frontmatter and Decider Checkpoint requirements.
 
 ## When to Use
 

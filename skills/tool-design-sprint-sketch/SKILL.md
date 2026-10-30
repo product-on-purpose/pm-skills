@@ -41,7 +41,7 @@ metadata:
 
 Structure Tuesday's solo-but-together work. Each team member, working independently and silently, produces lightning demos in the morning and a four-step solution sketch in the afternoon. The skill structures the activity; the humans produce the sketches. Wednesday's heat-map orientation depends on having a cohort of independent sketches that did NOT contaminate each other through group brainstorming.
 
-Family contract: [`docs/reference/skill-families/design-sprint-skills-contract.md`](../../docs/reference/skill-families/design-sprint-skills-contract.md). This skill is a member of `design-sprint-skills`.
+Family contract: [`site/src/content/docs/reference/skill-families/design-sprint-skills-contract.md`](../../site/src/content/docs/reference/skill-families/design-sprint-skills-contract.md). This skill is a member of `design-sprint-skills`.
 
 ## When to Use
 

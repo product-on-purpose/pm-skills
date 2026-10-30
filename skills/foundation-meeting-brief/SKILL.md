@@ -15,7 +15,7 @@ metadata:
 
 A meeting brief is the user's private strategic preparation document for a meeting where context, stakes, or positioning matter. It captures what the user needs to know, what they want to accomplish, who they are engaging with, and how to navigate the conversation. This is strategic prep, not meeting structure, which keeps it distinct from a meeting agenda.
 
-This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md).
+This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Skills Family Contract](../../site/src/content/docs/reference/skill-families/meeting-skills-contract.md).
 
 ## When to Use
 
@@ -131,6 +131,6 @@ This complements the family's filename-based chaining rather than replacing it: 
 
 ## See also
 
-- [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md)
+- [Meeting Skills Family Contract](../../site/src/content/docs/reference/skill-families/meeting-skills-contract.md)
 - [`foundation-meeting-agenda`](../foundation-meeting-agenda/SKILL.md). shares the anti-meeting check
 - [`/discover-stakeholder-summary`](../discover-stakeholder-summary/SKILL.md). upstream input source for stakeholder positions

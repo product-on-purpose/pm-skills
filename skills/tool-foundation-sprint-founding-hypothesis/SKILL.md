@@ -40,7 +40,7 @@ metadata:
 
 Day 2 end of a Foundation Sprint. The team compresses the full sprint output into a single canonical sentence plus a testable scorecard. This is the artifact the sprint exists to produce; everything before this skill was preparation. Without a ratifiable Founding Hypothesis, the sprint failed.
 
-Family contract: [`docs/reference/skill-families/foundation-sprint-skills-contract.md`](../../docs/reference/skill-families/foundation-sprint-skills-contract.md). This skill is a member of `foundation-sprint-skills`.
+Family contract: [`site/src/content/docs/reference/skill-families/foundation-sprint-skills-contract.md`](../../site/src/content/docs/reference/skill-families/foundation-sprint-skills-contract.md). This skill is a member of `foundation-sprint-skills`.
 
 ## When to Use
 

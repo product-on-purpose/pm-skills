@@ -350,4 +350,4 @@ available, or re-run `utility-update-pm-skills` to retry.
 ## Further Reading
 
 For a visual walkthrough and additional context, see the
-[Updating PM Skills Guide](../../docs/guides/updating-pm-skills.md).
+[Updating PM Skills Guide](../../site/src/content/docs/guides/updating-pm-skills.md).

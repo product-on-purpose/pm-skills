@@ -19,7 +19,7 @@ Distinct from `foundation-meeting-recap` in audience, format, and purpose: the r
 
 Distinct from `/discover-stakeholder-summary`: that skill is about understanding stakeholders (input to the user's work). This skill is about communicating to stakeholders (output from the user's work).
 
-This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md).
+This skill belongs to the Meeting Skills Family. It conforms to the [Meeting Skills Family Contract](../../site/src/content/docs/reference/skill-families/meeting-skills-contract.md).
 
 ## When to Use
 
@@ -101,6 +101,6 @@ When asked to create a stakeholder update, follow these steps:
 
 ## See also
 
-- [Meeting Skills Family Contract](../../docs/reference/skill-families/meeting-skills-contract.md)
+- [Meeting Skills Family Contract](../../site/src/content/docs/reference/skill-families/meeting-skills-contract.md)
 - [`foundation-meeting-recap`](../foundation-meeting-recap/SKILL.md). upstream: primary input source
 - [`/discover-stakeholder-summary`](../discover-stakeholder-summary/SKILL.md). distinct purpose (understanding stakeholders, not communicating to them)

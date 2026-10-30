@@ -39,7 +39,7 @@ metadata:
 
 Day 2 afternoon of a Foundation Sprint. The team evaluates each candidate approach from multiple perspectives, surfaces contradictions, and produces a top bet plus a backup plan. The Decider names both; without an explicit backup, invalidation of the top bet sends the team back to ambiguous debate.
 
-Family contract: [`docs/reference/skill-families/foundation-sprint-skills-contract.md`](../../docs/reference/skill-families/foundation-sprint-skills-contract.md). This skill is a member of `foundation-sprint-skills`.
+Family contract: [`site/src/content/docs/reference/skill-families/foundation-sprint-skills-contract.md`](../../site/src/content/docs/reference/skill-families/foundation-sprint-skills-contract.md). This skill is a member of `foundation-sprint-skills`.
 
 ## When to Use
 

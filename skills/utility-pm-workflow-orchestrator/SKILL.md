@@ -19,7 +19,7 @@ Cross-client dispatch wrapper for the `pm-workflow-orchestrator` sub-agent. Dete
 > - **Claude Code (native): Mode B chains SMOKE-TESTED PASS (2026-06-10, installed plugin).** The live run confirmed the engine invokes downstream skills via the `Skill` tool and that they execute INLINE in the engine's context (the Skill tool injects the target SKILL.md into the caller's context; no sub-agent is spawned), with real artifacts produced and the checkpoint pause honored. Mode A native runs and a single continuous interactive engine instance across multiple checkpoints have not yet been exercised; details and caveats in the compatibility matrix's v2.26.0 smoke-gate record.
 > - **All non-Claude clients (Codex CLI, Cursor, Windsurf, Copilot CLI, Gemini CLI):** EXPERIMENTAL until a dedicated maintainer-gate test exercises a real multi-artifact inline WRITE run. The orchestrator writes up to three full PM artifacts and may thread state; this is strictly harder than the conductor's inline path and has never been live-validated off Claude Code.
 >
-> On ANY client, run `--dry-run` FIRST as the readiness check (it exercises parsing, checkpointing, stop-on-fail, and the tool-capability pre-flight without invoking consequential skills). See the [Sub-Agent Compatibility Matrix](../../docs/reference/sub-agent-compatibility.md) for the canonical safe-usage matrix.
+> On ANY client, run `--dry-run` FIRST as the readiness check (it exercises parsing, checkpointing, stop-on-fail, and the tool-capability pre-flight without invoking consequential skills). See the [Sub-Agent Compatibility Matrix](../../site/src/content/docs/reference/sub-agent-compatibility.md) for the canonical safe-usage matrix.
 
 ## When to Use
 
@@ -88,6 +88,6 @@ Because non-Claude clients run the loop and every step inline in ONE context win
 - Output template: `references/TEMPLATE.md`
 - Worked example: `references/EXAMPLE.md`
 - Producer (hands plans here in HANDOFF mode): [`skills/foundation-prioritized-action-plan/SKILL.md`](../../skills/foundation-prioritized-action-plan/SKILL.md)
-- Sub-agent compatibility matrix: [`docs/reference/sub-agent-compatibility.md`](../../docs/reference/sub-agent-compatibility.md)
-- Runtime components catalog: [`docs/reference/runtime-components.md`](../../docs/reference/runtime-components.md)
+- Sub-agent compatibility matrix: [`site/src/content/docs/reference/sub-agent-compatibility.md`](../../site/src/content/docs/reference/sub-agent-compatibility.md)
+- Runtime components catalog: [`site/src/content/docs/reference/runtime-components.md`](../../site/src/content/docs/reference/runtime-components.md)
 - Library sample (single checkpointed run): [`library/sub-agent-samples/pm-workflow-orchestrator/`](../../library/sub-agent-samples/pm-workflow-orchestrator/)
