@@ -128,6 +128,13 @@ jobs:
             exit 1
           fi
 
+          # library.json declares the Standard edition and tier (since v2.35.0); a ZIP
+          # install without it reports the version but not the conformance claim.
+          if [[ ! -f "$STAGE/library.json" ]]; then
+            echo "::error::Missing staged library.json"
+            exit 1
+          fi
+
           EXPECTED_AGENTS="pm-changelog-curator pm-critic pm-release-conductor pm-skill-auditor pm-skill-router pm-workflow-orchestrator"
           for agent_name in $EXPECTED_AGENTS; do
             if [[ ! -f "$STAGE/agents/$agent_name.md" ]]; then

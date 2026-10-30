@@ -44,7 +44,7 @@ The plugin now ships a `library.json` that declares edition 0.17 of the [Advance
 
 Graded from a consumer's position with agent-skills-toolkit 1.22.0, pm-skills returns tier universal with 0 errors and 40 warnings. All 40 are description-score advice that predates this change.
 
-Adopting it also fixed 41 reference links across 28 skill files. They broke when the documentation moved to `site/src/content/docs/`. Each now points at the page's new location, and no link was deleted.
+Adopting it also fixed 41 reference links across 28 skill files. They broke when the documentation moved to `site/src/content/docs/`. Each now points at the page's new location, and no link was deleted. They resolve when you install from the marketplace or a git clone. The release ZIP does not carry those pages yet, so in a ZIP install the links still do not resolve, as in v2.34.0; that moves to v2.36.0.
 
 ## Two templates catch up with their skills
 
@@ -59,7 +59,7 @@ The sample library gains a Brainshelf example for `measure-instrumentation-spec`
 
 ## What moved to v2.36.0
 
-The plan for this release also listed carries from v2.34.0. Three of them are rewrites of `measure-instrumentation-spec`'s trace table, a kind of change that took twelve review rounds in v2.33.0. Rather than hold this release for them, they move to v2.36.0, together with three smaller items.
+The plan for this release also listed carries from v2.34.0. Three of them are rewrites of `measure-instrumentation-spec`'s trace table, a kind of change that took twelve review rounds in v2.33.0. Rather than hold this release for them, they move to v2.36.0, together with three smaller items. Shipping the documentation pages inside the release ZIP moves there too.
 
 ## If you are upgrading
 

@@ -110,3 +110,21 @@ This rule is committed before round 1 runs, so the end of the gate cannot be arg
 - **A clean round 1 ends the gate.** If round 1 returns no material findings and did not abort, the gate is attested after round 1 with no recheck.
 - **Fallback instrument.** If Codex cannot complete a round after one re-run, an independent Claude reviewer runs the same focus, and this record states that the instrument changed.
 - **Attestation is the maintainer's.** The runbook makes G1 a maintainer attestation gate, so the rounds below are evidence for that attestation, not a substitute for it.
+
+### Round 1, 2026-10-30: one finding, closed in part and marked in part
+
+Codex completed the round (exit 0, verdict "needs-attention") against the branch at `87add4e3`. Codex reported that its own command execution was blocked, so the finding rests on reading the files; it was verified by hand against `scripts/build-release.sh` and `scripts/build-release.ps1`.
+
+| # | Codex severity | Finding | Disposition |
+|---|---|---|---|
+| F1 | medium | Both release ZIP builders enumerate their staged paths and include neither `library.json` nor `site/src/content/docs/`, so a ZIP install reports v2.35.0 without its Standard declaration, and the 41 repointed links target pages the archive does not carry | **`library.json` closed by correction:** both builders now stage it, and `validate-plugin.yml` asserts it is in the stage. **The links half is marked, not fixed:** before #326 those links targeted `docs/` pages that no longer existed, so ZIP installs had them broken in v2.34.0 too. Shipping the docs site inside the ZIP is new packaging structure, which the rule defers to v2.36.0. The CHANGELOG bullet and the release page now say the links resolve in a git or marketplace install and not yet in the ZIP |
+
+### G0 auditor pass, 2026-10-30, on `87add4e3`
+
+`pm-skill-auditor` returned 0 P0, 2 P1, 1 P2 and 0 P3, and every counter matched. It ran 9 of its 12 cross-cutting checks and said which three it did not run.
+
+| # | Severity | Finding | Disposition |
+|---|---|---|---|
+| AUD-1 | P1 | `commands/workflow-foundation-to-design.md` line 17 points at `docs/guides/`, which moved to `site/src/content/docs/guides/`. Present since v2.20.0; #326's sweep covered skill files only | **Closed by correction:** both paths now name `site/src/content/docs/guides/` |
+| AUD-2 | P1 | The plan's status said G1 was recorded here while this section held only the pre-registered rule | **Closed:** the auditor read the commit before round 1 finished; round 1 is recorded above. G1 attestation remains the maintainer's |
+| AUD-3 | P2 | Eight `../docs/concepts/` and `../docs/guides/` links in `_workflows/*.md` sources target paths that no longer exist. `scripts/gen-site.mjs` rewrites them, so the published site resolves them | **Acknowledged; moved to v2.36.0.** Present since v2.15.0 and v2.22.0, and not user-visible on the site |

@@ -34,6 +34,7 @@ $toCopy = @(
   "library",
   ".claude-plugin",
   ".codex-plugin",
+  "library.json",
   ".claude/pm-skills-for-claude.md",
   "README.md","QUICKSTART.md","AGENTS.md","CHANGELOG.md","docs"
 )
