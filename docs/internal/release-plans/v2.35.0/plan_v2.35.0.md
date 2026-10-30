@@ -54,6 +54,8 @@ Rows A1 to A4 are the `measure-instrumentation-spec` carries, copied from v2.34.
 |---|---|
 | `pm-skills-mcp` narrative | Open, carried from v2.33.0 section C. The counts half is N/A (68 skills, 6 sub-agents); the narrative half needs a ruling, since that repo is in maintenance mode |
 | skills.sh listing | Deferred by its own after-a-delay condition |
+| D-E (plugin identity), from the aggregated AI-skills roadmap decisions | Deferred. The v2.34.0 plan says it "stays deferred", and the v2.35.0 seed missed it |
+| D-F (governance evidence map), from the same decision set | Deferred. The v2.34.0 plan says it "stays deferred", and the v2.35.0 seed missed it |
 | [#267](https://github.com/product-on-purpose/pm-skills/issues/267) | Blocks C-6, which is why release-please stays shadow-only |
 | [#268](https://github.com/product-on-purpose/pm-skills/issues/268) | Carried since v2.32.0 |
 | [#286](https://github.com/product-on-purpose/pm-skills/pull/286) (Model Trace Capture sample, a contributor's pull request) | If the author has not responded by 2026-10-29, maintainers finish it on the contributor's branch, using "Part of #282" rather than "Fixes" |
