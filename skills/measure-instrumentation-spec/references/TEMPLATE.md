@@ -114,7 +114,7 @@ status: draft
 | **Terminal disposition of a failed trace** | [What ultimately becomes of a trace that failed minimization: dropped and never enqueued, or held somewhere. "Dropped" and "queued for retry" are different answers, and only the first is safe. If anything buffers, replays, or dead-letters the trace, that buffer is a durable sink and everything above applies to it too. Name it here or the redaction contract has a hole with a delay on it] |
 | **Who can read a trace** | [Which roles can read one, and how that grant is removed when someone changes team or leaves] |
 | **Whether a read is logged** | [**Two claims here, and they need two coverage entries.** First, whether every read is recorded at all. Second, whether the record identifies the reader. They fail independently: an audit sink can emit one row per read with no principal on it, which is an audit trail that cannot answer the question it exists to answer. Both are separate again from who is allowed to read, because an access test proves authorization worked and never that the read was audited] |
-| **Retention** | [How long, what deletes it, and whether that differs from the event retention above] |
+| **Retention** | [How long, what deletes it, whether that differs from the event retention above, and how a deletion request reaches a trace that was copied into an evaluation set] |
 | **Sampling** | [What fraction of requests is captured and how the sample is chosen] |
 | **User opt-out** | [Whether users can decline capture, and what the feature does when they do] |
 
