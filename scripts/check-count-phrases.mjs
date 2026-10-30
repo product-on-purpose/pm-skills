@@ -185,6 +185,7 @@ export const MANIFESTS = [
   '.claude-plugin/plugin.json',
   '.claude-plugin/marketplace.json',
   '.codex-plugin/plugin.json',
+  'library.json',
 ];
 
 function main() {

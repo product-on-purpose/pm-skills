@@ -44,6 +44,20 @@ if [[ -f "$CODEX_FILE" ]]; then
   fi
 fi
 
+# library.json is the fifth version surface (Standard 0.17 adoption, #326).
+LIBRARY_FILE="library.json"
+if [[ -f "$LIBRARY_FILE" ]]; then
+  LIBRARY_VER=$(node -p "JSON.parse(require('fs').readFileSync('$LIBRARY_FILE','utf8')).version")
+  if [[ "$LIBRARY_VER" != "$PLUGIN_VER" ]]; then
+    echo "FAIL: Version mismatch"
+    echo "  $PLUGIN_FILE:  $PLUGIN_VER"
+    echo "  $LIBRARY_FILE: $LIBRARY_VER"
+    echo ""
+    echo "  All manifests must report the same version."
+    exit 1
+  fi
+fi
+
 # README current-version-claim surfaces must match plugin.json (FU-9, v2.19.0).
 # This validator owns version-CLAIM surfaces; check-version-references stays
 # advisory for provenance refs ("since vX.Y.Z"). The README badge form

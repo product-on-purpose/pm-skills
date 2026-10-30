@@ -46,6 +46,20 @@ if (Test-Path $codexFile) {
     }
 }
 
+# library.json is the fifth version surface (Standard 0.17 adoption, #326).
+$libraryFile = "library.json"
+if (Test-Path $libraryFile) {
+    $libraryJson = Get-Content $libraryFile -Raw | ConvertFrom-Json
+    if ($libraryJson.version -ne $pluginVer) {
+        Write-Host "FAIL: Version mismatch"
+        Write-Host "  ${pluginFile}:  $pluginVer"
+        Write-Host "  ${libraryFile}: $($libraryJson.version)"
+        Write-Host ""
+        Write-Host "  All manifests must report the same version."
+        exit 1
+    }
+}
+
 # README current-version-claim surfaces must match plugin.json (FU-9, v2.19.0).
 # This validator owns version-CLAIM surfaces; check-version-references stays
 # advisory for provenance refs. The README badge form "version-X.Y.Z" is NOT

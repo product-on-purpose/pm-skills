@@ -100,7 +100,7 @@ Before invoking the runbook (manually or via `utility-pm-release-conductor v{X.Y
 
 **Sub-checks (conductor proposes each edit; maintainer confirms):**
 
-1. **Plugin manifest versions** - edit `version` to the target version in BOTH `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json`. `validate-version-consistency` fails if the two disagree.
+1. **Plugin manifest versions** - edit `version` to the target version in `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json` and `library.json` (the Standard 0.17 manifest, since #326). `validate-version-consistency` fails if any of them disagree.
 2. **Marketplace release pin (generator-owned)** - run `node scripts/gen-derived-surfaces.mjs`, which sets `plugins[0].version` and `plugins[0].source.ref` in `.claude-plugin/marketplace.json` from `plugin.json` (since v2.32.0 WS-6). Run it after the CHANGELOG section and the release page exist, because it fails loudly without the page. Never hand-edit the pin.
 3. **CHANGELOG.md header** - chain to `pm-changelog-curator` for a draft of entries; maintainer reviews + edits; new `## [vX.Y.Z] - YYYY-MM-DD` header at top
 4. **docs/changelog mirror** - update Astro-rendered changelog mirror to match
