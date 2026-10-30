@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Brainshelf Resurface model-trace instrumentation sample in `library/skill-output-samples/measure-instrumentation-spec/`, demonstrating the conditional privacy contract and planned claim-level QA coverage; updated sample navigation and counts.
+- A measured result for `deliver-prd`, recorded in `skills/deliver-prd/HISTORY.md`. In a controlled test with a smaller model and thin inputs, its template produced specs an engineering lead would send back with fewer blocking questions than a model with no skill. It did not lead to better product decisions, and with a capable model and complete inputs it showed no measurable gain.
 
 ### Fixed
 
