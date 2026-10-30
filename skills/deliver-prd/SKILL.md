@@ -5,7 +5,7 @@ license: Apache-2.0
 metadata:
   phase: deliver
   version: "3.1.0"
-  updated: 2026-10-16
+  updated: 2026-10-17
   category: specification
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
