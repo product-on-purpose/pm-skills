@@ -17,6 +17,8 @@
 
 These are the candidates for the headline decision. None is ruled. They are scored against fixed criteria (user value, evidence strength, differentiation, cost, risk and reversibility) before a ruling, and the ruling and its reasons are recorded here when it is made.
 
+**State on 2026-10-29.** Option A scored highest, and the evaluation rules require it to survive a falsification pilot before it can be recommended. The maintainer approved the pilot's pre-registration on 2026-10-29: three skills (`deliver-prd`, `define-problem-statement`, `discover-interview-synthesis`), each tested in three arms (the skill, its template alone, and no skill). B, D and E fell below the scoring floor; C remains the fallback.
+
 | Option | What it is | Gate before it ships |
 |---|---|---|
 | A. Evidence per skill | Test the shipped skills against a no-skill control, starting with the most-used. Publish one line per skill on what it adds over a plain model, and sharpen or fold the skills that lose | A falsification pilot on three skills must show that the skills add value |
@@ -33,11 +35,11 @@ Rows A1 to A4 are the `measure-instrumentation-spec` carries, copied from v2.34.
 
 | # | Item | Why it carried | Notes |
 |---|---|---|---|
-| A1 | **Retention's dropped evaluation-set copy question** | `measure-instrumentation-spec`'s `SKILL.md` requires it and the shipped template does not carry it | **A known gap that SHIPPED in v2.33.0.** It is a content gap rather than a decomposition gap, so the per-claim coverage rule does not mitigate it |
+| A1 | **Retention's dropped evaluation-set copy question** | `measure-instrumentation-spec`'s `SKILL.md` requires it and the shipped template does not carry it | **Fixed in [#331](https://github.com/product-on-purpose/pm-skills/pull/331)**, `measure-instrumentation-spec` 3.0.1 (PATCH: the template now asks what the skill already required). It was a known gap that shipped in v2.33.0 |
 | A2 | **The trace table's remaining multi-claim rows** (retention, sampling, terminal disposition) | v2.33.0 R12-F1's fix stated the per-claim rule instead of re-splitting, leaving decomposition to a QA owner | The recorded case against that decline: it leaves decomposition to an owner who may not do it. Splitting rows is an authored fix, the class that churned in v2.33.0's G1 |
 | A3 | **The opt-out row's subject scope** | Deferred with rationale at v2.33.0 G1 round 12 | |
 | A4 | **`SKILL.md` drift after the access split** | Deferred with rationale at v2.33.0 G1 round 12 | |
-| A5 | **`utility-pm-release-conductor` still offers a known-regression waiver for a delivery P0** | v2.34.0 G1 round 2, finding R2-F1, the remainder outside the fix pass | `skills/utility-pm-release-conductor/references/TEMPLATE.md` lines 63 to 65 list "logs the P0 as a known regression" as a way to emit "Release complete", which the runbook and `agents/pm-release-conductor.md` now forbid for a delivery P0. **Classify before editing:** narrowing when "Release complete" may be emitted may be a MAJOR under the "what done means" row of `docs/internal/skill-versioning.md` |
+| A5 | **`utility-pm-release-conductor` still offers a known-regression waiver for a delivery P0** | v2.34.0 G1 round 2, finding R2-F1, the remainder outside the fix pass | `skills/utility-pm-release-conductor/references/TEMPLATE.md` lines 63 to 65 list "logs the P0 as a known regression" as a way to emit "Release complete", which the runbook and `agents/pm-release-conductor.md` now forbid for a delivery P0. **Fixed in [#331](https://github.com/product-on-purpose/pm-skills/pull/331)**, `utility-pm-release-conductor` 1.0.2. Classified PATCH on 2026-10-29: the "what done means" change landed in the sub-agent in v2.34.0, so the template was a stale copy rather than a new contract |
 
 ## B. Carries from the v2.34.0 build and sweep
 
@@ -60,7 +62,8 @@ Rows A1 to A4 are the `measure-instrumentation-spec` carries, copied from v2.34.
 | D-F (governance evidence map), from the same decision set | Deferred. The v2.34.0 plan says it "stays deferred", and the v2.35.0 seed missed it |
 | [#267](https://github.com/product-on-purpose/pm-skills/issues/267) | Blocks C-6, which is why release-please stays shadow-only |
 | [#268](https://github.com/product-on-purpose/pm-skills/issues/268) | Carried since v2.32.0 |
-| [#286](https://github.com/product-on-purpose/pm-skills/pull/286) (Model Trace Capture sample, a contributor's pull request) | If the author has not responded by 2026-10-29, maintainers finish it on the contributor's branch, using "Part of #282" rather than "Fixes" |
+| [#286](https://github.com/product-on-purpose/pm-skills/pull/286) (Model Trace Capture sample, a contributor's pull request) | **Done 2026-10-29.** Maintainers finished it on the contributor's branch and merged it as `3a254870`, as "Part of #282". Samples are now 203 |
+| `deliver-ai-behavior-spec` and the eval-review capability | **Closed, no carry.** The v2.34.0 plan listed the behavior spec as "moved to v2.35.0", but its control-arm gate failed (1 of 3 judges), and a failed gate closes the skill. The eval-review capability rode inside `measure-ai-eval-spec`, which also failed its gate (0 of 3), so it has no carrier. Reopening either needs a new design that beats a no-skill control |
 | [#308](https://github.com/product-on-purpose/pm-skills/pull/308) (a `deliver-prd` AI Behavior sample, a fork pull request) | Waiting on its contributor; a review comment is posted |
 
 ## D. Parked maintenance, no ruling needed
@@ -69,3 +72,15 @@ Rows A1 to A4 are the `measure-instrumentation-spec` carries, copied from v2.34.
 - Fix the Format example in `docs/internal/skill-versioning.md`.
 - Tighten `trancheFor` in the fabricated-metrics checker.
 - `README.md` says "invocation examples for all five sub-agents". The catalog has six, one of them the internal `pm-skill-router`, so the phrase may be intentional; verify against the guide it describes.
+
+## E. Landed on main since v2.34.0 (untagged)
+
+This ledger is for the G2 CHANGELOG pass. Update it as pull requests merge.
+
+| Pull request | What landed | In `[Unreleased]`? |
+|---|---|---|
+| [#286](https://github.com/product-on-purpose/pm-skills/pull/286) | Brainshelf Model Trace Capture sample; samples 202 to 203 | Yes, Added |
+| [#326](https://github.com/product-on-purpose/pm-skills/pull/326) | Standard 0.17 at Bronze: a new `library.json` (a fifth version surface) and 41 reference links repointed to `site/src/content/docs/` | No, add at G2 |
+| [#331](https://github.com/product-on-purpose/pm-skills/pull/331) | Items A1 and A5: `measure-instrumentation-spec` 3.0.1 and `utility-pm-release-conductor` 1.0.2 | Yes, Fixed |
+| [#333](https://github.com/product-on-purpose/pm-skills/pull/333) | `library.json` becomes a checked version surface: `validate-version-consistency`, release-please `extra-files`, `check-count-phrases`, runbook G2 step 1 and the conductor's G2 row | No; tooling, record at G2 only if the release notes cover tooling |
+| [#322](https://github.com/product-on-purpose/pm-skills/pull/322), [#323](https://github.com/product-on-purpose/pm-skills/pull/323), [#325](https://github.com/product-on-purpose/pm-skills/pull/325), [#328](https://github.com/product-on-purpose/pm-skills/pull/328), [#329](https://github.com/product-on-purpose/pm-skills/pull/329), [#330](https://github.com/product-on-purpose/pm-skills/pull/330) | Dependency updates. #329 patches a CPU-exhaustion advisory in `postcss-selector-parser`. #330 supersedes #327 and moves the site to Astro 7.4.2, whose Node floor is 22.23.4; CI reads `.nvmrc` (24) | Summarize as a count, as v2.34.0 did |
