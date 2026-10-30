@@ -4,8 +4,8 @@ description: Specifies what analytics events to track, when they fire, and what 
 license: Apache-2.0
 metadata:
   phase: measure
-  version: "3.0.0"
-  updated: 2026-08-21
+  version: "3.0.1"
+  updated: 2026-10-29
   category: validation
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose

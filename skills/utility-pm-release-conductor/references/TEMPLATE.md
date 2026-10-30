@@ -62,7 +62,7 @@ This is a post-tag incident. The tag exists but the release artifact has a P0 is
 
 **Cannot emit "Release complete" until one of:**
 - Maintainer resolves the P0 (typically via fast patch ship)
-- Maintainer explicitly logs the P0 as a known regression carried to v{next-patch} in the new cycle stub
+- Maintainer explicitly logs the P0 as a known regression carried to v{next-patch} in the new cycle stub (not available for a delivery P0, which closes only when `check-delivery-pin.mjs` exits 0)
 ````
 
 ## Final Output (Dry-Run)

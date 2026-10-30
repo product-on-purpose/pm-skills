@@ -4,8 +4,8 @@ description: Walk the guided 6-gate release runbook (G0 readiness, G1 adversaria
 license: Apache-2.0
 metadata:
   classification: utility
-  version: "1.0.1"
-  updated: 2026-06-10
+  version: "1.0.2"
+  updated: 2026-10-29
   category: release
   frameworks: [triple-diamond]
   author: product-on-purpose

@@ -2,10 +2,26 @@
 
 | Version | Date | Release | Effort | Type | Summary |
 |---------|------|---------|--------|------|---------|
+| 3.0.1 | 2026-10-29 | v2.35.0 | A1 | patch | The template's `Retention` row in `Model Trace Capture` now asks how a deletion request reaches a trace copied into an evaluation set. `SKILL.md` has required that answer since 3.0.0; the template dropped it. |
 | 3.0.0 | 2026-08-21 | v2.33.0 | C-1 | **major** | Privacy section extended with a conditional `Model Trace Capture` subsection: what is captured, data classes, minimization decided separately at the egress and storage boundaries with a stated failure behavior, retention, sampling, who can read a trace, and user opt-out. Event Inventory untouched. **Also broadens the trigger** from user input only to any captured model input, output, retrieval context, or tool call, and adds a data-classes decision, because a feature with no direct user input can still write tenant documents into a trace store. **Retyped from 2.3.0 minor before release** (G1 adversarial findings 1 and 2). 2.3.0 never shipped. |
 | 2.2.0 | 2026-07-04 | v2.30.0 | M-35 | minor | Rewrote the frontmatter description: added the product-engineering contract framing and the sibling deflection to `measure-dashboard-requirements`, its collision-pair companion in this release's Batch 5. |
 | 2.1.0 | 2026-06-10 | v2.26.0 | F-12-batch-4 | minor | Quality convergence: When NOT to Use + output-contract enumeration (F-12 Batch 4) |
 | 2.0.0 | 2026-01-26 | - | - | baseline | Prior published version |
+
+## 3.0.1 (2026-10-29)
+
+Fixes a gap that shipped in v2.33.0 (v2.35.0 plan item A1). Instruction step 6 in `SKILL.md` lists
+"how a deletion request reaches a trace that was copied into an evaluation set" under retention and
+deletion, but the template's `Retention` row asked only how long and what deletes it. A PM filling in
+the template could therefore complete the row without answering the question the skill requires.
+
+**Why this is a PATCH.** The required contract did not change: `SKILL.md` and its Quality Checklist
+already required retention and deletion to be decided. The template now prompts for what the skill
+already asked, so no user must do anything new to stay compliant.
+
+### Changes
+- `references/TEMPLATE.md`: the `Retention` row gains the evaluation-set deletion question.
+- No change to `SKILL.md` instructions, the Quality Checklist, or `EXAMPLE.md`.
 
 ## 3.0.0 (2026-08-21)
 
