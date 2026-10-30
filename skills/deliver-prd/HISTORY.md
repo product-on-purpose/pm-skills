@@ -18,7 +18,7 @@ Two pre-registered pilots ran this skill in three arms on the same three fiction
 - **Capable model, complete inputs (2026-10-29): no measurable gain.** The template alone matched the full skill, and neither beat the no-skill arm.
 - **Smaller model, thin inputs (2026-10-30): a narrow gain, carried by the template.** Two judges preferred the skill's specs to the no-skill arm's. One asked which spec an engineering lead would send back with fewer blocking questions. The other asked which spec named what is still unknown. The third judge looked for costly mistakes and preferred the no-skill arm. The template alone beat or tied the full skill with every judge.
 
-What this supports: with a smaller model and thin inputs, the template helps produce a spec that engineers can build from. It does not show better product decisions, because the no-skill arm ranked first on that question in all three scenarios. The result rests on nine artifacts per arm, and one changed scenario would reverse it.
+What this supports: with a smaller model and thin inputs, the template helps produce a spec that engineers can build from. It does not show better product decisions, because the no-skill arm ranked first on that question in all three scenarios. The result rests on three artifacts per arm, nine in all, and one changed scenario would reverse it.
 
 ## 3.1.0 (2026-10-16)
 
