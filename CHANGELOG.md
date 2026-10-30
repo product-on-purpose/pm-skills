@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 > **Note on historical paths:** entries before v2.19.0 occasionally reference internal planning documents (for example `docs/internal/release-plans/...`). Those references are preserved as written for historical accuracy. From v2.19.0 onward, CHANGELOG entries reference public paths only.
 
+## [2.34.1](https://github.com/product-on-purpose/pm-skills/compare/v2.34.0...v2.34.1) (2026-10-30)
+
+
+### Fixed
+
+* **skills:** align two templates with their required contracts (v2.35.0 A1, A5) ([#331](https://github.com/product-on-purpose/pm-skills/issues/331)) ([b686487](https://github.com/product-on-purpose/pm-skills/commit/b6864879f44dd64489b6f5defb5269b64ab7c426))
+
 ## [Unreleased]
 
 ### Added
