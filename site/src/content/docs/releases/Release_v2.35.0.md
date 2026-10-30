@@ -38,6 +38,8 @@ The pilot tested `deliver-prd`, `define-problem-statement` and `discover-intervi
 
 The pilot has a clear limit. Every arm ran on the same capable model with complete scenario data, and every arm caught most of the planted traps. So it cannot say whether a skill helps a weaker model, or a user who brings thin inputs. It does say that publishing "what each skill adds" would not yet be honest.
 
+A second pilot, run on 2026-10-30, tested exactly that gap: a smaller model, and scenarios with their supporting numbers removed. `deliver-prd` passed narrowly, with 2 of 3 judges. Its template produced specs that an engineering lead would send back with fewer blocking questions than the no-skill arm. It did not lead to better product decisions, and the full skill did no better than its template. That scoped result is recorded in the skill's `HISTORY.md`. The other two skills lost to the no-skill arm again. Neither pilot let a skill ask stakeholder questions, so v2.36.0 re-tests both in the mode they were designed for.
+
 ## pm-skills now declares a Standard
 
 The plugin now ships a `library.json` that declares edition 0.17 of the [Advanced Skill Library Standard](https://github.com/product-on-purpose/agent-skills-toolkit) at Bronze. That is the edition every plugin in the Product on Purpose marketplace is moving to.
