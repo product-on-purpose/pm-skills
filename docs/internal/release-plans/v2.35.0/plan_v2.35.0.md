@@ -129,7 +129,7 @@ Codex completed the round (exit 0, verdict "needs-attention") against the branch
 | AUD-2 | P1 | The plan's status said G1 was recorded here while this section held only the pre-registered rule | **Closed:** the auditor read the commit before round 1 finished; round 1 is recorded above. G1 attestation remains the maintainer's |
 | AUD-3 | P2 | Eight `../docs/concepts/` and `../docs/guides/` links in `_workflows/*.md` sources target paths that no longer exist. `scripts/gen-site.mjs` rewrites them, so the published site resolves them | **Acknowledged; moved to v2.36.0.** Present since v2.15.0 and v2.22.0, and not user-visible on the site |
 
-### Round 2, 2026-10-30: the scoped recheck, ready for attestation
+### Round 2, 2026-10-30: the scoped recheck, and the gate attested
 
 Codex reviewed only the fix pass (`87add4e3` to `d0bb83c4`) and completed the round (exit 0, verdict "approve"). It found no material defect: both builders stage `library.json`, CI asserts it, and the corrected path, the description tails and the ZIP-link caveats match the repository. It again could not execute the builders, and suggested running both.
 
@@ -142,4 +142,4 @@ Codex reviewed only the fix pass (`87add4e3` to `d0bb83c4`) and completed the ro
 | AUD-1 | `commands/workflow-foundation-to-design.md` line 17 | Both guide paths name `site/src/content/docs/guides/`, and both files exist |
 | Description tails | `node scripts/gen-derived-surfaces.mjs` | Exit 0; every derived and authored surface reports current for v2.35.0 |
 
-After the fix pass: `pwsh scripts/pre-tag-validate.ps1` passed, the em-dash sweep is clean, `npm test` passed 445 of 445, and the pull request's CI passed 6 of 6 checks. **G1 is ready for the maintainer's attestation.**
+After the fix pass: `pwsh scripts/pre-tag-validate.ps1` passed, the em-dash sweep is clean, `npm test` passed 445 of 445, and the pull request's CI passed 6 of 6 checks. **G1 attested 2026-10-30** by the maintainer. Two rounds ran, as the stopping condition allows at most. No critical or high finding was raised, the one medium finding is closed in part and deferred in part with a rationale, and no fix authored new structure.
