@@ -26,8 +26,9 @@ powershell -ExecutionPolicy Bypass -File .\scripts\validate-version-consistency.
 
 1. Reads the `version` field from `.claude-plugin/plugin.json` (the source of truth)
 2. Reads the `plugins[0].version` field from `marketplace.json`; fails on mismatch
-3. Reads the README version badge (`badge/version-X.Y.Z`) and the At-a-Glance "Current version" row; fails if either is present and does not match plugin.json
-4. Reports pass (all surfaces agree) or fail with the offending value
+3. Reads the `version` field from `.codex-plugin/plugin.json` and from `library.json` (the Standard 0.17 manifest), when each is present; fails on mismatch
+4. Reads the README version badge (`badge/version-X.Y.Z`) and the At-a-Glance "Current version" row; fails if either is present and does not match plugin.json
+5. Reports pass (all surfaces agree) or fail with the offending value
 
 ## Exit Codes
 

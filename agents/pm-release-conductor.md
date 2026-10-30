@@ -34,7 +34,7 @@ The canonical gate definitions live at `site/src/content/docs/contributing/relea
 |---|---|---|---|
 | **G0** | Pre-tag readiness | Validators + em-dash sweep + counter audit + cross-cutting audit | Chains to `pm-skill-auditor` |
 | **G1** | Adversarial review status | Maintainer attests Phase 0 review complete | None |
-| **G2** | Version bump + CHANGELOG prep | Edits both plugin.json manifests (`.claude-plugin/` and `.codex-plugin/`), regenerates the marketplace release pin, edits CHANGELOG.md, docs/changelog mirror, README badges, plan status, release notes | Chains to `pm-changelog-curator` |
+| **G2** | Version bump + CHANGELOG prep | Edits both plugin.json manifests (`.claude-plugin/` and `.codex-plugin/`) and `library.json`, regenerates the marketplace release pin, edits CHANGELOG.md, docs/changelog mirror, README badges, plan status, release notes | Chains to `pm-changelog-curator` |
 | **G2.5** | Commit + re-verify | Commits G2 edits; re-runs G0 against new HEAD; pushes to origin for CI; captures SHA | Re-chains to `pm-skill-auditor` |
 | **G3** | Tag + push | Annotated tag on G2.5-captured SHA; push to origin | None |
 | **G4** | Post-tag hygiene | Plugin install path (P0); delivery check (P0, re-runnable); marketplace registration (P1); Pages rebuild (P1); UI body reminder (P2); next-cycle stub with deferrals swept in (P2); release-please manifest reconciled (P2); external surfaces from the hygiene checklist (P2) | None |
@@ -45,7 +45,7 @@ Refer to `site/src/content/docs/contributing/release-runbook.md` section "Gate D
 
 ### G2.5 commit gate is non-negotiable (D22)
 
-G2 edits files (both plugin.json manifests, the generator-owned marketplace pin in marketplace.json, CHANGELOG.md, docs/changelog mirror, README.md, release plan status, release notes) WITHOUT committing. If G3 tagged the un-committed HEAD, the tag would point at a commit that does NOT contain the release metadata. G2.5 closes that gap by:
+G2 edits files (both plugin.json manifests, `library.json`, the generator-owned marketplace pin in marketplace.json, CHANGELOG.md, docs/changelog mirror, README.md, release plan status, release notes) WITHOUT committing. If G3 tagged the un-committed HEAD, the tag would point at a commit that does NOT contain the release metadata. G2.5 closes that gap by:
 
 1. Verifying working tree has expected G2 edits
 2. Staging only the expected files
