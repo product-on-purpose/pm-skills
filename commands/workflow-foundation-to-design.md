@@ -14,7 +14,7 @@ Run the full Foundation Sprint using the `/workflow-foundation-sprint` command (
 
 ### Step 2: Narrative handoff
 
-Carry the Founding Hypothesis and its highest-risk assumptions forward as the framing context for the Design Sprint. No intermediate artifact is required: the riskiest assumption on the scorecard typically becomes the Design Sprint's challenge and sprint questions. See `docs/guides/using-foundation-sprint.md` and `docs/guides/using-design-sprint.md` for the handoff narrative.
+Carry the Founding Hypothesis and its highest-risk assumptions forward as the framing context for the Design Sprint. No intermediate artifact is required: the riskiest assumption on the scorecard typically becomes the Design Sprint's challenge and sprint questions. See `site/src/content/docs/guides/using-foundation-sprint.md` and `site/src/content/docs/guides/using-design-sprint.md` for the handoff narrative.
 
 ### Step 3: Design Sprint (Days 3-8)
 

@@ -1,7 +1,7 @@
 {
   "name": "pm-skills",
-  "version": "2.34.0",
-  "description": "68 product management skills (30 phase + 11 foundation + 12 utility + 15 tool) plus 6 sub-agents (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor, pm-workflow-orchestrator, pm-skill-router) for AI agents covering the full product lifecycle from discovery through iteration. v2.34.0 ships what survived a test against a no-skill control: two planned AI skills lost and were not built, and their winning decisions went into deliver-prd 3.1.0, covering runs per case, content the model must not obey, output that must not reach a lower-access audience, and rate requirements that stay rates until a designed sample backs them. The library samples and skill examples now mark the figures they invent with [fictional]. No new skills; catalog stays 68 skills / 6 sub-agents. Full release history: https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md",
+  "version": "2.35.0",
+  "description": "68 product management skills (30 phase + 11 foundation + 12 utility + 15 tool) plus 6 sub-agents (pm-critic, pm-skill-auditor, pm-changelog-curator, pm-release-conductor, pm-workflow-orchestrator, pm-skill-router) for AI agents covering the full product lifecycle from discovery through iteration. v2.35.0 is a quality release: pm-skills now declares edition 0.17 of the Advanced Skill Library Standard at Bronze in a new library.json, measure-instrumentation-spec 3.0.1 and utility-pm-release-conductor 1.0.2 bring two templates back in line with their own skills, and the sample library gains a Model Trace Capture example. No new skills; catalog stays 68 skills / 6 sub-agents. Full release history: https://github.com/product-on-purpose/pm-skills/blob/main/CHANGELOG.md",
   "homepage": "https://github.com/product-on-purpose/pm-skills",
   "repository": "https://github.com/product-on-purpose/pm-skills",
   "license": "Apache-2.0",
