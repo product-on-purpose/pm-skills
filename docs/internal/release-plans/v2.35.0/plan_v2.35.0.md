@@ -13,6 +13,16 @@
 
 **Item A1 goes first among the carries,** because it is a gap that shipped in v2.33.0 and is still shipping.
 
+### Headline options under evaluation
+
+These are the candidates for the headline decision. None is ruled. They are scored against fixed criteria (user value, evidence strength, differentiation, cost, risk and reversibility) before a ruling, and the ruling and its reasons are recorded here when it is made.
+
+| Option | What it is | Gate before it ships |
+|---|---|---|
+| A. Evidence per skill | Test the shipped skills against a no-skill control, starting with the most-used. Publish one line per skill on what it adds over a plain model, and sharpen or fold the skills that lose | A falsification pilot on three skills must show that the skills add value |
+| B. Coverage | Add a skill where the catalog is thin, such as go-to-market or analytics | The new skill must beat a no-skill control before it is built, the same gate that stopped four earlier candidates |
+| C. Quality release | Ship the carries in sections A and B as a minor release with no headline | None. This is the fallback if no other option clears its gate |
+
 ---
 
 ## A. Carries from v2.34.0 (ruling R5 = B, and the v2.34.0 G1 gate)
