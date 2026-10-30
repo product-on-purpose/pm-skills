@@ -9,9 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.35.0] - 2026-10-30
+
+**A quality release: pm-skills declares a Standard, and two templates match their own skills.** v2.35.0 has no headline feature. Its leading candidate, publishing what each skill adds over a plain model, had to pass a falsification pilot first, and on 2026-10-29 none of the three piloted skills beat the no-skill arm (0, 1 and 0 of 3 judges), so the headline was ruled C, a quality release ([#335](https://github.com/product-on-purpose/pm-skills/pull/335)). The plugin now carries a `library.json` declaring edition 0.17 of the Advanced Skill Library Standard at Bronze (`tier: universal`); graded with agent-skills-toolkit 1.22.0 it returns tier universal with 0 errors and 40 description-score (`U5`) warnings. `measure-instrumentation-spec` 3.0.1 and `utility-pm-release-conductor` 1.0.2 close two gaps where a template had fallen behind its own skill, and the sample library gains a Model Trace Capture example, 203 samples in all. The remaining v2.34.0 carries move to v2.36.0 by a maintainer re-scope on 2026-10-30. Catalog unchanged: 68 skills, 6 sub-agents.
+
 ### Added
 
 - Brainshelf Resurface model-trace instrumentation sample in `library/skill-output-samples/measure-instrumentation-spec/`, demonstrating the conditional privacy contract and planned claim-level QA coverage; updated sample navigation and counts.
+
+### Changed
+
+- Standard 0.17 at Bronze ([#326](https://github.com/product-on-purpose/pm-skills/pull/326)): a new `library.json` declares `"standard": "0.17"` and `"tier": "universal"`, adopted with agent-skills-toolkit's `askit-migrate` skill, and a field-by-field diff confirmed that no hand-written field of the native manifests was lost. It is the fifth version surface, and `validate-version-consistency`, release-please `extra-files` and `check-count-phrases` now cover it ([#333](https://github.com/product-on-purpose/pm-skills/pull/333)). Graded from the consumer position with agent-skills-toolkit 1.22.0: tier universal, 0 errors, 40 warnings, all pre-existing `U5` description-score advice. The same change repoints 41 reference links across 28 skill files that broke when the docs moved from `docs/` to `site/src/content/docs/`; no link was deleted, and `scripts/gen-site.mjs` collapses the new link shape so the site build keeps working.
 
 ### Fixed
 
