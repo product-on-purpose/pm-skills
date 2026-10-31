@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- `discover-competitive-analysis` 2.3.0: step 2 (Gather Intelligence) adds an optional Firecrawl /scrape path for pricing and feature pages that load their plans with JavaScript, with the built-in web tools or a pasted page as the fallback.
+
 ## [2.35.0] - 2026-10-30
 
 **A quality release: pm-skills declares a Standard, and two templates match their own skills.** v2.35.0 has no headline feature. Its leading candidate, publishing what each skill adds over a plain model, had to pass a falsification pilot first, and on 2026-10-29 none of the three piloted skills beat the no-skill arm (0, 1 and 0 of 3 judges), so the headline was ruled C, a quality release ([#335](https://github.com/product-on-purpose/pm-skills/pull/335)). The plugin now carries a `library.json` declaring edition 0.17 of the Advanced Skill Library Standard at Bronze (`tier: universal`); graded with agent-skills-toolkit 1.22.0 it returns tier universal with 0 errors and 40 description-score (`U5`) warnings. `measure-instrumentation-spec` 3.0.1 and `utility-pm-release-conductor` 1.0.2 close two gaps where a template had fallen behind its own skill, and the sample library gains a Model Trace Capture example, 203 samples in all. The remaining v2.34.0 carries move to v2.36.0 by a maintainer re-scope on 2026-10-30. Catalog unchanged: 68 skills, 6 sub-agents.
