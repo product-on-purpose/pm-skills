@@ -156,3 +156,23 @@ The maintainer merged [#337](https://github.com/product-on-purpose/pm-skills/pul
 - This plan gains the follow-up pilot's record and the v2.36.0 re-test of the two skills that lost twice.
 
 The release page said the first pilot could not test a weaker model or thin inputs, and the follow-up pilot tested exactly that. So the page gains one paragraph that states the follow-up result in #337's scoped terms. No Codex round ran on this change: the stopping condition caps G1 at two rounds, and nothing here authors new structure. The G0 bundle was rerun on the merged tree.
+
+---
+
+## G4 post-tag record, 2026-10-30
+
+The tag `v2.35.0` is annotated and points at `9236f262`, the squash of the release-prep pull request [#336](https://github.com/product-on-purpose/pm-skills/pull/336). That SHA was captured at G2.5 after `main` CI passed on it, and it was kept outside the tree until G3 tagged it. Its tree is identical to the pull request head that passed all six checks.
+
+| Sub-check | Result |
+|---|---|
+| 1. Plugin install (P0) | **PASSED** through the real user path: `claude plugin marketplace update product-on-purpose`, then `claude plugin update pm-skills`, which moved a local install from 2.34.0 to 2.35.0. The installed copy carries 68 skills, 6 sub-agents and 11 commands, `library.json` at 2.35.0, `measure-instrumentation-spec` 3.0.1 with the new Retention question, and `utility-pm-release-conductor` 1.0.2 without the delivery waiver. The release ZIP was also checked: its checksum matches, it carries `library.json` (Standard 0.17), and `claude plugin validate` passes on the extracted tree |
+| 2. Delivery (P0) | **DELIVERED.** `check-delivery-pin.mjs` exits 0: the registry serves v2.35.0 at `9236f262`. The re-pin was made by hand together with `thinking-framework-skills` v0.19.0 and merged as `agent-plugins` [#144](https://github.com/product-on-purpose/agent-plugins/pull/144) at `2a6cc20`, registry `1.115.0` to `1.116.0`, `strict: true` preserved and no other member entry moved. The gap between the tag and delivery was under two hours |
+| 3. Marketplace registration (P1) | Resolves; the marketplace update in sub-check 1 succeeded |
+| 4. GitHub Pages (P1) | The deploy on `9236f262` succeeded, and the release page serves at `/pm-skills/releases/Release_v2.35.0/` |
+| 5. GitHub Release body (P2) | Replaced the generic auto-published body with an authored one, built from the release page with absolute links; all five links return 200 |
+| 6. Next-cycle stub (P2) | Seeded: [`../v2.36.0/plan_v2.36.0.md`](../v2.36.0/plan_v2.36.0.md) |
+| 7. Deferrals swept (P2) | Copied row by row into the stub: the re-scope's six moved carries (A2, A3, A4, B2, B4, B6), the three standing positions (B1, B3, B5), G1 finding F1's links half, auditor finding AUD-3, the re-test of the two skills that lost both pilots, every open section C row, and every section D item |
+| 8. release-please manifest (P2) | Reconciled to 2.35.0 in `chore(release): reconcile the release-please manifest to 2.35.0 (G4)` (`85bd3452`). The shadow Release pull request [#334](https://github.com/product-on-purpose/pm-skills/pull/334), which proposed 2.34.1, was closed unmerged under the shadow protocol, as #312 was for v2.34.0 |
+| 9. External surfaces (P2) | The GitHub About description already equals `gen-derived-surfaces.mjs --about`, because the catalog did not change. Topics, the Pages URL, Open Graph and the skills.sh listing are unchanged |
+
+**Release complete: v2.35.0.** Both P0 sub-checks passed, and no P0 incident was logged.
