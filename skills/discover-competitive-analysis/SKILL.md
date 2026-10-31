@@ -4,8 +4,8 @@ description: Creates a structured competitive analysis comparing features, prici
 license: Apache-2.0
 metadata:
   phase: discover
-  version: "2.2.1"
-  updated: 2026-07-31
+  version: "2.3.0"
+  updated: 2026-10-30
   category: research
   frameworks: [triple-diamond, lean-startup, design-thinking]
   author: product-on-purpose
@@ -40,6 +40,7 @@ When asked to create a competitive analysis, follow these steps:
 
 2. **Gather Intelligence**
    Research each competitor through public sources: websites, pricing pages, G2/Capterra reviews, press releases, job postings, and customer testimonials. Note what you can verify vs. what you're inferring.
+   Many pricing and feature pages load their plans with JavaScript, so a plain page fetch can return almost no text. If Firecrawl is available, use Firecrawl /scrape to read those pages as Markdown ([setup](https://docs.firecrawl.dev/mcp-server?utm_source=pm-skills&utm_medium=integration)); otherwise use your built-in web tools, or ask the user to paste the page.
 
 3. **Build the Feature Matrix**
    Create a comparison grid of key capabilities. Focus on features that matter to your target customers, not exhaustive checklists. Use consistent ratings (e.g., Full, Partial, None, Unknown).
