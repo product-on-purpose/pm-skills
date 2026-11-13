@@ -62,6 +62,17 @@ So v2.32.0 replaced the percentage with a closed accounting. Every skill is in e
 
 A new skill joins the roster in the same merge that adds it, or is recorded as excluded with a reason. There is no third state, and that is what "eval-complete from day one" means here in practice.
 
+## What the tests have found
+
+Since June 2026 the output evals have compared skills against a plain model given the same scenario and no skill. The results so far:
+
+- **Against a quick, thin prompt, the skills tested scored higher** (June 2026). The rubric was built from the skills' own templates, so part of that gain is template conformance.
+- **A template alone did about as well as the full skill** in every case tested: the output structure, not the instruction prose, carries most of the measured value ([record](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.27.0/records/output-eval-informed-20260615.md)).
+- **Against a plain model asked for its best work, no tested skill produced a measurably better artifact with a capable model** (October 2026: `deliver-prd`, `define-problem-statement` and `discover-interview-synthesis`). With a smaller model and thin inputs, `deliver-prd` gained narrowly, through its template, and the other two lost again ([v2.35.0 plan](https://github.com/product-on-purpose/pm-skills/blob/main/docs/internal/release-plans/v2.35.0/plan_v2.35.0.md), [`deliver-prd` history](https://github.com/product-on-purpose/pm-skills/blob/main/skills/deliver-prd/HISTORY.md)).
+- **Four proposed new skills lost the same test before they were built,** so none of them shipped.
+
+What this means for you: a skill gives your agent a consistent structure and a checklist of sections, including sections a model may leave out. It does not make a capable model reason better than a well-written prompt would. The two skills that lost twice are queued for a re-test in the way they are designed to be used, asking the stakeholder questions they are built around.
+
 ## See also
 
 - [Sub-Agent + Dispatch Skill Compatibility Matrix](sub-agent-compatibility.md) - the `pm-skill-router` sub-agent that runs the key-free path for the router eval and the new-skill collision gate.
