@@ -9,9 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.35.1] - 2026-11-13
+
+**A documentation patch: the public claims now match what the tests found.** Since October, fair tests found that a capable model with no skill matched the skills on output quality, and that a skill's template carries most of its measured value. The README and the docs-site homepage claimed more than that, so they now say what the tests support, and the evals reference page summarizes every no-skill comparison to date, including the losses ([#343](https://github.com/product-on-purpose/pm-skills/pull/343)). No skill, template or count changed. Catalog unchanged: 68 skills, 6 sub-agents.
+
 ### Changed
 
-- The README and the docs-site homepage no longer claim what the tests do not support: the "refined across hundreds of product launches" and "training data average is mediocre" passages are replaced, and "consistent output, every time" now reads "the same structure every time". The evals reference page gains a "What the tests have found" section summarizing every no-skill comparison to date, including the losses.
+- The README and the docs-site homepage no longer claim what the tests do not support: the "refined across hundreds of product launches" and "training data average is mediocre" passages are replaced, and "consistent output, every time" now reads "the same structure every time". The evals reference page gains a "What the tests have found" section summarizing every no-skill comparison to date, including the losses ([#343](https://github.com/product-on-purpose/pm-skills/pull/343)).
 - `skills/deliver-prd/HISTORY.md` now records that a third, counted test of `deliver-prd` could not measure a difference: the model that counted each spec's blocking questions disagreed with itself on up to 39 percent of the same specs from one run to the next. The measured result added in 2.35.0 stands, but this test does not confirm it ([#340](https://github.com/product-on-purpose/pm-skills/pull/340)).
 
 ## [2.35.0] - 2026-10-30
