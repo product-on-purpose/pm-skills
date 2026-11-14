@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - The README and the docs-site homepage no longer claim what the tests do not support: the "refined across hundreds of product launches" and "training data average is mediocre" passages are replaced, and "consistent output, every time" now reads "the same structure every time". The evals reference page gains a "What the tests have found" section summarizing every no-skill comparison to date, including the losses ([#343](https://github.com/product-on-purpose/pm-skills/pull/343)).
 - `skills/deliver-prd/HISTORY.md` now records that a third, counted test of `deliver-prd` could not measure a difference: the model that counted each spec's blocking questions disagreed with itself on up to 39 percent of the same specs from one run to the next. The measured result added in 2.35.0 stands, but this test does not confirm it ([#340](https://github.com/product-on-purpose/pm-skills/pull/340)).
+- `discover-competitive-analysis` 2.3.0: step 2 (Gather Intelligence) adds an optional Firecrawl /scrape path for pricing and feature pages that load their plans with JavaScript, with the built-in web tools or a pasted page as the fallback.
 
 ## [2.35.0] - 2026-10-30
 
