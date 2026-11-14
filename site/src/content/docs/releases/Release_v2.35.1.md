@@ -25,7 +25,7 @@ Run both commands. The plugin update alone cannot see a registry it has not re-f
 
 ## Why this patch exists
 
-Since October, every fair test has compared the skills against a capable model given the same scenario and no skill. In those tests, the plain model matched the skills on output quality. A skill's template alone did about as well as the full skill, so the structure carries most of the measured value.
+Since October, every fair test has compared the skills against a capable model given the same scenario and no skill. In those tests, the plain model matched the skills on output quality. In most comparisons, a skill's template alone did about as well as the full skill, so the structure carries most of the measured value. The one exception so far is `define-problem-statement`, whose full skill beat its own template, although neither beat the no-skill arm.
 
 The README and the docs homepage still claimed more than that. They said the frameworks were "refined across hundreds of product launches", that a model's unguided output is "mediocre", and that the plugin gives "consistent output, every time". None of those claims is something we measured.
 
