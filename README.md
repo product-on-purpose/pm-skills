@@ -207,7 +207,7 @@ Full history: [CHANGELOG.md](CHANGELOG.md) or [all GitHub Releases](https://gith
 
 **Stop prompt-fumbling. Start shipping.** Every time you ask an AI to help with product management, you start from zero. Generic responses. Inconsistent formats. Missing critical sections. Hours lost to repetitive prompt crafting.
 
-PM-Skills gives your AI instant access to professional frameworks refined across hundreds of product launches, production-ready templates that capture institutional PM knowledge, and real-world examples that set the quality bar.
+PM-Skills gives your AI professional PM frameworks, production-ready templates, and worked examples that set the expected structure and depth. We test the skills against a plain model with no skill, and we publish what we find, including where a skill adds nothing: see [What the tests have found](https://product-on-purpose.github.io/pm-skills/reference/evals/#what-the-tests-have-found).
 
 | Without PM-Skills                 | With PM-Skills                  |
 | --------------------------------- | ------------------------------- |
@@ -802,7 +802,7 @@ Workflows combine multiple skills into guided, end-to-end processes that mirror 
 
 ### Why Examples Matter More Than You Think
 
-When you ask an AI to write a PRD, the output quality is anchored to its training data average. That average is mediocre. **The examples in this library are the floor, not the ceiling.** They are the quality signal your agent calibrates against before writing anything.
+When you ask an AI to write a PRD with no guidance, it chooses its own structure and depth. **The examples in this library show your agent the shape and depth expected before it writes anything.** In our tests, that structure is where most of a skill's measured value comes from; a skill does not make a capable model reason better than a well-written prompt would.
 
 There are two layers of examples:
 
